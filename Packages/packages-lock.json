@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.devilsky.projectbasecontent": {
+      "version": "file:D:/Users/Max_l/Downloads/ProjectBaseContent/ProjectBaseContent",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "12.0.2",
       "depth": 0,
