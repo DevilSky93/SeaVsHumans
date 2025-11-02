@@ -11,6 +11,7 @@ namespace Grid
         [SerializeField] private Transform minPoint, maxPoint;
         [SerializeField] private LayerMask gridAllowedBlockMask;
         [SerializeField] private GameObject boardTileSprite;
+        [SerializeField] private float cellSize = .9f;
 
 #if UNITY_EDITOR
         [SerializeField] private bool showGizmo;
@@ -58,7 +59,7 @@ namespace Grid
                     {
                         GridPosition = cellPosition
                     };
-                    if (Physics2D.OverlapBox(cellPosition, new Vector2(.9f, .9f), 0f, gridAllowedBlockMask))
+                    if (Physics2D.OverlapBox(cellPosition, new Vector2(cellSize, cellSize), 0f, gridAllowedBlockMask))
                     {
                         tile.IsOccupied = true;
                     }
@@ -72,23 +73,25 @@ namespace Grid
         [CanBeNull]
         public Vector2? GetPositionInGrid(float x, float y)
         {
-            // 1) Monde -> Local
-            float localX = x - minPoint.position.x;
-            float localY = y - minPoint.position.y;
+            Vector2 origin = minPoint ? minPoint.position : Vector2.zero;
+            const float EPS = 1e-6f;
 
-            // Si ta taille de case = 1, garde tel quel ; sinon divise par cellSize
-            int gx = Mathf.FloorToInt(localX /* / cellSize */);
-            int gy = Mathf.FloorToInt(localY /* / cellSize */);
+            float localX = x - origin.x;
+            float localY = y - origin.y;
 
-            // 2) Bornes complètes (basses ET hautes)
-            if (gx < 0 || gy < 0 || gx >= _gridSize.width || gy >= _gridSize.height)
+            // Rejette clairement hors grille (à gauche / en bas / au-delà de la dernière cellule)
+            float maxX = _gridSize.width * cellSize;
+            float maxY = _gridSize.height * cellSize;
+            if (localX < 0f || localY < 0f || localX >= maxX || localY >= maxY)
                 return null;
 
-            // 3) Snap sur le centre de la cellule
-            // ajoute +0.5f pour viser le centre ; enlève-le pour le coin inférieur-gauche
-            float snapX = minPoint.position.x + (gx + 0.5f) /* * cellSize */;
-            float snapY = minPoint.position.y + (gy + 0.5f) /* * cellSize */;
+            // Décale d’un epsilon pour éviter le cas exact sur la frontière droite/haute
+            int gx = Mathf.FloorToInt(Mathf.Min(localX, maxX - EPS) / cellSize);
+            int gy = Mathf.FloorToInt(Mathf.Min(localY, maxY - EPS) / cellSize);
 
+            // Snap au centre
+            float snapX = origin.x + (gx + 0.5f) * cellSize;
+            float snapY = origin.y + (gy + 0.5f) * cellSize;
             return new Vector2(snapX, snapY);
         }
 
@@ -97,7 +100,7 @@ namespace Grid
         {
             Vector2? position = GetPositionInGrid(x + direction.x, y + direction.y);
             if (position == null) return null;
-            Collider2D overlappingElement = Physics2D.OverlapBox(position.Value, new Vector3(.9f, .9f, .9f), 0f,
+            Collider2D overlappingElement = Physics2D.OverlapBox(position.Value, new Vector3(cellSize, cellSize, cellSize), 0f,
                 gridAllowedBlockMask);
             return overlappingElement?.GetComponent<T>();
         }
@@ -107,7 +110,7 @@ namespace Grid
         {
             Vector2? position = GetPositionInGrid(x, y);
             if (position == null) return null;
-            Collider2D overlappingElement = Physics2D.OverlapBox(position.Value, new Vector3(.9f, .9f, .9f), 0f,
+            Collider2D overlappingElement = Physics2D.OverlapBox(position.Value, new Vector3(cellSize, cellSize, cellSize), 0f,
                 gridAllowedBlockMask);
             return overlappingElement?.GetComponent<T>();
         }
@@ -141,18 +144,28 @@ namespace Grid
                    (Mathf.Approximately(deltaX, 1) && Mathf.Approximately(deltaY, 0)) || // Horizontal
                    (Mathf.Approximately(deltaX, 0) && Mathf.Approximately(deltaY, 1));   // Vertical
         }
-
+        
         private void OnDrawGizmos()
         {
-            if (!showGizmo) return;
+            if (!showGizmo || _gridSize.width <= 0 || _gridSize.height <= 0) return;
+
+            Vector3 origin = minPoint ? minPoint.position : Vector3.zero;
+
             Gizmos.color = Color.red;
             for (int x = 0; x < _gridSize.width; x++)
             {
                 for (int y = 0; y < _gridSize.height; y++)
                 {
-                    Gizmos.DrawWireCube(_startPoint + new Vector2(x, y), Vector3.one);
+                    Vector3 center = origin + new Vector3((x + 0.5f) * cellSize, (y + 0.5f) * cellSize, 0f);
+                    Gizmos.DrawWireCube(center, Vector3.one * cellSize);
                 }
             }
+
+            // contour global pour visualiser les bornes exclues (droite/haut)
+            Gizmos.color = Color.yellow;
+            Vector3 size = new Vector3(_gridSize.width * cellSize, _gridSize.height * cellSize, 0f);
+            Gizmos.DrawWireCube(origin + size / 2f, size);
         }
+
     }
 }

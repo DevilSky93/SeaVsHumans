@@ -21,7 +21,6 @@ namespace Grid
             Vector2 mouseScreenPos = GetMouseScreenPos();
             if (GridManager.Instance.GetPositionInGrid(mouseScreenPos.x, mouseScreenPos.y) == null)
             {
-                Debug.Log("cc");
                 cursorIndicator.gameObject.SetActive(false);
                 return;
             }
