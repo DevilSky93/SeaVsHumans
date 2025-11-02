@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0cf602836e105c749a4114d6427fe032
+guid: b89c9d64dca8a864dbfcdcd00b0dc03a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3515653988658255584
-    second: Grid_Indicator_0
+      213: 9167831880912174030
+    second: Board_Grey_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grid_Indicator_0
+      name: Board_Grey_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e6192b0dac1ac030800000000000000
-      internalID: 3515653988658255584
+      spriteID: ecb754eb58eaa3f70800000000000000
+      internalID: 9167831880912174030
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grid_Indicator_0: 3515653988658255584
+      Board_Grey_0: 9167831880912174030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

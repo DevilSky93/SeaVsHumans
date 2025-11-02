@@ -10,6 +10,7 @@ namespace Grid
 
         [SerializeField] private Transform minPoint, maxPoint;
         [SerializeField] private LayerMask gridAllowedBlockMask;
+        [SerializeField] private GameObject boardTileSprite;
 
 #if UNITY_EDITOR
         [SerializeField] private bool showGizmo;
@@ -63,6 +64,7 @@ namespace Grid
                     }
 
                     _tiles.Add(cellPosition, tile);
+                    Instantiate(boardTileSprite, cellPosition, Quaternion.identity, transform);
                 }
             }
         }
