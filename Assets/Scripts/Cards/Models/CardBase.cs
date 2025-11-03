@@ -7,22 +7,24 @@ namespace Cards.Models
     public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private CardData cardData;
-        private Card _card;
         private float _originalYPosition;
+        private bool _isPlaced;
 
-        private void Awake()
+        public void IsPlaced()
         {
-            _card = new Card(cardData);
+            _isPlaced = true;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (!_isPlaced) return;
             _originalYPosition = transform.position.y;
             transform.DOMoveY(transform.position.y + 0.2f, .25f);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (!_isPlaced) return;
             transform.DOKill();
             transform.DOMoveY(_originalYPosition, .01f);
         }

@@ -1,9 +1,10 @@
 ﻿using Cards.Enum;
+using Cards.Models;
 using UnityEngine;
 
-namespace Cards.Models
+namespace Unit
 {
-    public class Card
+    public class Unit
     {
         public string CardName { get; set; }
 
@@ -23,7 +24,7 @@ namespace Cards.Models
 
         public string Description { get; set; }
 
-        public Card(CardData cardData)
+        public Unit(CardData cardData)
         {
             CardName = cardData.cardName;
             Description = cardData.description;

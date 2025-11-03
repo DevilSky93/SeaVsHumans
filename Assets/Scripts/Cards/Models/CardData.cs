@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Cards.Models
 {
-    [CreateAssetMenu(fileName = "CardData", menuName = "Card/Card Data", order = 1)]
+    [CreateAssetMenu(fileName = "CardData", menuName = "Unit/Unit Data", order = 1)]
     public class CardData : ScriptableObject
     {
         public string cardName;
