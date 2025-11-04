@@ -23,6 +23,7 @@ namespace Unit
         public Sprite CardImage { get; set; }
 
         public string Description { get; set; }
+        public CardType CardType { get; set; }
 
         public Unit(CardData cardData)
         {
@@ -35,6 +36,7 @@ namespace Unit
             Hp = cardData.hp;
             Attack = cardData.attack;
             Speed = cardData.speed;
+            CardType = cardData.cardType;
         }
     }
 }

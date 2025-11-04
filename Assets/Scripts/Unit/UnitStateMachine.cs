@@ -1,5 +1,4 @@
-﻿using System;
-using Cards.Models;
+﻿using Cards.Models;
 using JetBrains.Annotations;
 using Player;
 using StateMachine;
@@ -9,36 +8,30 @@ using UnityEngine;
 
 namespace Unit
 {
-    public class UnitStateMachine : StateMachine.StateMachine
+    public abstract class UnitStateMachine : StateMachine.StateMachine
     {
-        [SerializeField] private CardData cardData;
         [SerializeField] private LayerMask enemyLayerMask;
+        [SerializeField] protected CardData unitCardData;
+        protected HealthController HealthController;
+
         private Unit _unit;
-        public UnitMovementState MovementState { get; private set; }
-        public UnitIdleState IdleState { get; private set; }
-        public UnitFightingState FightingState { get; private set; }
-        public UnitDyingState DyingState { get; private set; }
-        
-        private HealthController _healthController;
+        public Unit Unit => _unit ??= new Unit(unitCardData);
 
-        private void Awake()
-        {
-            Initialize(cardData);
-        }
+        public abstract UnitMovementState MovementState { get; set; }
+        public abstract UnitIdleState IdleState { get; set; }
+        public abstract UnitFightingState FightingState { get; set; }
+        public abstract UnitDyingState DyingState { get; set; }
+        public abstract UnitPlacingState PlacingState { get; set; }
 
-        private void Initialize(CardData cd)
+
+        public virtual void Initialize()
         {
-            _healthController = GetComponent<HealthController>();
-            _unit = new Unit(cd);
-            MovementState = new UnitMovementState(this, transform, cardData.speed);
-            IdleState = new UnitIdleState(this);
-            FightingState = new UnitFightingState(this, _healthController);
-            DyingState = new UnitDyingState(this);
+            HealthController = GetComponent<HealthController>();
         }
 
         protected override BaseState GetInitialState()
         {
-            return IdleState;
+            return PlacingState;
         }
         
         [UsedImplicitly]

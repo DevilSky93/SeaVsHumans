@@ -1,10 +1,12 @@
 ﻿using DG.Tweening;
+using Unit;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace Cards.Models
 {
-    public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler
     {
         [SerializeField] private CardData cardData;
         private float _originalYPosition;
@@ -27,6 +29,19 @@ namespace Cards.Models
             if (!_isPlaced) return;
             transform.DOKill();
             transform.DOMoveY(_originalYPosition, .01f);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            Debug.Log("TODO : see details");
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            UnitStateMachine unit = CardUnitFactory.Instance.Build(cardData);
+            UnitStateMachine u = Instantiate(unit, Mouse.current.position.ReadValue(), Quaternion.identity);
+            u.Initialize();
+            u.gameObject.SetActive(true);
         }
     }
 }

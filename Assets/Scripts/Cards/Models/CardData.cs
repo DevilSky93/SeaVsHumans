@@ -16,5 +16,6 @@ namespace Cards.Models
         public int hp;
         public int attack;
         public float speed;
+        public CardType cardType;
     }
 }

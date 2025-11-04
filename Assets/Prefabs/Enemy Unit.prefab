@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5554518661519862641}
   - component: {fileID: 325544220753024160}
-  - component: {fileID: 1527952531609219471}
+  - component: {fileID: 1508691461177974}
   - component: {fileID: 5231103963888213937}
   - component: {fileID: 6356350821229427812}
   - component: {fileID: 1531437300649773048}
@@ -95,7 +95,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1527952531609219471
+--- !u!114 &1508691461177974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,13 +104,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8330026504218618500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a5337edf834c4593e5c36ae1720ffb, type: 3}
+  m_Script: {fileID: 11500000, guid: b8010532605847a7a0f08a5a8cd98452, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitStateMachine
-  cardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Types.Wave
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  unitCardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
 --- !u!114 &5231103963888213937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,8 +127,8 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1527952531609219471}
-        m_TargetAssemblyTypeName: Unit.UnitStateMachine, Assembly-CSharp
+      - m_Target: {fileID: 1508691461177974}
+        m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
         m_MethodName: RoundStart
         m_Mode: 1
         m_Arguments:
