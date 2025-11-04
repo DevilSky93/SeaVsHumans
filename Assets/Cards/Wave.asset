@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbcfe788538faa4d85def242eb0548a, type: 3}
   m_Name: Wave
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
-  cardName: 
+  cardName: Wave
   description: 
   cardImage: {fileID: 0}
   essenceMarine: 0
   goldValue: 0
   areaTarget: 0
-  hp: 0
-  attack: 0
-  speed: 0
+  hp: 30
+  attack: 10
+  speed: 2

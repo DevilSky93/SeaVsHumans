@@ -7,6 +7,8 @@ namespace Player
         // [SerializeField] private HealthChangedEvent onHealthChanged;
         [SerializeField] private float maxHealth;
         private float _currentHealth;
+        
+        public bool IsDead => _currentHealth <= 0;
 
         private void Awake()
         {

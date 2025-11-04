@@ -7,6 +7,7 @@ namespace Cards.Models
     public class CardData : ScriptableObject
     {
         public string cardName;
+        [TextArea(3, 10)]
         public string description;
         public Sprite cardImage;
         public int essenceMarine;
