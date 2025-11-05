@@ -1,4 +1,8 @@
-﻿using Helpers;
+﻿using Events.FloatFloat;
+using Events.Trigger;
+using Helpers;
+using JetBrains.Annotations;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +12,10 @@ namespace Grid
     {
         [SerializeField] private Transform cursorIndicator;
         [SerializeField] private Camera mainCamera;
+        [SerializeField] private PlayerInputControls playerInputControls;
+        [SerializeField] private EventFloatFloat onPlaceUnit;
+        [SerializeField] private EventTrigger onDestroyUnit;
+        private bool _canPlace;
 
         private static Camera _camera;
 
@@ -19,26 +27,52 @@ namespace Grid
         private void Update()
         {
             Vector2 mouseScreenPos = GetMouseScreenPos();
-            if (GridManager.Instance.GetPositionInGrid(mouseScreenPos.x, mouseScreenPos.y) == null)
+            if (UnitWasReleaseOutsideOfGrid(mouseScreenPos))
+            {
+                onDestroyUnit.Raise();
+                return;
+            }
+            if (!_canPlace)
+            {
+                if (cursorIndicator.gameObject.activeSelf)
+                {
+                    cursorIndicator.gameObject.SetActive(false);
+                }
+                return;
+            }
+            if (MouseIsOutsideOfGrid(mouseScreenPos))
             {
                 cursorIndicator.gameObject.SetActive(false);
                 return;
             }
 
-            if (!cursorIndicator.gameObject.activeSelf)
-            {
-                cursorIndicator.gameObject.SetActive(true);
-            }
+            TurnOnGridCursor();
             cursorIndicator.position = new Vector3(Mathf.FloorToInt(mouseScreenPos.x) + .5f,
                 Mathf.FloorToInt(mouseScreenPos.y) + .5f,
                 0f);
+
+            if (!Mouse.current.leftButton.wasReleasedThisFrame) return;
+            if (GridManager.Instance.IsPositionOccupiedInGrid(mouseScreenPos.x, mouseScreenPos.y))
+            {
+                onDestroyUnit.Raise();
+                return;
+            }
+            GridManager.Instance.SetPositionOccupiedInGrid(mouseScreenPos.x, mouseScreenPos.y, true);
+            onPlaceUnit.Raise(mouseScreenPos.x, mouseScreenPos.y);
         }
 
-        public static Vector2 GetMouseScreenPos()
+        [UsedImplicitly]
+        public void CanPlaceUnit(bool canPlace)
         {
-            Vector2 mouseScreenPos = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            mouseScreenPos = new Vector3(mouseScreenPos.x, mouseScreenPos.y, 0);
-            return mouseScreenPos;
+            _canPlace = canPlace;
+            if (canPlace)
+            {
+                playerInputControls.PlayerInput.Player.PlaceUnit.Enable();
+            }
+            else
+            {
+                playerInputControls.PlayerInput.Player.PlaceUnit.Disable();
+            }
         }
 
         public static Direction GetMouseDirection(Vector2 mousePosition, Vector2 recordedMousePosition)
@@ -49,6 +83,31 @@ namespace Grid
             float angle = AngleHelper.RadianToDegree(direction);
             Direction mouseDirection = angle.GetDirection();
             return mouseDirection;
+        }
+
+        private void TurnOnGridCursor()
+        {
+            if (!cursorIndicator.gameObject.activeSelf)
+            {
+                cursorIndicator.gameObject.SetActive(true);
+            }
+        }
+
+        private static bool UnitWasReleaseOutsideOfGrid(Vector2 mouseScreenPos)
+        {
+            return Mouse.current.leftButton.wasReleasedThisFrame && MouseIsOutsideOfGrid(mouseScreenPos);
+        }
+
+        private static bool MouseIsOutsideOfGrid(Vector2 mouseScreenPos)
+        {
+            return GridManager.Instance.GetPositionInGrid(mouseScreenPos.x, mouseScreenPos.y) == null;
+        }
+
+        private static Vector2 GetMouseScreenPos()
+        {
+            Vector2 mouseScreenPos = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            mouseScreenPos = new Vector3(mouseScreenPos.x, mouseScreenPos.y, 0);
+            return mouseScreenPos;
         }
     }
 }

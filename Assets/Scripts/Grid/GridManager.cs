@@ -6,6 +6,7 @@ namespace Grid
 {
     public class GridManager : MonoBehaviour
     {
+        private const float Eps = 1e-6f;
         public static GridManager Instance { get; private set; }
 
         [SerializeField] private Transform minPoint, maxPoint;
@@ -74,7 +75,6 @@ namespace Grid
         public Vector2? GetPositionInGrid(float x, float y)
         {
             Vector2 origin = minPoint ? minPoint.position : Vector2.zero;
-            const float EPS = 1e-6f;
 
             float localX = x - origin.x;
             float localY = y - origin.y;
@@ -86,8 +86,8 @@ namespace Grid
                 return null;
 
             // Décale d’un epsilon pour éviter le cas exact sur la frontière droite/haute
-            int gx = Mathf.FloorToInt(Mathf.Min(localX, maxX - EPS) / cellSize);
-            int gy = Mathf.FloorToInt(Mathf.Min(localY, maxY - EPS) / cellSize);
+            int gx = Mathf.FloorToInt(Mathf.Min(localX, maxX - Eps) / cellSize);
+            int gy = Mathf.FloorToInt(Mathf.Min(localY, maxY - Eps) / cellSize);
 
             // Snap au centre
             float snapX = origin.x + (gx + 0.5f) * cellSize;
@@ -113,6 +113,21 @@ namespace Grid
             Collider2D overlappingElement = Physics2D.OverlapBox(position.Value, new Vector3(cellSize, cellSize, cellSize), 0f,
                 gridAllowedBlockMask);
             return overlappingElement?.GetComponent<T>();
+        }
+        
+        public bool IsPositionOccupiedInGrid(float x, float y)
+        {
+            Vector2? position = GetPositionInGrid(x, y);
+            return position != null && _tiles[position.Value].IsOccupied;
+        }
+        
+        public void SetPositionOccupiedInGrid(float x, float y, bool isOccupied)
+        {
+            Vector2? position = GetPositionInGrid(x, y);
+            if (position != null)
+            {
+                _tiles[position.Value].IsOccupied = isOccupied;
+            }
         }
 
         /// <summary>

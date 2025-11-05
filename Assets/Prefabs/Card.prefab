@@ -1094,3 +1094,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardBase
   cardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
+  canPlaceUnitEvent: {fileID: 11400000, guid: f41a282608a804c44a40df8314490ddd, type: 2}

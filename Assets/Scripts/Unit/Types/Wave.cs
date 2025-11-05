@@ -1,4 +1,5 @@
-﻿using Unit.States;
+﻿using JetBrains.Annotations;
+using Unit.States;
 
 namespace Unit.Types
 {
@@ -17,7 +18,13 @@ namespace Unit.Types
             IdleState = new UnitIdleState(this);
             FightingState = new UnitFightingState(this, HealthController);
             DyingState = new UnitDyingState(this);
-            PlacingState = new UnitPlacingState(this);
+            PlacingState = new UnitPlacingState(this, onDestroyUnit);
+        }
+        
+        [UsedImplicitly]
+        public void OnDestroyUnit()
+        {
+            PlacingState.OnDestroy();
         }
     }
 }

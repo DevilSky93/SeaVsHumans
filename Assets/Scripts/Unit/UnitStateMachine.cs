@@ -1,4 +1,7 @@
 ﻿using Cards.Models;
+using Events.FloatFloat;
+using Events.Trigger;
+using Grid;
 using JetBrains.Annotations;
 using Player;
 using StateMachine;
@@ -12,6 +15,9 @@ namespace Unit
     {
         [SerializeField] private LayerMask enemyLayerMask;
         [SerializeField] protected CardData unitCardData;
+        [SerializeField] protected GameEventListener onDestroyUnit;
+        [SerializeField] protected GameEventFloatFloatListener onPlaceUnit;
+        
         protected HealthController HealthController;
 
         private Unit _unit;
@@ -38,6 +44,18 @@ namespace Unit
         public void RoundStart()
         {
             ChangeState(MovementState);
+        }
+
+        [UsedImplicitly]
+        public void OnPlaceUnit(float x, float y)
+        {
+            Vector2? position = GridManager.Instance.GetPositionInGrid(x, y);
+            if (!position.HasValue) return;
+            ChangeState(IdleState);
+
+            Vector3 newPos = new(position.Value.x, position.Value.y, 0);
+            transform.position = newPos;
+            onPlaceUnit.enabled = false;
         }
 
         private void OnTriggerEnter2D(Collider2D other)

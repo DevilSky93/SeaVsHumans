@@ -17,7 +17,7 @@ namespace Player
 
         private void OnDisable()
         {
-            _playerInput.Disable();
+            _playerInput?.Disable();
         }
     }
 }

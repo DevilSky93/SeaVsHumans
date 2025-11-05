@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Events.Bool;
 using Unit;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +10,7 @@ namespace Cards.Models
     public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler
     {
         [SerializeField] private CardData cardData;
+        [SerializeField] private EventBool canPlaceUnitEvent;
         private float _originalYPosition;
         private bool _isPlaced;
 
@@ -39,9 +41,10 @@ namespace Cards.Models
         public void OnPointerDown(PointerEventData eventData)
         {
             UnitStateMachine unit = CardUnitFactory.Instance.Build(cardData);
-            UnitStateMachine u = Instantiate(unit, Mouse.current.position.ReadValue(), Quaternion.identity);
-            u.Initialize();
-            u.gameObject.SetActive(true);
+            UnitStateMachine unitGameObject = Instantiate(unit, Mouse.current.position.ReadValue(), Quaternion.identity);
+            unitGameObject.Initialize();
+            unitGameObject.gameObject.SetActive(true);
+            canPlaceUnitEvent.Raise(true);
         }
     }
 }

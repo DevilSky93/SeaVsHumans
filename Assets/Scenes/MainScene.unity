@@ -130,13 +130,14 @@ GameObject:
   - component: {fileID: 354265368}
   - component: {fileID: 354265367}
   - component: {fileID: 354265369}
+  - component: {fileID: 354265370}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &354265367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +187,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Grid.GridCursor
   cursorIndicator: {fileID: 831204402}
   mainCamera: {fileID: 519420031}
+  playerInputControls: {fileID: 448637750}
+  onPlaceUnit: {fileID: 11400000, guid: 408f409f425358047b73a336d2fb36d9, type: 2}
+  onDestroyUnit: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
+--- !u!114 &354265370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354265366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd379b8e1a0b4c418723dedd2ca21cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Bool.GameEventBoolListener
+  gameEvent: {fileID: 11400000, guid: f41a282608a804c44a40df8314490ddd, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 354265369}
+        m_TargetAssemblyTypeName: Grid.GridCursor, Assembly-CSharp
+        m_MethodName: CanPlaceUnit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &448637749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 448637751}
+  - component: {fileID: 448637750}
+  m_Layer: 0
+  m_Name: PlayerControls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &448637750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448637749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2752d684345c44539c5a94551ed659b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerInputControls
+--- !u!4 &448637751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448637749}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,3 +1583,4 @@ SceneRoots:
   - {fileID: 6770635025428785826}
   - {fileID: 1813120652}
   - {fileID: 1587525330}
+  - {fileID: 448637751}

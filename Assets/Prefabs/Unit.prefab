@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1044561249630029403}
   - component: {fileID: 2199515209784508642}
   - component: {fileID: 2789951987219959003}
+  - component: {fileID: -6305895832054768942}
+  - component: {fileID: 8415586274895515190}
   - component: {fileID: 8702522085343299101}
   - component: {fileID: -427565814110146065}
   m_Layer: 6
@@ -111,6 +113,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   unitCardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
+  onDestroyUnit: {fileID: 8415586274895515190}
+  onPlaceUnit: {fileID: -6305895832054768942}
 --- !u!114 &2199515209784508642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +155,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480531840e78a61429d873d96eef7db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectBase::StateMachine.DebugSM
+--- !u!114 &-6305895832054768942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352772278639187347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d25074c792c7642b7f752192286b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.FloatFloat.GameEventFloatFloatListener
+  gameEvent: {fileID: 11400000, guid: 408f409f425358047b73a336d2fb36d9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1044561249630029403}
+        m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
+        m_MethodName: OnPlaceUnit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8415586274895515190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352772278639187347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
+  gameEvent: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1044561249630029403}
+        m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
+        m_MethodName: OnDestroyUnit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &8702522085343299101
 Rigidbody2D:
   serializedVersion: 5
