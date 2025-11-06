@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0cf602836e105c749a4114d6427fe032
+guid: 6b0ecd0fcd04e944290628f6461325bd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3515653988658255584
-    second: Grid_Indicator_0
+      213: 4703258934301896471
+    second: Wrong_Grid_Indicator_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Grid_Indicator_0
+      name: Wrong_Grid_Indicator_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e6192b0dac1ac030800000000000000
-      internalID: 3515653988658255584
+      spriteID: 71f2fb1f415554140800000000000000
+      internalID: 4703258934301896471
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Grid_Indicator_0: 3515653988658255584
+      Wrong_Grid_Indicator_0: 4703258934301896471
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,7 +10,9 @@ namespace Grid
 {
     public class GridCursor : MonoBehaviour
     {
-        [SerializeField] private Transform cursorIndicator;
+        [SerializeField] private SpriteRenderer cursorIndicator;
+        [SerializeField] private Sprite blueCursorIndicator;
+        [SerializeField] private Sprite redCursorIndicator;
         [SerializeField] private Camera mainCamera;
         [SerializeField] private PlayerInputControls playerInputControls;
         [SerializeField] private EventFloatFloat onPlaceUnit;
@@ -40,6 +42,7 @@ namespace Grid
                 }
                 return;
             }
+
             if (MouseIsOutsideOfGrid(mouseScreenPos))
             {
                 cursorIndicator.gameObject.SetActive(false);
@@ -47,12 +50,13 @@ namespace Grid
             }
 
             TurnOnGridCursor();
-            cursorIndicator.position = new Vector3(Mathf.FloorToInt(mouseScreenPos.x) + .5f,
+            ChangeGridCursorColor(mouseScreenPos);
+            cursorIndicator.transform.position = new Vector3(Mathf.FloorToInt(mouseScreenPos.x) + .5f,
                 Mathf.FloorToInt(mouseScreenPos.y) + .5f,
                 0f);
 
             if (!Mouse.current.leftButton.wasReleasedThisFrame) return;
-            if (GridManager.Instance.IsPositionOccupiedInGrid(mouseScreenPos.x, mouseScreenPos.y))
+            if (GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y))
             {
                 onDestroyUnit.Raise();
                 return;
@@ -93,9 +97,15 @@ namespace Grid
             }
         }
 
+        private void ChangeGridCursorColor(Vector2 mouseScreenPos)
+        {
+            cursorIndicator.sprite = GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y) ? redCursorIndicator : blueCursorIndicator;
+        }
+
         private static bool UnitWasReleaseOutsideOfGrid(Vector2 mouseScreenPos)
         {
-            return Mouse.current.leftButton.wasReleasedThisFrame && MouseIsOutsideOfGrid(mouseScreenPos);
+            return Mouse.current.leftButton.wasReleasedThisFrame && 
+                   (MouseIsOutsideOfGrid(mouseScreenPos) || GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y));
         }
 
         private static bool MouseIsOutsideOfGrid(Vector2 mouseScreenPos)

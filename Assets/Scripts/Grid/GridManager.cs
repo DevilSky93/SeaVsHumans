@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cards.Enum;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -65,6 +66,8 @@ namespace Grid
                         tile.IsOccupied = true;
                     }
 
+                    tile.TileType = x < _gridSize.width / 2 ? TileType.Player : TileType.Enemy;
+
                     _tiles.Add(cellPosition, tile);
                     Instantiate(boardTileSprite, cellPosition, Quaternion.identity, transform);
                 }
@@ -115,10 +118,10 @@ namespace Grid
             return overlappingElement?.GetComponent<T>();
         }
         
-        public bool IsPositionOccupiedInGrid(float x, float y)
+        public bool IsPositionInvalidInGrid(float x, float y)
         {
             Vector2? position = GetPositionInGrid(x, y);
-            return position != null && _tiles[position.Value].IsOccupied;
+            return position != null && (_tiles[position.Value].IsOccupied || _tiles[position.Value].TileType == TileType.Enemy);
         }
         
         public void SetPositionOccupiedInGrid(float x, float y, bool isOccupied)
