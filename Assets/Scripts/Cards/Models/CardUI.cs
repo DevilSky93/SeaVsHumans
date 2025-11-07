@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Cards.Enum;
+using TMPro;
 using UnityEngine;
 
 namespace Cards.Models
@@ -16,9 +17,12 @@ namespace Cards.Models
         private void Awake()
         {
             _unit = GetComponent<CardBase>().Unit;
+            if (_unit.CardType == CardType.Unit)
+            {
+                hpText.text = _unit.Hp.ToString();
+                attackText.text = _unit.Attack.ToString();   
+            }
             cardNameText.text = _unit.CardName;
-            attackText.text = _unit.Attack.ToString();
-            hpText.text = _unit.Hp.ToString();
             costText.text = _unit.EssenceMarine.ToString();
             descriptionText.text = _unit.Description;
             iconImage.sprite = _unit.CardImage;

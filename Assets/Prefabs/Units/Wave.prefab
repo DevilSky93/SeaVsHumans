@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8702522085343299101}
   - component: {fileID: -427565814110146065}
   m_Layer: 6
-  m_Name: Unit
+  m_Name: Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
