@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 9e4d444cc13330a459b313f133160601
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6722038148284596361
+    second: EssenceMarineNoBg_0
+  - first:
+      213: 3365667121538196903
+    second: EssenceMarineNoBg_1
+  - first:
+      213: -1151354790573702758
+    second: EssenceMarineNoBg_2
+  - first:
+      213: -7375748575873953113
+    second: EssenceMarineNoBg_3
+  - first:
+      213: 6470447902458336222
+    second: EssenceMarineNoBg_4
+  - first:
+      213: 617671016718471314
+    second: EssenceMarineNoBg_5
+  - first:
+      213: -2983273565933692933
+    second: EssenceMarineNoBg_6
+  - first:
+      213: 3101922504317054834
+    second: EssenceMarineNoBg_7
+  - first:
+      213: 4208867313169048526
+    second: EssenceMarineNoBg_8
+  - first:
+      213: 4346932046739344465
+    second: EssenceMarineNoBg_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1080
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_0
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 770
+        width: 51
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 980c02bb41a794d50800000000000000
+      internalID: 6722038148284596361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 724
+        width: 121
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a5ee7b3a6045be20800000000000000
+      internalID: 3365667121538196903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 265
+        width: 477
+        height: 696
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9109690be09500f0800000000000000
+      internalID: -1151354790573702758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_3
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 588
+        width: 182
+        height: 344
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a29076afb314a990800000000000000
+      internalID: -7375748575873953113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_4
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 700
+        width: 59
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed353bbd516abc950800000000000000
+      internalID: 6470447902458336222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 397
+        width: 152
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2901f836488629800800000000000000
+      internalID: 617671016718471314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_6
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 592
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf795b27f784996d0800000000000000
+      internalID: -2983273565933692933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_7
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 319
+        width: 235
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27fab9e351e3c0b20800000000000000
+      internalID: 3101922504317054834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_8
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 409
+        width: 84
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec3a1349586e86a30800000000000000
+      internalID: 4208867313169048526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EssenceMarineNoBg_9
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 65
+        width: 796
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15c09ac5aa7635c30800000000000000
+      internalID: 4346932046739344465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      EssenceMarineNoBg_0: 6722038148284596361
+      EssenceMarineNoBg_1: 3365667121538196903
+      EssenceMarineNoBg_2: -1151354790573702758
+      EssenceMarineNoBg_3: -7375748575873953113
+      EssenceMarineNoBg_4: 6470447902458336222
+      EssenceMarineNoBg_5: 617671016718471314
+      EssenceMarineNoBg_6: -2983273565933692933
+      EssenceMarineNoBg_7: 3101922504317054834
+      EssenceMarineNoBg_8: 4208867313169048526
+      EssenceMarineNoBg_9: 4346932046739344465
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

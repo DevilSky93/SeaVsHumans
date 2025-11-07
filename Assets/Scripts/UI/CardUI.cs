@@ -1,8 +1,9 @@
 ﻿using Cards.Enum;
+using Cards.Models;
 using TMPro;
 using UnityEngine;
 
-namespace Cards.Models
+namespace UI
 {
     public class CardUI : MonoBehaviour
     {
