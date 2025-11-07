@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Events.Bool;
 using Unit;
 using UnityEngine;
@@ -7,22 +8,36 @@ using UnityEngine.InputSystem;
 
 namespace Cards.Models
 {
-    public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler
+    public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
+        IPointerDownHandler
     {
         [SerializeField] private CardData cardData;
         [SerializeField] private EventBool canPlaceUnitEvent;
+        [SerializeField] private SpriteRenderer backgroundSpriteRenderer;
+        [SerializeField] private SpriteRenderer imageSpriteRenderer;
+        [SerializeField] private Canvas canvasRenderer;
         private float _originalYPosition;
         private bool _isPlaced;
+
+        public Unit.Unit Unit { get; private set; }
+        public SpriteRenderer BackgroundSpriteRenderer => backgroundSpriteRenderer;
+        public SpriteRenderer ImageSpriteRenderer => imageSpriteRenderer;
+        public Canvas CanvasRenderer => canvasRenderer;
+
+        private void Awake()
+        {
+            Unit = new Unit.Unit(cardData);
+        }
 
         public void IsPlaced()
         {
             _isPlaced = true;
+            _originalYPosition = transform.position.y;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (!_isPlaced) return;
-            _originalYPosition = transform.position.y;
             transform.DOMoveY(transform.position.y + 0.2f, .25f);
         }
 
@@ -41,7 +56,8 @@ namespace Cards.Models
         public void OnPointerDown(PointerEventData eventData)
         {
             UnitStateMachine unit = CardUnitFactory.Instance.Build(cardData);
-            UnitStateMachine unitGameObject = Instantiate(unit, Mouse.current.position.ReadValue(), Quaternion.identity);
+            UnitStateMachine unitGameObject =
+                Instantiate(unit, Mouse.current.position.ReadValue(), Quaternion.identity);
             unitGameObject.Initialize();
             unitGameObject.gameObject.SetActive(true);
             canPlaceUnitEvent.Raise(true);

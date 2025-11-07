@@ -26,11 +26,11 @@ Transform:
   m_GameObject: {fileID: 1287133836746835417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0042, y: 0.2893, z: 0}
-  m_LocalScale: {x: 1.7064649, y: 1.3577256, z: 1}
+  m_LocalPosition: {x: 0.002105713, y: 0.09643555, z: 0}
+  m_LocalScale: {x: 0.85323244, y: 0.4525752, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7472338460243369097}
+  m_Father: {fileID: 2490519856390038930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6440337882472229718
 SpriteRenderer:
@@ -78,9 +78,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -120,6 +120,7 @@ Transform:
   m_LocalScale: {x: 2, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4032629070838634088}
   - {fileID: 6009695309679442015}
   m_Father: {fileID: 7472338460243369097}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -406,7 +407,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2383673252551455990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,6 +1054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7472338460243369097}
   - component: {fileID: -1710014890041224441}
+  - component: {fileID: 1770135137798223174}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -1073,7 +1075,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2490519856390038930}
-  - {fileID: 4032629070838634088}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1095,3 +1096,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardBase
   cardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
   canPlaceUnitEvent: {fileID: 11400000, guid: f41a282608a804c44a40df8314490ddd, type: 2}
+  backgroundSpriteRenderer: {fileID: 2158410769296052626}
+  imageSpriteRenderer: {fileID: 6440337882472229718}
+  canvasRenderer: {fileID: 7681312791287383273}
+--- !u!114 &1770135137798223174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017773526311409573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef23e1c5c1ba4746b1728fc6d6967c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardUI
+  cardNameText: {fileID: 5102529094569691734}
+  attackText: {fileID: 1396437485329981881}
+  hpText: {fileID: 7323505719695626678}
+  costText: {fileID: 1917953977729809350}
+  descriptionText: {fileID: 3475142228209615915}
+  iconImage: {fileID: 6440337882472229718}

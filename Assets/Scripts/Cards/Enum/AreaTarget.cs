@@ -2,7 +2,7 @@
 {
     public enum AreaTarget
     {
-        OnexOne,
-        TwoxTwo,
+        OneXOne,
+        TwoXTwo,
     }
 }

@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Wave
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Wave
-  description: 
-  cardImage: {fileID: 0}
-  essenceMarine: 0
+  description: A scary wave.
+  cardImage: {fileID: 21300000, guid: d4ca7d123a2bd5347be18c43f1f6708a, type: 3}
+  essenceMarine: 1
   goldValue: 0
   areaTarget: 0
   hp: 30
   attack: 10
   speed: 2
+  cardType: 0

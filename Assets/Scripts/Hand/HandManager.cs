@@ -51,6 +51,9 @@ namespace Hand
                 Quaternion rotation = Quaternion.LookRotation(up, Vector3.Cross(up, forward).normalized);
 
                 int index = i;
+                _handCards[i].BackgroundSpriteRenderer.sortingOrder = i;
+                _handCards[i].ImageSpriteRenderer.sortingOrder = i + 1;
+                _handCards[i].CanvasRenderer.sortingOrder = i;
                 _handCards[i].transform.DOMove(splinePosition, .25f).OnComplete(() => _handCards[index].IsPlaced());
                 _handCards[i].transform.DOLocalRotateQuaternion(rotation, .25f);
             }
