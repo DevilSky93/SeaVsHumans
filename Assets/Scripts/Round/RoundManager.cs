@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 using EventTrigger = Events.Trigger.EventTrigger;
 
 namespace Round
@@ -7,13 +8,20 @@ namespace Round
     public class RoundManager : MonoBehaviour
     {
         [SerializeField] private EventTrigger startRoundEvent;
-
-        private void Update()
+        [SerializeField] private Button roundButton;
+        [SerializeField] private TMP_Text roundText;
+        
+        public void StartRound()
         {
-            if (Keyboard.current.gKey.wasPressedThisFrame)
-            {
-                startRoundEvent.Raise();
-            }
+            startRoundEvent.Raise();
+            roundText.text = "Fighting round";
+            roundButton.interactable = false;
+        }
+        
+        public void EndRound()
+        {
+            roundText.text = "Start round";
+            roundButton.interactable = true;
         }
     }
 }
