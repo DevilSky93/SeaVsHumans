@@ -20,12 +20,12 @@ namespace Grid
 #endif
 
         private (int width, int height) _gridSize;
-        private readonly Dictionary<Vector2, BlockData> _tiles = new();
+        private readonly Dictionary<Vector2, BlockData> _tiles = new(new Vector2ComparerWithTolerance());
         private Vector2 _startPoint;
 
         private void Awake()
         {
-            if (Instance == null)
+            if (!Instance)
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
@@ -46,7 +46,7 @@ namespace Grid
             minPoint.position = new Vector3(Mathf.Round(minPoint.position.x), Mathf.Round(minPoint.position.y), 0);
             maxPoint.position = new Vector3(Mathf.Round(maxPoint.position.x), Mathf.Round(maxPoint.position.y), 0);
 
-            _startPoint = minPoint.position + new Vector3(.5f, .5f);
+            _startPoint = minPoint.position + new Vector3(.5f, .5f) * cellSize;
 
             _gridSize = (Mathf.RoundToInt(maxPoint.position.x - minPoint.position.x),
                 Mathf.RoundToInt(maxPoint.position.y - minPoint.position.y));
@@ -55,7 +55,7 @@ namespace Grid
             {
                 for (int y = 0; y < _gridSize.height; y++)
                 {
-                    Vector2 cellPosition = _startPoint + new Vector2(x, y);
+                    Vector2 cellPosition = _startPoint + new Vector2(x * cellSize, y * cellSize);
 
                     BlockData tile = new()
                     {
@@ -69,9 +69,15 @@ namespace Grid
                     tile.TileType = x < _gridSize.width / 2 ? TileType.Player : TileType.Enemy;
 
                     _tiles.Add(cellPosition, tile);
-                    Instantiate(boardTileSprite, cellPosition, Quaternion.identity, transform);
+                    GameObject tileGo = Instantiate(boardTileSprite, cellPosition, Quaternion.identity, transform);
+                    tileGo.transform.localScale = new Vector3(cellSize, cellSize, cellSize);
                 }
             }
+            
+            // foreach (Vector2 key in _tiles.Keys)
+            // {
+            //     Debug.Log(key);
+            // }
         }
 
         [CanBeNull]

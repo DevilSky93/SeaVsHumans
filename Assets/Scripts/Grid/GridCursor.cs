@@ -11,6 +11,8 @@ namespace Grid
     public class GridCursor : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer cursorIndicator;
+        [SerializeField] private Transform minPoint;
+        [SerializeField] private float cursorSize;
         [SerializeField] private Sprite blueCursorIndicator;
         [SerializeField] private Sprite redCursorIndicator;
         [SerializeField] private Camera mainCamera;
@@ -24,6 +26,7 @@ namespace Grid
         private void Awake()
         {
             _camera = mainCamera;
+            cursorIndicator.transform.localScale = new Vector3(cursorSize, cursorSize, cursorSize);
         }
 
         private void Update()
@@ -51,9 +54,32 @@ namespace Grid
 
             TurnOnGridCursor();
             ChangeGridCursorColor(mouseScreenPos);
-            cursorIndicator.transform.position = new Vector3(Mathf.FloorToInt(mouseScreenPos.x) + .5f,
-                Mathf.FloorToInt(mouseScreenPos.y) + .5f,
-                0f);
+            // cursorIndicator.transform.position = new Vector3(Mathf.FloorToInt(mouseScreenPos.x) + cursorSize,
+            //     Mathf.FloorToInt(mouseScreenPos.y) + cursorSize,
+            //     0f);
+            // float step = cursorSize;
+            // float x = Mathf.Floor(mouseScreenPos.x / step) * step + step * 0.5f;
+            // float y = Mathf.Floor(mouseScreenPos.y / step) * step + step * 0.5f;
+            //
+            // cursorIndicator.transform.position = new Vector3(x, y, 0f);
+            
+            Vector3 origin = minPoint.position; // ton coin bas-gauche réel
+            float step = cursorSize;
+
+// position souris en monde (déjà convertie depuis ScreenToWorldPoint)
+            float localX = mouseScreenPos.x - origin.x;
+            float localY = mouseScreenPos.y - origin.y;
+
+// indices de cellule
+            int gx = Mathf.FloorToInt(localX / step);
+            int gy = Mathf.FloorToInt(localY / step);
+
+// position centrée de la cellule
+            float snapX = origin.x + (gx + 0.5f) * step;
+            float snapY = origin.y + (gy + 0.5f) * step;
+
+            cursorIndicator.transform.position = new Vector3(snapX, snapY, 0f);
+            
 
             if (!Mouse.current.leftButton.wasReleasedThisFrame) return;
             if (GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y))

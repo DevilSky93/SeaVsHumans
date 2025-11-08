@@ -367,7 +367,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   boardTileSprite: {fileID: 800364711844457506, guid: b6b00d4997b7e5e4ca88701a2142b5fb, type: 3}
-  cellSize: 1
+  cellSize: 1.2
   showGizmo: 1
 --- !u!4 &354265368
 Transform:
@@ -397,6 +397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grid.GridCursor
   cursorIndicator: {fileID: 831204401}
+  minPoint: {fileID: 1661996248}
+  cursorSize: 1.2
   blueCursorIndicator: {fileID: 21300000, guid: 0cf602836e105c749a4114d6427fe032, type: 3}
   redCursorIndicator: {fileID: 21300000, guid: 6b0ecd0fcd04e944290628f6461325bd, type: 3}
   mainCamera: {fileID: 519420031}
@@ -1158,7 +1160,7 @@ Transform:
   m_GameObject: {fileID: 888835783}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 4, z: 0}
+  m_LocalPosition: {x: 4, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1842,7 +1844,7 @@ Transform:
   m_GameObject: {fileID: 1661996247}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: -2, z: 0}
+  m_LocalPosition: {x: -6, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
