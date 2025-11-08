@@ -54,32 +54,8 @@ namespace Grid
 
             TurnOnGridCursor();
             ChangeGridCursorColor(mouseScreenPos);
-            // cursorIndicator.transform.position = new Vector3(Mathf.FloorToInt(mouseScreenPos.x) + cursorSize,
-            //     Mathf.FloorToInt(mouseScreenPos.y) + cursorSize,
-            //     0f);
-            // float step = cursorSize;
-            // float x = Mathf.Floor(mouseScreenPos.x / step) * step + step * 0.5f;
-            // float y = Mathf.Floor(mouseScreenPos.y / step) * step + step * 0.5f;
-            //
-            // cursorIndicator.transform.position = new Vector3(x, y, 0f);
             
-            Vector3 origin = minPoint.position; // ton coin bas-gauche réel
-            float step = cursorSize;
-
-// position souris en monde (déjà convertie depuis ScreenToWorldPoint)
-            float localX = mouseScreenPos.x - origin.x;
-            float localY = mouseScreenPos.y - origin.y;
-
-// indices de cellule
-            int gx = Mathf.FloorToInt(localX / step);
-            int gy = Mathf.FloorToInt(localY / step);
-
-// position centrée de la cellule
-            float snapX = origin.x + (gx + 0.5f) * step;
-            float snapY = origin.y + (gy + 0.5f) * step;
-
-            cursorIndicator.transform.position = new Vector3(snapX, snapY, 0f);
-            
+            UpdateCursorPositionOnGrid(mouseScreenPos);
 
             if (!Mouse.current.leftButton.wasReleasedThisFrame) return;
             if (GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y))
@@ -89,9 +65,9 @@ namespace Grid
             }
             GridManager.Instance.SetPositionOccupiedInGrid(mouseScreenPos.x, mouseScreenPos.y, true);
             onPlaceUnit.Raise(mouseScreenPos.x, mouseScreenPos.y);
+            CanPlaceUnit(false);
         }
 
-        [UsedImplicitly]
         public void CanPlaceUnit(bool canPlace)
         {
             _canPlace = canPlace;
@@ -113,6 +89,23 @@ namespace Grid
             float angle = AngleHelper.RadianToDegree(direction);
             Direction mouseDirection = angle.GetDirection();
             return mouseDirection;
+        }
+
+        private void UpdateCursorPositionOnGrid(Vector2 mouseScreenPos)
+        {
+            Vector3 origin = minPoint.position; // your actual lower-left corner
+            float step = cursorSize;
+
+            float localX = mouseScreenPos.x - origin.x;
+            float localY = mouseScreenPos.y - origin.y;
+
+            int gx = Mathf.FloorToInt(localX / step);
+            int gy = Mathf.FloorToInt(localY / step);
+
+            float snapX = origin.x + (gx + 0.5f) * step;
+            float snapY = origin.y + (gy + 0.5f) * step;
+
+            cursorIndicator.transform.position = new Vector3(snapX, snapY, 0f);
         }
 
         private void TurnOnGridCursor()
