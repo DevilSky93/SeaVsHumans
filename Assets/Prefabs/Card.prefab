@@ -1055,6 +1055,7 @@ GameObject:
   - component: {fileID: 7472338460243369097}
   - component: {fileID: -1710014890041224441}
   - component: {fileID: 1770135137798223174}
+  - component: {fileID: -4251197744057298693}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -1096,9 +1097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardBase
   cardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
   canPlaceUnitEvent: {fileID: 11400000, guid: f41a282608a804c44a40df8314490ddd, type: 2}
-  backgroundSpriteRenderer: {fileID: 2158410769296052626}
-  imageSpriteRenderer: {fileID: 6440337882472229718}
-  canvasRenderer: {fileID: 7681312791287383273}
+  onPlaceUnitListener: {fileID: -4251197744057298693}
 --- !u!114 &1770135137798223174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,3 +1116,34 @@ MonoBehaviour:
   costText: {fileID: 1917953977729809350}
   descriptionText: {fileID: 3475142228209615915}
   iconImage: {fileID: 6440337882472229718}
+  backgroundSpriteRenderer: {fileID: 2158410769296052626}
+  imageSpriteRenderer: {fileID: 6440337882472229718}
+  canvasRenderer: {fileID: 7681312791287383273}
+--- !u!114 &-4251197744057298693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017773526311409573}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d25074c792c7642b7f752192286b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.FloatFloat.GameEventFloatFloatListener
+  gameEvent: {fileID: 11400000, guid: 408f409f425358047b73a336d2fb36d9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1770135137798223174}
+        m_TargetAssemblyTypeName: UI.CardUI, Assembly-CSharp
+        m_MethodName: OnPlaceUnit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

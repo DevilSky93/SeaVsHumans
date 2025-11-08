@@ -17,7 +17,7 @@ namespace Unit
         [SerializeField] protected CardData unitCardData;
         [SerializeField] protected GameEventListener onDestroyUnit;
         [SerializeField] protected GameEventFloatFloatListener onPlaceUnit;
-        
+
         protected HealthController HealthController;
 
         private Unit _unit;

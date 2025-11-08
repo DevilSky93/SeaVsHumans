@@ -115,6 +115,7 @@ MonoBehaviour:
   unitCardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
   onDestroyUnit: {fileID: 8415586274895515190}
   onPlaceUnit: {fileID: -6305895832054768942}
+  onUpdateCardPositions: {fileID: 11400000, guid: 414ff07ba89aca748a82e6b4f5ed1791, type: 2}
 --- !u!114 &2199515209784508642
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,6 @@
 ﻿using Events.FloatFloat;
 using Events.Trigger;
 using Helpers;
-using JetBrains.Annotations;
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,8 +16,11 @@ namespace Grid
         [SerializeField] private Sprite redCursorIndicator;
         [SerializeField] private Camera mainCamera;
         [SerializeField] private PlayerInputControls playerInputControls;
+        
+        [Header("Events")]
         [SerializeField] private EventFloatFloat onPlaceUnit;
         [SerializeField] private EventTrigger onDestroyUnit;
+        
         private bool _canPlace;
 
         private static Camera _camera;
@@ -35,6 +37,7 @@ namespace Grid
             if (UnitWasReleaseOutsideOfGrid(mouseScreenPos))
             {
                 onDestroyUnit.Raise();
+                CanPlaceUnit(false);
                 return;
             }
             if (!_canPlace)

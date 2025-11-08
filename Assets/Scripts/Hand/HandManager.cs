@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Cards.Models;
 using DG.Tweening;
+using UI;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,11 +14,11 @@ namespace Hand
     public class HandManager : MonoBehaviour
     {
         [SerializeField] private int maxHandSize;
-        [SerializeField] private CardBase cardPrefab;
+        [SerializeField] private CardUI cardPrefab;
         [SerializeField] private SplineContainer splineContainer;
         [SerializeField] private Transform spawnPoint;
         
-        private readonly List<CardBase> _handCards = new();
+        private List<CardUI> _handCards = new();
 
         private void Update()
         {
@@ -24,19 +26,26 @@ namespace Hand
             {
                 DrawCard();
             }
+            if (Keyboard.current.nKey.wasPressedThisFrame)
+            {
+                UpdateCardPositions();
+            }
         }
 
         private void DrawCard()
         {
             if (_handCards.Count >= maxHandSize) return;
-            CardBase newCard = Instantiate(cardPrefab, spawnPoint.position, Quaternion.identity, transform);
+            CardUI newCard = Instantiate(cardPrefab, spawnPoint.position, Quaternion.identity, transform);
+            newCard.OnDestroyRequested += HandleDestroyRequested(newCard);
             _handCards.Add(newCard);
             UpdateCardPositions();
         }
 
-        private void UpdateCardPositions()
+        public void UpdateCardPositions()
         {
             if (!_handCards.Any()) return;
+             _handCards = _handCards.Where(c => c != null).ToList();
+            _handCards.ForEach(c => c.SetIsPlaced());
 
             float cardSpacing = 1f / maxHandSize;
             float firstCardPosition = 0.5f - (_handCards.Count - 1) * cardSpacing / 2f;
@@ -58,6 +67,15 @@ namespace Hand
                 _handCards[i].transform.DOLocalRotateQuaternion(rotation, .25f);
             }
         }
-        
+
+        private Action<CardBase> HandleDestroyRequested(CardUI newCard)
+        {
+            return _ =>
+            {
+                _handCards.Remove(newCard);
+                UpdateCardPositions();
+                Destroy(newCard.gameObject);
+            };
+        }
     }
 }

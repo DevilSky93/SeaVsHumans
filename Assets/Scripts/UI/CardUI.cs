@@ -1,4 +1,5 @@
-﻿using Cards.Enum;
+﻿using System;
+using Cards.Enum;
 using Cards.Models;
 using TMPro;
 using UnityEngine;
@@ -14,10 +15,22 @@ namespace UI
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private SpriteRenderer iconImage;
 
+        [SerializeField] private SpriteRenderer backgroundSpriteRenderer;
+        [SerializeField] private SpriteRenderer imageSpriteRenderer;
+        [SerializeField] private Canvas canvasRenderer;
         private Unit.Unit _unit;
+        private CardBase _cardBase;
+        
+        public event Action<CardBase> OnDestroyRequested;
+
+        public SpriteRenderer BackgroundSpriteRenderer => backgroundSpriteRenderer;
+        public SpriteRenderer ImageSpriteRenderer => imageSpriteRenderer;
+        public Canvas CanvasRenderer => canvasRenderer;
+
         private void Awake()
         {
-            _unit = GetComponent<CardBase>().Unit;
+            _cardBase = GetComponent<CardBase>();
+            _unit = _cardBase.Unit;
             if (_unit.CardType == CardType.Unit)
             {
                 hpText.text = _unit.Hp.ToString();
@@ -27,6 +40,21 @@ namespace UI
             costText.text = _unit.EssenceMarine.ToString();
             descriptionText.text = _unit.Description;
             iconImage.sprite = _unit.CardImage;
+        }
+        
+        public void IsPlaced()
+        {
+            _cardBase.IsPlaced();
+        }
+        
+        public void SetIsPlaced()
+        {
+            _cardBase.SetIsPlaced();
+        }
+        
+        public void OnPlaceUnit(float x, float y)
+        {
+            OnDestroyRequested?.Invoke(_cardBase);
         }
     }
 }

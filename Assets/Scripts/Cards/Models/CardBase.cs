@@ -1,6 +1,6 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Events.Bool;
+using Events.FloatFloat;
 using Unit;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,16 +13,11 @@ namespace Cards.Models
     {
         [SerializeField] private CardData cardData;
         [SerializeField] private EventBool canPlaceUnitEvent;
-        [SerializeField] private SpriteRenderer backgroundSpriteRenderer;
-        [SerializeField] private SpriteRenderer imageSpriteRenderer;
-        [SerializeField] private Canvas canvasRenderer;
+        [SerializeField] private GameEventFloatFloatListener onPlaceUnitListener;
         private float _originalYPosition;
         private bool _isPlaced;
 
         public Unit.Unit Unit { get; private set; }
-        public SpriteRenderer BackgroundSpriteRenderer => backgroundSpriteRenderer;
-        public SpriteRenderer ImageSpriteRenderer => imageSpriteRenderer;
-        public Canvas CanvasRenderer => canvasRenderer;
 
         private void Awake()
         {
@@ -33,6 +28,11 @@ namespace Cards.Models
         {
             _isPlaced = true;
             _originalYPosition = transform.position.y;
+        }
+
+        public void SetIsPlaced()
+        {
+            _isPlaced = false;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -61,6 +61,7 @@ namespace Cards.Models
             unitGameObject.Initialize();
             unitGameObject.gameObject.SetActive(true);
             canPlaceUnitEvent.Raise(true);
+            onPlaceUnitListener.enabled = true;
         }
     }
 }
