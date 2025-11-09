@@ -129,7 +129,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1508691461177974}
         m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
-        m_MethodName: RoundStart
+        m_MethodName: OnRoundStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

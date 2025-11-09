@@ -41,7 +41,7 @@ namespace Unit
         }
         
         [UsedImplicitly]
-        public void RoundStart()
+        public void OnRoundStart()
         {
             ChangeState(MovementState);
         }

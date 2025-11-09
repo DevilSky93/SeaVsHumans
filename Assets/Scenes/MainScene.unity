@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cc6b81920246c4ad499f7eb9e08fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Round.RoundManager
-  startRoundEvent: {fileID: 11400000, guid: 225ac4c4ebf37cb4c9a168178499ead6, type: 2}
+  onRoundStart: {fileID: 11400000, guid: 225ac4c4ebf37cb4c9a168178499ead6, type: 2}
   roundButton: {fileID: 508710214}
   roundText: {fileID: 666874609}
 --- !u!1 &519420028
@@ -2167,6 +2167,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1807657267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1807657270}
+  - component: {fileID: 1807657269}
+  - component: {fileID: 1807657268}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1807657268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807657267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
+  gameEvent: {fileID: 11400000, guid: 225ac4c4ebf37cb4c9a168178499ead6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1807657269}
+        m_TargetAssemblyTypeName: GameManager.GameManagerStateMachine, Assembly-CSharp
+        m_MethodName: OnRoundStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1807657269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807657267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ba21e4839344df9db5e0d26f055a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager.GameManagerStateMachine
+--- !u!4 &1807657270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807657267}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1813120650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,7 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cc6b81920246c4ad499f7eb9e08fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Round.RoundManager
-  startRoundEvent: {fileID: 11400000, guid: 225ac4c4ebf37cb4c9a168178499ead6, type: 2}
+  onRoundStart: {fileID: 0}
   roundButton: {fileID: 0}
   roundText: {fileID: 0}
 --- !u!4 &1813120652
@@ -2407,3 +2480,4 @@ SceneRoots:
   - {fileID: 1508084310}
   - {fileID: 354265368}
   - {fileID: 831204402}
+  - {fileID: 1807657270}
