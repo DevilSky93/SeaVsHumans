@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2009412883419384704}
   - component: {fileID: 2979003291094663863}
   - component: {fileID: 4321170871249321142}
+  - component: {fileID: 6848739672853873246}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -141,6 +142,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: EssenceMarine.EssenceMarine, Assembly-CSharp
         m_MethodName: OnEssenceSpend
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6848739672853873246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590880930955541415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
+  gameEvent: {fileID: 11400000, guid: c8c2dfea3e87615478c3c057c07453aa, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2979003291094663863}
+        m_TargetAssemblyTypeName: EssenceMarine.EssenceMarine, Assembly-CSharp
+        m_MethodName: OnRoundEnd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

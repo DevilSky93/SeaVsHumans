@@ -70,5 +70,10 @@ namespace Cards.Models
             canPlaceUnitEvent.Raise(true);
             onPlaceUnitListener.enabled = true;
         }
+        
+        public void DeactivatePlacing()
+        {
+            onPlaceUnitListener.enabled = false;
+        }
     }
 }

@@ -177,7 +177,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 27863508}
         m_TargetAssemblyTypeName: UI.EssenceMarineUI, Assembly-CSharp
-        m_MethodName: UpdateCurrent
+        m_MethodName: OnEssenceChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 27863508}
+        m_TargetAssemblyTypeName: UI.EssenceMarineUI, Assembly-CSharp
+        m_MethodName: OnMaxEssenceChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2043,6 +2055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1450693269}
   - component: {fileID: 1450693268}
+  - component: {fileID: 1450693270}
   m_Layer: 0
   m_Name: Hand Manager
   m_TagString: Untagged
@@ -2082,6 +2095,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1450693270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450693267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
+  gameEvent: {fileID: 11400000, guid: c8c2dfea3e87615478c3c057c07453aa, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1450693268}
+        m_TargetAssemblyTypeName: Hand.HandManager, Assembly-CSharp
+        m_MethodName: OnRoundEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1508084309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,54 +2365,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1813120650
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1813120652}
-  - component: {fileID: 1813120651}
-  m_Layer: 0
-  m_Name: Round Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1813120651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813120650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2cc6b81920246c4ad499f7eb9e08fbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Round.RoundManager
-  onRoundStart: {fileID: 0}
-  onRoundEnd: {fileID: 0}
-  roundButton: {fileID: 0}
-  roundText: {fileID: 0}
---- !u!4 &1813120652
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813120650}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1814726431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,6 +2667,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2979003291094663863, guid: f4833e307c96e844b915929278c7397b, type: 3}
+      propertyPath: maxEssenceLimit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321170871249321142, guid: f4833e307c96e844b915929278c7397b, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321170871249321142, guid: f4833e307c96e844b915929278c7397b, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1291515873}
+    - target: {fileID: 4321170871249321142, guid: f4833e307c96e844b915929278c7397b, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321170871249321142, guid: f4833e307c96e844b915929278c7397b, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnEssenceSpend
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321170871249321142, guid: f4833e307c96e844b915929278c7397b, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: EssenceMarine.EssenceMarine, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321170871249321142, guid: f4833e307c96e844b915929278c7397b, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6590880930955541415, guid: f4833e307c96e844b915929278c7397b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2739,7 +2760,6 @@ SceneRoots:
   - {fileID: 840926086}
   - {fileID: 2146703206}
   - {fileID: 1450693269}
-  - {fileID: 1813120652}
   - {fileID: 1587525330}
   - {fileID: 448637751}
   - {fileID: 189789289}

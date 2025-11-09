@@ -7,6 +7,7 @@ namespace EssenceMarine
     {
         [SerializeField] private int current;
         [SerializeField] private int maxAmount;
+        [SerializeField] private int maxEssenceLimit;
         [SerializeField] private EventFloat onEssenceChanged;
 
         public int Current => current;
@@ -23,6 +24,21 @@ namespace EssenceMarine
         public bool HaveEnoughEssence(int amount)
         {
             return amount <= current;
+        }
+        
+        public void OnRoundEnd()
+        {
+            if (!HasReachedMaxLimit())
+            {
+                maxAmount += 1;
+            }
+            current = maxAmount;
+            onEssenceChanged.Raise(current);
+        }
+
+        private bool HasReachedMaxLimit()
+        {
+            return maxAmount >= maxEssenceLimit;
         }
     }
 }

@@ -28,6 +28,14 @@ namespace Hand
             }
         }
 
+        public void OnRoundEnd()
+        {
+            for (int i = Math.Min(_handCards.Count, maxHandSize); i < maxHandSize; i++)
+            {
+                DrawCard();
+            }
+        }
+
         private void DrawCard()
         {
             if (_handCards.Count >= maxHandSize) return;

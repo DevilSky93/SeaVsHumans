@@ -16,9 +16,14 @@ namespace UI
             maxAmount.text = essenceMarine.MaxAmount.ToString();
         }
         
-        public void UpdateCurrent(float newCurrent)
+        public void OnEssenceChanged(float newCurrent)
         {
             current.text = newCurrent.ToString(CultureInfo.InvariantCulture);
+        }
+
+        public void OnMaxEssenceChanged(float newCurrent)
+        {
+            maxAmount.text = essenceMarine.MaxAmount.ToString(CultureInfo.InvariantCulture);
         }
     }
 }
