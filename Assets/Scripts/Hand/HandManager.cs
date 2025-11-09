@@ -6,7 +6,6 @@ using DG.Tweening;
 using UI;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Splines;
 
 namespace Hand
@@ -21,9 +20,9 @@ namespace Hand
         
         private List<CardUI> _handCards = new();
 
-        private void Update()
+        private void Start()
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            for (int i = 0; i < maxHandSize; i++)
             {
                 DrawCard();
             }
