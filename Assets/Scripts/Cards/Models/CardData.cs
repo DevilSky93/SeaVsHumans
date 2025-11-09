@@ -12,6 +12,7 @@ namespace Cards.Models
         public Sprite cardImage;
         public int essenceMarine;
         public int goldValue;
+        public int costValue;
         public AreaTarget areaTarget;
         public int hp;
         public int attack;

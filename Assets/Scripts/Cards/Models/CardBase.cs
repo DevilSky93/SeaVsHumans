@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Events.Bool;
 using Events.FloatFloat;
 using Unit;
@@ -16,6 +17,7 @@ namespace Cards.Models
         [SerializeField] private GameEventFloatFloatListener onPlaceUnitListener;
         private float _originalYPosition;
         private bool _isPlaced;
+        public event Func<bool> OnPlacingRequested;
 
         public Unit.Unit Unit { get; private set; }
 
@@ -55,6 +57,11 @@ namespace Cards.Models
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            if (OnPlacingRequested?.Invoke() == false)
+            {
+                Debug.LogWarning("Not enough essence to place unit");
+                return;
+            }
             UnitStateMachine unit = CardUnitFactory.Instance.Build(cardData);
             UnitStateMachine unitGameObject =
                 Instantiate(unit, Mouse.current.position.ReadValue(), Quaternion.identity);

@@ -15,6 +15,7 @@ namespace Hand
     {
         [SerializeField] private int maxHandSize;
         [SerializeField] private CardUI cardPrefab;
+        [SerializeField] private EssenceMarine.EssenceMarine essenceMarine;
         [SerializeField] private SplineContainer splineContainer;
         [SerializeField] private Transform spawnPoint;
         
@@ -26,10 +27,6 @@ namespace Hand
             {
                 DrawCard();
             }
-            if (Keyboard.current.nKey.wasPressedThisFrame)
-            {
-                UpdateCardPositions();
-            }
         }
 
         private void DrawCard()
@@ -37,11 +34,17 @@ namespace Hand
             if (_handCards.Count >= maxHandSize) return;
             CardUI newCard = Instantiate(cardPrefab, spawnPoint.position, Quaternion.identity, transform);
             newCard.OnDestroyRequested += HandleDestroyRequested(newCard);
+            newCard.GetComponent<CardBase>().OnPlacingRequested += HandlePlacingRequested(newCard.Unit.CostValue);
             _handCards.Add(newCard);
             UpdateCardPositions();
         }
 
-        public void UpdateCardPositions()
+        private Func<bool> HandlePlacingRequested(int unitCostValue)
+        {
+            return () => essenceMarine.HaveEnoughEssence(unitCostValue);
+        }
+
+        private void UpdateCardPositions()
         {
             if (!_handCards.Any()) return;
              _handCards = _handCards.Where(c => c != null).ToList();

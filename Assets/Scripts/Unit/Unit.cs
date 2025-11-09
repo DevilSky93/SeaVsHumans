@@ -12,6 +12,8 @@ namespace Unit
 
         public int GoldValue { get; set; }
 
+        public int CostValue { get; set; }
+
         public int Hp { get; set; }
 
         public AreaTarget AreaTarget { get; set; }
@@ -32,6 +34,7 @@ namespace Unit
             CardImage = cardData.cardImage;
             EssenceMarine = cardData.essenceMarine;
             GoldValue = cardData.goldValue;
+            CostValue = cardData.costValue;
             AreaTarget = cardData.areaTarget;
             Hp = cardData.hp;
             Attack = cardData.attack;

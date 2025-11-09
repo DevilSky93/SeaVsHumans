@@ -16,6 +16,7 @@ namespace Grid
         [SerializeField] private Sprite redCursorIndicator;
         [SerializeField] private Camera mainCamera;
         [SerializeField] private PlayerInputControls playerInputControls;
+        [SerializeField] private EssenceMarine .EssenceMarine essenceMarine;
         
         [Header("Events")]
         [SerializeField] private EventFloatFloat onPlaceUnit;
@@ -66,6 +67,12 @@ namespace Grid
                 onDestroyUnit.Raise();
                 return;
             }
+
+            PlaceUnit(mouseScreenPos);
+        }
+
+        private void PlaceUnit(Vector2 mouseScreenPos)
+        {
             GridManager.Instance.SetPositionOccupiedInGrid(mouseScreenPos.x, mouseScreenPos.y, true);
             onPlaceUnit.Raise(mouseScreenPos.x, mouseScreenPos.y);
             CanPlaceUnit(false);

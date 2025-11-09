@@ -404,6 +404,7 @@ MonoBehaviour:
   redCursorIndicator: {fileID: 21300000, guid: 6b0ecd0fcd04e944290628f6461325bd, type: 3}
   mainCamera: {fileID: 519420031}
   playerInputControls: {fileID: 448637750}
+  essenceMarine: {fileID: 0}
   onPlaceUnit: {fileID: 11400000, guid: 408f409f425358047b73a336d2fb36d9, type: 2}
   onDestroyUnit: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
 --- !u!114 &354265370
@@ -1736,6 +1737,7 @@ GameObject:
   - component: {fileID: 1291515871}
   - component: {fileID: 1291515870}
   - component: {fileID: 1291515873}
+  - component: {fileID: 1291515874}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1844,6 +1846,34 @@ MonoBehaviour:
   current: 2
   maxAmount: 2
   onEssenceChanged: {fileID: 11400000, guid: e4da110103ff167448303fb9e5ca00ac, type: 2}
+--- !u!114 &1291515874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291515869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaea7816b31f0204c8c0eaa32c81be3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Float.GameEventFloatListener
+  gameEvent: {fileID: 11400000, guid: db02ca3c076b9054ba13078ccf64b965, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1291515873}
+        m_TargetAssemblyTypeName: EssenceMarine.EssenceMarine, Assembly-CSharp
+        m_MethodName: OnEssenceSpend
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1381923882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,6 +2009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Hand.HandManager
   maxHandSize: 6
   cardPrefab: {fileID: 1770135137798223174, guid: 06f26328ad7468349b94a9c6323ac5ec, type: 3}
+  essenceMarine: {fileID: 1291515873}
   splineContainer: {fileID: 840926085}
   spawnPoint: {fileID: 2146703206}
 --- !u!4 &1450693269

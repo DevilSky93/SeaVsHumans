@@ -1119,6 +1119,7 @@ MonoBehaviour:
   backgroundSpriteRenderer: {fileID: 2158410769296052626}
   imageSpriteRenderer: {fileID: 6440337882472229718}
   canvasRenderer: {fileID: 7681312791287383273}
+  onEssenceSpend: {fileID: 11400000, guid: db02ca3c076b9054ba13078ccf64b965, type: 2}
 --- !u!114 &-4251197744057298693
 MonoBehaviour:
   m_ObjectHideFlags: 0
