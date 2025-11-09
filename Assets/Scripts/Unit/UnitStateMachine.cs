@@ -1,4 +1,5 @@
-﻿using Cards.Models;
+﻿using System;
+using Cards.Models;
 using Events.FloatFloat;
 using Events.Trigger;
 using Grid;
@@ -13,7 +14,9 @@ namespace Unit
 {
     public abstract class UnitStateMachine : StateMachine.StateMachine
     {
-        [SerializeField] private LayerMask enemyLayerMask;
+        [SerializeField] protected LayerMask enemyLayerMask;
+        [SerializeField] protected LayerMask tileMask;
+        [SerializeField] protected EventTrigger onCheckUnitStillOnField;
         [SerializeField] protected CardData unitCardData;
         [SerializeField] protected GameEventListener onDestroyUnit;
         [SerializeField] protected GameEventFloatFloatListener onPlaceUnit;
@@ -58,11 +61,26 @@ namespace Unit
             onPlaceUnit.enabled = false;
         }
 
+        public void DestroyUnit()
+        {
+            GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x, transform.position.y, false);
+            onCheckUnitStillOnField.Raise();
+            Destroy(gameObject);
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if ((enemyLayerMask.value & (1 << other.gameObject.layer)) > .1f && CurrentBaseState is IPhysicsEventHandler physicsHandler)
+            if (CurrentBaseState is IPhysicsEventHandler physicsHandler)
             {
                 physicsHandler.OnTriggerEnter2D(other);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (CurrentBaseState is IPhysicsEventHandler physicsHandler)
+            {
+                physicsHandler.OnTriggerExit2D(other);
             }
         }
     }

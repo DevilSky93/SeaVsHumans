@@ -1,4 +1,5 @@
-﻿using StateMachine;
+﻿using Grid;
+using StateMachine;
 using Unit.Interfaces;
 using UnityEngine;
 
@@ -9,13 +10,18 @@ namespace Unit.States
         private readonly UnitStateMachine _state;
         private readonly Transform _unitTransform;
         private readonly float _unitSpeed;
+        private readonly LayerMask _enemyLayerMask;
+        private readonly LayerMask _tileMask;
 
-        public UnitMovementState(UnitStateMachine state, Transform unitTransform, float unitSpeed) : base(state,
+        public UnitMovementState(UnitStateMachine state, Transform unitTransform, float unitSpeed,
+            LayerMask enemyLayerMask, LayerMask tileMask) : base(state,
             "Unit Movement State")
         {
             _state = state;
             _unitTransform = unitTransform;
             _unitSpeed = unitSpeed;
+            _enemyLayerMask = enemyLayerMask;
+            _tileMask = tileMask;
         }
 
         public override void UpdateLogics()
@@ -25,12 +31,20 @@ namespace Unit.States
 
         public void OnTriggerEnter2D(Collider2D other)
         {
-            _state.ChangeState(_state.FightingState);
+            if ((_enemyLayerMask.value & (1 << other.gameObject.layer)) > .1f)
+            {
+                _state.ChangeState(_state.FightingState);
+            }
+
+            if ((_tileMask.value & (1 << other.gameObject.layer)) > .1f)
+            {
+                GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x, other.transform.position.y, true);
+            }
         }
 
         public void OnTriggerExit2D(Collider2D other)
         {
-            // throw new System.NotImplementedException();
+            GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x, other.transform.position.y, false);
         }
     }
 }

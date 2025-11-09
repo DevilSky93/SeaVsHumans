@@ -15,6 +15,7 @@ namespace Unit
         public int CostValue { get; set; }
 
         public int Hp { get; set; }
+        public int RemainingHp { get; set; }
 
         public AreaTarget AreaTarget { get; set; }
 
@@ -37,6 +38,7 @@ namespace Unit
             CostValue = cardData.costValue;
             AreaTarget = cardData.areaTarget;
             Hp = cardData.hp;
+            RemainingHp = cardData.hp;
             Attack = cardData.attack;
             Speed = cardData.speed;
             CardType = cardData.cardType;

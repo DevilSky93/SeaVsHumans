@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Cards.Enum;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -168,6 +169,21 @@ namespace Grid
                    (Mathf.Approximately(deltaX, 1) && Mathf.Approximately(deltaY, 0)) || // Horizontal
                    (Mathf.Approximately(deltaX, 0) && Mathf.Approximately(deltaY, 1));   // Vertical
         }
+
+        public bool IsFieldIsEmpty()
+        {
+            // Instance.DebugBlock();
+            bool areAllTilesEmpty = _tiles.All(t => !t.Value.IsOccupied) || _tiles.Any(t => t.Value.TileType is TileType.Field);
+            return areAllTilesEmpty;
+        }
+
+        public void DebugBlock()
+        {
+            foreach (BlockData value in _tiles.Values)
+            {
+                Debug.Log($"Position : {value.GridPosition} - Occupied : {value.IsOccupied} - Type : {value.TileType}");
+            }
+        }
         
         private void OnDrawGizmos()
         {
@@ -190,6 +206,5 @@ namespace Grid
             Vector3 size = new Vector3(_gridSize.width * cellSize, _gridSize.height * cellSize, 0f);
             Gizmos.DrawWireCube(origin + size / 2f, size);
         }
-
     }
 }

@@ -14,7 +14,7 @@ namespace Unit.Types
         public override void Initialize()
         {
             base.Initialize();
-            MovementState = new UnitMovementState(this, transform, unitCardData.speed);
+            MovementState = new UnitMovementState(this, transform, unitCardData.speed, enemyLayerMask, tileMask);
             IdleState = new UnitIdleState(this);
             FightingState = new UnitFightingState(this, HealthController);
             DyingState = new UnitDyingState(this);

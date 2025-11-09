@@ -27,5 +27,11 @@ namespace GameManager
         {
             ChangeState(FightingPhaseState);
         }
+        
+        [UsedImplicitly]
+        public void OnRoundEnd()
+        {
+            ChangeState(PreparingPhaseState);
+        }
     }
 }

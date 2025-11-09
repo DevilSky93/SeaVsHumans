@@ -3,6 +3,7 @@
     public enum TileType
     {
         Player,
-        Enemy
+        Enemy,
+        Field
     }
 }
