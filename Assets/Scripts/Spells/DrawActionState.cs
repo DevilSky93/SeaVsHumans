@@ -1,5 +1,6 @@
 ﻿using Events.Float;
 using StateMachine;
+using UnityEngine;
 
 namespace Spells
 {
@@ -18,7 +19,9 @@ namespace Spells
         
         public override void Enter()
         {
+            Debug.Log("Drawing Cards");
             _onCardsDrawn.Raise(_numberOfCardsToDraw);
+            Object.Destroy(_state.gameObject);
         }
     }
 }

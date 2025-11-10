@@ -16,7 +16,6 @@ namespace Grid
         [SerializeField] private Sprite redCursorIndicator;
         [SerializeField] private Camera mainCamera;
         [SerializeField] private PlayerInputControls playerInputControls;
-        [SerializeField] private EssenceMarine .EssenceMarine essenceMarine;
         
         [Header("Events")]
         [SerializeField] private EventFloatFloat onPlaceUnit;
@@ -30,6 +29,8 @@ namespace Grid
         {
             _camera = mainCamera;
             cursorIndicator.transform.localScale = new Vector3(cursorSize, cursorSize, cursorSize);
+            playerInputControls.PlayerInput.Player.PlaceUnit.Enable();
+            
         }
 
         private void Update()
@@ -61,7 +62,7 @@ namespace Grid
             
             UpdateCursorPositionOnGrid(mouseScreenPos);
 
-            if (!Mouse.current.leftButton.wasReleasedThisFrame) return;
+            if (!playerInputControls.PlayerInput.Player.PlaceUnit.WasReleasedThisFrame()) return;
             if (GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y))
             {
                 onDestroyUnit.Raise();
@@ -81,14 +82,6 @@ namespace Grid
         public void CanPlaceUnit(bool canPlace)
         {
             _canPlace = canPlace;
-            if (canPlace)
-            {
-                playerInputControls.PlayerInput.Player.PlaceUnit.Enable();
-            }
-            else
-            {
-                playerInputControls.PlayerInput.Player.PlaceUnit.Disable();
-            }
         }
 
         public static Direction GetMouseDirection(Vector2 mousePosition, Vector2 recordedMousePosition)
@@ -131,9 +124,9 @@ namespace Grid
             cursorIndicator.sprite = GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y) ? redCursorIndicator : blueCursorIndicator;
         }
 
-        private static bool UnitWasReleaseOutsideOfGrid(Vector2 mouseScreenPos)
+        private bool UnitWasReleaseOutsideOfGrid(Vector2 mouseScreenPos)
         {
-            return Mouse.current.leftButton.wasReleasedThisFrame && 
+            return playerInputControls.PlayerInput.Player.PlaceUnit.WasReleasedThisFrame() && 
                    (MouseIsOutsideOfGrid(mouseScreenPos) || GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y));
         }
 

@@ -355,6 +355,8 @@ GameObject:
   - component: {fileID: 354265367}
   - component: {fileID: 354265369}
   - component: {fileID: 354265370}
+  - component: {fileID: 354265371}
+  - component: {fileID: 354265372}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -416,7 +418,6 @@ MonoBehaviour:
   redCursorIndicator: {fileID: 21300000, guid: 6b0ecd0fcd04e944290628f6461325bd, type: 3}
   mainCamera: {fileID: 519420031}
   playerInputControls: {fileID: 448637750}
-  essenceMarine: {fileID: 0}
   onPlaceUnit: {fileID: 11400000, guid: 408f409f425358047b73a336d2fb36d9, type: 2}
   onDestroyUnit: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
 --- !u!114 &354265370
@@ -439,6 +440,48 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Grid.GridCursor, Assembly-CSharp
         m_MethodName: CanPlaceUnit
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &354265371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354265366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ba9d6c6df44b1c930c86d2d4bab275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Grid.SpellListener
+  playerInputControls: {fileID: 448637750}
+  onTriggerCard: {fileID: 11400000, guid: f9c0205655c35cc4391af6972d19e33f, type: 2}
+--- !u!114 &354265372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354265366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
+  gameEvent: {fileID: 11400000, guid: 1533bde8be037af4a87e4e476f6fc097, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 354265371}
+        m_TargetAssemblyTypeName: Grid.SpellListener, Assembly-CSharp
+        m_MethodName: OnPlaySpell
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2077,10 +2120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hand.HandManager
   maxHandSize: 6
-  cardPrefab: {fileID: 1770135137798223174, guid: 06f26328ad7468349b94a9c6323ac5ec, type: 3}
+  cardPrefab: {fileID: 1770135137798223174, guid: 19bdbc51c9fb84d49a32e5060201fc84, type: 3}
   essenceMarine: {fileID: 1291515873}
   splineContainer: {fileID: 840926085}
   spawnPoint: {fileID: 2146703206}
+  playerInputControls: {fileID: 448637750}
 --- !u!4 &1450693269
 Transform:
   m_ObjectHideFlags: 0

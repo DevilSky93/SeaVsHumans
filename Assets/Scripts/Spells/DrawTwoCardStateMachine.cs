@@ -8,17 +8,24 @@ namespace Spells
     {
         [SerializeField] private int numberOfCardsToDraw;
         [SerializeField] private EventFloat onCardsDrawn;
-        private BaseState _spellNoTargetState;
+
+        public BaseState SpellNoTargetState { get; private set; }
+        public BaseState DrawActionState { get; private set; }
 
         protected override void Awake()
         {
-            numberOfCardsToDraw = 2;
-            _spellNoTargetState = new DrawActionState(this, numberOfCardsToDraw, onCardsDrawn);
+            SpellNoTargetState = new SpellNoTargetState(this);
+            DrawActionState = new DrawActionState(this, numberOfCardsToDraw, onCardsDrawn);
+        }
+        
+        public void OnTriggerCard()
+        {
+            ChangeState(DrawActionState);
         }
 
         protected override BaseState GetInitialState()
         {
-            return _spellNoTargetState;
+            return SpellNoTargetState;
         }
     }
 }

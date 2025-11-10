@@ -1,7 +1,6 @@
 ﻿using System;
 using Cards.Interfaces;
 using DG.Tweening;
-using Unit;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -56,14 +55,13 @@ namespace Cards.Models
         {
             if (OnPlacingRequested?.Invoke() == false)
             {
-                Debug.LogWarning("Not enough essence to place unit");
+                Debug.LogWarning("Not enough essence to place card");
                 return;
             }
-            StateMachine.StateMachine unit = CardFactory.Build(cardData).GetComponent<StateMachine.StateMachine>();
-            StateMachine.StateMachine unitGameObject =
-                Instantiate(unit, Mouse.current.position.ReadValue(), Quaternion.identity);
-            // unitGameObject.Initialize();
-            unitGameObject.gameObject.SetActive(true);
+            StateMachine.StateMachine card = CardFactory.Build(cardData);
+            StateMachine.StateMachine cardGameObject =
+                Instantiate(card, Mouse.current.position.ReadValue(), Quaternion.identity);
+            cardGameObject.gameObject.SetActive(true);
             AllowPlace();
         }
 

@@ -20,11 +20,6 @@ namespace Unit.States
         {
             Vector3 screenToWorldPoint = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             _state.transform.position = new Vector3(screenToWorldPoint.x, screenToWorldPoint.y, 0);
-            if (Mouse.current.leftButton.wasReleasedThisFrame)
-            {
-                Debug.Log("released");
-                StateMachine.ChangeState(_state.IdleState);
-            }
         }
         
         public void OnDestroy()

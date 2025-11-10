@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cards.Interfaces;
-using Cards.Models;
 using DG.Tweening;
+using Player;
 using UI;
 using Unity.Mathematics;
 using UnityEngine;
@@ -18,6 +18,7 @@ namespace Hand
         [SerializeField] private EssenceMarine.EssenceMarine essenceMarine;
         [SerializeField] private SplineContainer splineContainer;
         [SerializeField] private Transform spawnPoint;
+        [SerializeField] private PlayerInputControls playerInputControls;
         
         private List<CardUI> _handCards = new();
 
@@ -41,13 +42,13 @@ namespace Hand
         {
             for (int i = Math.Min(_handCards.Count, maxHandSize); i < maxHandSize; i++)
             {
+                if (_handCards.Count >= maxHandSize) return;
                 DrawCard();
             }
         }
 
         private void DrawCard()
         {
-            if (_handCards.Count >= maxHandSize) return;
             CardUI newCard = Instantiate(cardPrefab, spawnPoint.position, Quaternion.identity, transform);
             newCard.OnDestroyRequested += HandleDestroyRequested(newCard);
             newCard.GetComponent<ICard>().OnPlacingRequested += HandlePlacingRequested(newCard.Card.EssenceMarine);
