@@ -7,15 +7,15 @@ namespace Unit.States
 {
     public class UnitMovementState : BaseState, IPhysicsEventHandler
     {
-        private readonly UnitStateMachine _state;
+        private readonly UnitStateMachineBase _state;
         private readonly Transform _unitTransform;
         private readonly float _unitSpeed;
         private readonly LayerMask _enemyLayerMask;
         private readonly LayerMask _tileMask;
 
-        public UnitMovementState(UnitStateMachine state, Transform unitTransform, float unitSpeed,
+        public UnitMovementState(UnitStateMachineBase state, Transform unitTransform, float unitSpeed,
             LayerMask enemyLayerMask, LayerMask tileMask) : base(state,
-            "Unit Movement State")
+            "Card Movement State")
         {
             _state = state;
             _unitTransform = unitTransform;

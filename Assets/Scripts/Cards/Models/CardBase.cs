@@ -1,7 +1,6 @@
 ﻿using System;
+using Cards.Interfaces;
 using DG.Tweening;
-using Events.Bool;
-using Events.FloatFloat;
 using Unit;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,21 +8,19 @@ using UnityEngine.InputSystem;
 
 namespace Cards.Models
 {
-    public class CardBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
+    public abstract class CardBase : MonoBehaviour, ICard, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
         IPointerDownHandler
     {
         [SerializeField] private CardData cardData;
-        [SerializeField] private EventBool canPlaceUnitEvent;
-        [SerializeField] private GameEventFloatFloatListener onPlaceUnitListener;
         private float _originalYPosition;
         private bool _isPlaced;
         public event Func<bool> OnPlacingRequested;
 
-        public Unit.Unit Unit { get; private set; }
+        public Card Card { get; private set; }
 
         private void Awake()
         {
-            Unit = new Unit.Unit(cardData);
+            Card = new Card(cardData);
         }
 
         public void IsPlaced()
@@ -55,25 +52,21 @@ namespace Cards.Models
             Debug.Log("TODO : see details");
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        public virtual void OnPointerDown(PointerEventData eventData)
         {
             if (OnPlacingRequested?.Invoke() == false)
             {
                 Debug.LogWarning("Not enough essence to place unit");
                 return;
             }
-            UnitStateMachine unit = CardUnitFactory.Instance.Build(cardData);
-            UnitStateMachine unitGameObject =
+            StateMachine.StateMachine unit = CardFactory.Build(cardData).GetComponent<StateMachine.StateMachine>();
+            StateMachine.StateMachine unitGameObject =
                 Instantiate(unit, Mouse.current.position.ReadValue(), Quaternion.identity);
-            unitGameObject.Initialize();
+            // unitGameObject.Initialize();
             unitGameObject.gameObject.SetActive(true);
-            canPlaceUnitEvent.Raise(true);
-            onPlaceUnitListener.enabled = true;
+            AllowPlace();
         }
-        
-        public void DeactivatePlacing()
-        {
-            onPlaceUnitListener.enabled = false;
-        }
+
+        protected abstract void AllowPlace();
     }
 }

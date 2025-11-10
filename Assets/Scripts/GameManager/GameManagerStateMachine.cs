@@ -10,7 +10,7 @@ namespace GameManager
         public FightingPhaseState FightingPhaseState { get; private set; }
         public PausedPhaseState PausedPhaseState { get; private set; }
 
-        private void Awake()
+        protected override void Awake()
         {
             PreparingPhaseState = new PreparingPhaseState(this);
             FightingPhaseState = new FightingPhaseState(this);

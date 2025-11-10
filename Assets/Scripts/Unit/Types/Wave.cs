@@ -3,7 +3,7 @@ using Unit.States;
 
 namespace Unit.Types
 {
-    public class Wave : UnitStateMachine
+    public class Wave : UnitStateMachineBase
     {
         public override UnitMovementState MovementState { get; set; }
         public override UnitIdleState IdleState { get; set; }
@@ -11,16 +11,16 @@ namespace Unit.Types
         public override UnitDyingState DyingState { get; set; }
         public override UnitPlacingState PlacingState { get; set; }
 
-        public override void Initialize()
+        protected override void Awake()
         {
-            base.Initialize();
+            base.Awake();
             MovementState = new UnitMovementState(this, transform, unitCardData.speed, enemyLayerMask, tileMask);
             IdleState = new UnitIdleState(this);
             FightingState = new UnitFightingState(this, HealthController);
             DyingState = new UnitDyingState(this);
             PlacingState = new UnitPlacingState(this, onDestroyUnit);
         }
-        
+
         [UsedImplicitly]
         public void OnDestroyUnit()
         {

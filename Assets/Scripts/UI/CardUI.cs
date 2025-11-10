@@ -1,5 +1,6 @@
 ﻿using System;
 using Cards.Enum;
+using Cards.Interfaces;
 using Cards.Models;
 using Events.Float;
 using TMPro;
@@ -21,27 +22,27 @@ namespace UI
         [SerializeField] private Canvas canvasRenderer;
         [SerializeField] private EventFloat onEssenceSpend;
 
-        public Unit.Unit Unit { get; private set; }
+        public Card Card { get; private set; }
 
-        private CardBase _cardBase;
-        public event Action<CardBase> OnDestroyRequested;
+        private ICard _cardBase;
+        public event Action<ICard> OnDestroyRequested;
         public SpriteRenderer BackgroundSpriteRenderer => backgroundSpriteRenderer;
         public SpriteRenderer ImageSpriteRenderer => imageSpriteRenderer;
         public Canvas CanvasRenderer => canvasRenderer;
 
         private void Awake()
         {
-            _cardBase = GetComponent<CardBase>();
-            Unit = _cardBase.Unit;
-            if (Unit.CardType == CardType.Unit)
+            _cardBase = GetComponent<ICard>();
+            Card = _cardBase.Card;
+            if (Card.CardType == CardType.Unit)
             {
-                hpText.text = Unit.Hp.ToString();
-                attackText.text = Unit.Attack.ToString();   
+                hpText.text = Card.Hp.ToString();
+                attackText.text = Card.Attack.ToString();   
             }
-            cardNameText.text = Unit.CardName;
-            costText.text = Unit.EssenceMarine.ToString();
-            descriptionText.text = Unit.Description;
-            iconImage.sprite = Unit.CardImage;
+            cardNameText.text = Card.CardName;
+            costText.text = Card.EssenceMarine.ToString();
+            descriptionText.text = Card.Description;
+            iconImage.sprite = Card.CardImage;
         }
         
         public void IsPlaced()
@@ -56,7 +57,7 @@ namespace UI
         
         public void OnPlaceUnit(float x, float y)
         {
-            onEssenceSpend.Raise(-Unit.CostValue);
+            onEssenceSpend.Raise(-Card.EssenceMarine);
             OnDestroyRequested?.Invoke(_cardBase);
         }
     }

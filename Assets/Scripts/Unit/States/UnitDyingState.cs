@@ -4,9 +4,9 @@ namespace Unit.States
 {
     public class UnitDyingState : BaseState
     {
-        private readonly UnitStateMachine _state;
+        private readonly UnitStateMachineBase _state;
 
-        public UnitDyingState(UnitStateMachine state) : base(state, "Unit Dying State")
+        public UnitDyingState(UnitStateMachineBase state) : base(state, "Card Dying State")
         {
             _state = state;
         }

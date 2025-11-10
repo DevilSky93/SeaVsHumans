@@ -2056,6 +2056,7 @@ GameObject:
   - component: {fileID: 1450693269}
   - component: {fileID: 1450693268}
   - component: {fileID: 1450693270}
+  - component: {fileID: 1450693271}
   m_Layer: 0
   m_Name: Hand Manager
   m_TagString: Untagged
@@ -2115,6 +2116,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Hand.HandManager, Assembly-CSharp
         m_MethodName: OnRoundEnd
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1450693271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450693267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaea7816b31f0204c8c0eaa32c81be3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Float.GameEventFloatListener
+  gameEvent: {fileID: 11400000, guid: 2fd86d6558bedb54d83026b901110f7f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1450693268}
+        m_TargetAssemblyTypeName: Hand.HandManager, Assembly-CSharp
+        m_MethodName: OnCardsDrawn
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2196,7 +2225,7 @@ GameObject:
   - component: {fileID: 1587525330}
   - component: {fileID: 1587525329}
   m_Layer: 0
-  m_Name: Card Unit Factory
+  m_Name: Card Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2217,6 +2246,8 @@ MonoBehaviour:
   cardDatabase:
     units:
     - {fileID: 1044561249630029403, guid: 01db24154044ff2439e7f7b1f5dd6613, type: 3}
+    spells:
+    - {fileID: 4216867022193265039, guid: 04f617d33dbf85049a64cea3e70072fa, type: 3}
 --- !u!4 &1587525330
 Transform:
   m_ObjectHideFlags: 0

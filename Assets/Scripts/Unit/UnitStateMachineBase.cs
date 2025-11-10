@@ -1,5 +1,4 @@
-﻿using System;
-using Cards.Models;
+﻿using Cards.Models;
 using Events.FloatFloat;
 using Events.Trigger;
 using Grid;
@@ -12,7 +11,7 @@ using UnityEngine;
 
 namespace Unit
 {
-    public abstract class UnitStateMachine : StateMachine.StateMachine
+    public abstract class UnitStateMachineBase : StateMachine.StateMachine
     {
         [SerializeField] protected LayerMask enemyLayerMask;
         [SerializeField] protected LayerMask tileMask;
@@ -23,8 +22,8 @@ namespace Unit
 
         protected HealthController HealthController;
 
-        private Unit _unit;
-        public Unit Unit => _unit ??= new Unit(unitCardData);
+        private Card _card;
+        public Card Card => _card ??= new Card(unitCardData);
 
         public abstract UnitMovementState MovementState { get; set; }
         public abstract UnitIdleState IdleState { get; set; }
@@ -32,8 +31,7 @@ namespace Unit
         public abstract UnitDyingState DyingState { get; set; }
         public abstract UnitPlacingState PlacingState { get; set; }
 
-
-        public virtual void Initialize()
+        protected override void Awake()
         {
             HealthController = GetComponent<HealthController>();
         }

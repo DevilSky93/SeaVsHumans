@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cards.Interfaces;
 using Cards.Models;
 using DG.Tweening;
 using UI;
@@ -27,6 +28,14 @@ namespace Hand
                 DrawCard();
             }
         }
+        
+        public void OnCardsDrawn(float cardsToDraw)
+        {
+            for (int i = 0; i < cardsToDraw; i++)
+            {
+                DrawCard();
+            }
+        }
 
         public void OnRoundEnd()
         {
@@ -41,7 +50,7 @@ namespace Hand
             if (_handCards.Count >= maxHandSize) return;
             CardUI newCard = Instantiate(cardPrefab, spawnPoint.position, Quaternion.identity, transform);
             newCard.OnDestroyRequested += HandleDestroyRequested(newCard);
-            newCard.GetComponent<CardBase>().OnPlacingRequested += HandlePlacingRequested(newCard.Unit.CostValue);
+            newCard.GetComponent<ICard>().OnPlacingRequested += HandlePlacingRequested(newCard.Card.EssenceMarine);
             _handCards.Add(newCard);
             UpdateCardPositions();
         }
@@ -78,7 +87,7 @@ namespace Hand
             }
         }
 
-        private Action<CardBase> HandleDestroyRequested(CardUI newCard)
+        private Action<ICard> HandleDestroyRequested(CardUI newCard)
         {
             return _ =>
             {

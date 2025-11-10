@@ -5,10 +5,10 @@ namespace Unit.States
 {
     public class UnitFightingState : BaseState
     {
-        private readonly UnitStateMachine _state;
+        private readonly UnitStateMachineBase _state;
         private readonly HealthController _healthController;
 
-        public UnitFightingState(UnitStateMachine state, HealthController healthController) : base(state, "Unit Fighting State")
+        public UnitFightingState(UnitStateMachineBase state, HealthController healthController) : base(state, "Card Fighting State")
         {
             _state = state;
             _healthController = healthController;

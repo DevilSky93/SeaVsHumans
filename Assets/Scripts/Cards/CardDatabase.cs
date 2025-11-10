@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using Spells;
 using Unit;
-using UnityEngine;
 
 namespace Cards
 {
     [Serializable]
     public class CardDatabase
     {
-        public List<UnitStateMachine> units;
+        public List<UnitStateMachineBase> units;
+        public List<SpellStateMachineBase> spells;
         // TODO : spells and fields
     }
 }

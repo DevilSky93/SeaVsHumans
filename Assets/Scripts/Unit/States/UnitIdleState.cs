@@ -4,9 +4,9 @@ namespace Unit.States
 {
     public class UnitIdleState : BaseState
     {
-        private readonly UnitStateMachine _state;
+        private readonly UnitStateMachineBase _state;
 
-        public UnitIdleState(UnitStateMachine state) : base(state, "Unit Idle State")
+        public UnitIdleState(UnitStateMachineBase state) : base(state, "Card Idle State")
         {
             _state = state;
         }

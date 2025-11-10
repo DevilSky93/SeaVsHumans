@@ -12,8 +12,8 @@ namespace Player
         {
             if ((damageLayer.value & (1 << other.gameObject.layer)) > .1f)
             {
-                UnitStateMachine unit = other.GetComponent<UnitStateMachine>();
-                healthController.Hit(Mathf.Floor(unit.Unit.RemainingHp / 2f));
+                UnitStateMachineBase unit = other.GetComponent<UnitStateMachineBase>();
+                healthController.Hit(Mathf.Floor(unit.Card.RemainingHp / 2f));
                 unit.DestroyUnit();
             }
         }

@@ -7,10 +7,10 @@ namespace Unit.States
 {
     public class UnitPlacingState : BaseState
     {
-        private readonly UnitStateMachine _state;
+        private readonly UnitStateMachineBase _state;
         private readonly GameEventListener _onDestroyUnit;
 
-        public UnitPlacingState(UnitStateMachine state, GameEventListener onDestroyUnit) : base(state, "Unit Placing State")
+        public UnitPlacingState(UnitStateMachineBase state, GameEventListener onDestroyUnit) : base(state, "Card Placing State")
         {
             _state = state;
             _onDestroyUnit = onDestroyUnit;

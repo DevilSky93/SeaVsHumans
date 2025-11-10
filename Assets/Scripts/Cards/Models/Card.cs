@@ -1,18 +1,15 @@
 ﻿using Cards.Enum;
-using Cards.Models;
 using UnityEngine;
 
-namespace Unit
+namespace Cards.Models
 {
-    public class Unit
+    public class Card
     {
         public string CardName { get; set; }
 
         public int EssenceMarine { get; set; }
 
         public int GoldValue { get; set; }
-
-        public int CostValue { get; set; }
 
         public int Hp { get; set; }
         public int RemainingHp { get; set; }
@@ -28,14 +25,13 @@ namespace Unit
         public string Description { get; set; }
         public CardType CardType { get; set; }
 
-        public Unit(CardData cardData)
+        public Card(CardData cardData)
         {
             CardName = cardData.cardName;
             Description = cardData.description;
             CardImage = cardData.cardImage;
             EssenceMarine = cardData.essenceMarine;
             GoldValue = cardData.goldValue;
-            CostValue = cardData.costValue;
             AreaTarget = cardData.areaTarget;
             Hp = cardData.hp;
             RemainingHp = cardData.hp;
