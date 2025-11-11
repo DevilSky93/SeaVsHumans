@@ -2,6 +2,7 @@
 using Cards.Enum;
 using Cards.Interfaces;
 using Cards.Models;
+using DG.Tweening;
 using Events.Float;
 using TMPro;
 using UnityEngine;
@@ -58,6 +59,12 @@ namespace UI
         public void OnPlaceUnit(float x, float y)
         {
             onEssenceSpend.Raise(-Card.EssenceMarine);
+            OnDestroyRequested?.Invoke(_cardBase);
+        }
+
+        public void OnPlaySpell()
+        {
+            transform.DOKill();
             OnDestroyRequested?.Invoke(_cardBase);
         }
     }

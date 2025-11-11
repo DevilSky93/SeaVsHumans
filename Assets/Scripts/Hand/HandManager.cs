@@ -7,13 +7,15 @@ using Player;
 using UI;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Splines;
 
 namespace Hand
 {
     public class HandManager : MonoBehaviour
     {
-        [SerializeField] private int maxHandSize;
+        private const float MaxCardInHand = 10;
+        [SerializeField] private int startingCardsHandNumber;
         [SerializeField] private CardUI cardPrefab;
         [SerializeField] private EssenceMarine.EssenceMarine essenceMarine;
         [SerializeField] private SplineContainer splineContainer;
@@ -24,7 +26,7 @@ namespace Hand
 
         private void Start()
         {
-            for (int i = 0; i < maxHandSize; i++)
+            for (int i = 0; i < startingCardsHandNumber; i++)
             {
                 DrawCard();
             }
@@ -40,9 +42,9 @@ namespace Hand
 
         public void OnRoundEnd()
         {
-            for (int i = Math.Min(_handCards.Count, maxHandSize); i < maxHandSize; i++)
+            for (int i = Math.Min(_handCards.Count, startingCardsHandNumber); i < startingCardsHandNumber; i++)
             {
-                if (_handCards.Count >= maxHandSize) return;
+                if (_handCards.Count >= startingCardsHandNumber) return;
                 DrawCard();
             }
         }
@@ -67,7 +69,7 @@ namespace Hand
              _handCards = _handCards.Where(c => c != null).ToList();
             _handCards.ForEach(c => c.SetIsPlaced());
 
-            float cardSpacing = 1f / maxHandSize;
+            const float cardSpacing = 1f / MaxCardInHand;
             float firstCardPosition = 0.5f - (_handCards.Count - 1) * cardSpacing / 2f;
             Spline spline = splineContainer.Spline;
             

@@ -4,9 +4,9 @@ namespace Spells
 {
     public class SpellNoTargetState : BaseState
     {
-        private readonly DrawTwoCardStateMachine _state;
+        private readonly SpellCardStateMachineBase _state;
 
-        public SpellNoTargetState(DrawTwoCardStateMachine state) : base(state, "Spell No Target State")
+        public SpellNoTargetState(SpellCardStateMachineBase state) : base(state, "Spell No Target State")
         {
             _state = state;
         }

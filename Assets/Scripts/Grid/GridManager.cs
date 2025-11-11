@@ -130,6 +130,12 @@ namespace Grid
             Vector2? position = GetPositionInGrid(x, y);
             return position != null && (_tiles[position.Value].IsOccupied || _tiles[position.Value].TileType == TileType.Enemy);
         }
+
+        public bool IsCardHoveringOnGrid(float x, float y)
+        {
+            Vector2? position = GetPositionInGrid(x, y);
+            return position != null;
+        }
         
         public void SetPositionOccupiedInGrid(float x, float y, bool isOccupied)
         {

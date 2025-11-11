@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8262657973242108028}
-  - component: {fileID: 4216867022193265039}
+  - component: {fileID: 8103263420632790189}
   - component: {fileID: 2789951987219959003}
   - component: {fileID: 2654236592719335581}
+  - component: {fileID: -3361788686499446201}
   m_Layer: 6
   m_Name: DrawTwoCards
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4216867022193265039
+--- !u!114 &8103263420632790189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,9 +44,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4352772278639187347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d50ccb858e44ca2960842f3acfadc55, type: 3}
+  m_Script: {fileID: 11500000, guid: 7daf180cf9384965bd6417b54d7ca26c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spells.DrawTwoCardStateMachine
+  m_EditorClassIdentifier: Assembly-CSharp::Spells.DrawTwoCards.DrawTwoCardStateMachine
   spellCardData: {fileID: 11400000, guid: c572bb70d2be8d3448e546de66abcf5a, type: 2}
   numberOfCardsToDraw: 2
   onCardsDrawn: {fileID: 11400000, guid: 2fd86d6558bedb54d83026b901110f7f, type: 2}
@@ -73,13 +74,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
-  gameEvent: {fileID: 11400000, guid: f9c0205655c35cc4391af6972d19e33f, type: 2}
+  gameEvent: {fileID: 11400000, guid: 1533bde8be037af4a87e4e476f6fc097, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4216867022193265039}
-        m_TargetAssemblyTypeName: Spells.DrawTwoCardStateMachine, Assembly-CSharp
-        m_MethodName: OnTriggerCard
+      - m_Target: {fileID: 8103263420632790189}
+        m_TargetAssemblyTypeName: Spells.DrawTwoCards.DrawTwoCardStateMachine, Assembly-CSharp
+        m_MethodName: OnPlaySpell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-3361788686499446201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352772278639187347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
+  gameEvent: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8103263420632790189}
+        m_TargetAssemblyTypeName: Spells.DrawTwoCards.DrawTwoCardStateMachine, Assembly-CSharp
+        m_MethodName: OnDestroyUnit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

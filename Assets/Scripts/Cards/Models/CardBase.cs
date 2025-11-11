@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 
 namespace Cards.Models
 {
-    public abstract class CardBase : MonoBehaviour, ICard, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
-        IPointerDownHandler
+    public abstract class CardBase : MonoBehaviour, ICard, IPointerEnterHandler, IPointerExitHandler,
+        IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private CardData cardData;
         private float _originalYPosition;
@@ -17,12 +17,12 @@ namespace Cards.Models
 
         public Card Card { get; private set; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             Card = new Card(cardData);
         }
 
-        public void IsPlaced()
+        public virtual void IsPlaced()
         {
             _isPlaced = true;
             _originalYPosition = transform.position.y;
@@ -46,11 +46,6 @@ namespace Cards.Models
             transform.DOMoveY(_originalYPosition, .01f);
         }
 
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            Debug.Log("TODO : see details");
-        }
-
         public virtual void OnPointerDown(PointerEventData eventData)
         {
             if (OnPlacingRequested?.Invoke() == false)
@@ -58,13 +53,20 @@ namespace Cards.Models
                 Debug.LogWarning("Not enough essence to place card");
                 return;
             }
+            Debug.Log("Placing card");
             StateMachine.StateMachine card = CardFactory.Build(cardData);
             StateMachine.StateMachine cardGameObject =
                 Instantiate(card, Mouse.current.position.ReadValue(), Quaternion.identity);
             cardGameObject.gameObject.SetActive(true);
-            AllowPlace();
+            CardPreExecute();
         }
 
-        protected abstract void AllowPlace();
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            CardPostExecute();
+        }
+
+        protected abstract void CardPreExecute();
+        protected abstract void CardPostExecute();
     }
 }

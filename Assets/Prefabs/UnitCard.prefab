@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b910e32fdfb4682b9a5f5b04b285ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.UnitCard
-  cardData: {fileID: 11400000, guid: c572bb70d2be8d3448e546de66abcf5a, type: 2}
+  cardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
   canPlaceUnitEvent: {fileID: 11400000, guid: f41a282608a804c44a40df8314490ddd, type: 2}
   onPlaceUnitListener: {fileID: -4251197744057298693}
 --- !u!114 &1770135137798223174

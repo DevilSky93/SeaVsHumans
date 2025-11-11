@@ -6,11 +6,11 @@ namespace Spells
 {
     public class DrawActionState : BaseState
     {
-        private readonly DrawTwoCardStateMachine _state;
+        private readonly SpellCardStateMachineBase _state;
         private readonly int _numberOfCardsToDraw;
         private readonly EventFloat _onCardsDrawn;
 
-        public DrawActionState(DrawTwoCardStateMachine state, int numberOfCardsToDraw, EventFloat onCardsDrawn) : base(state, "Spell No Target State")
+        public DrawActionState(SpellCardStateMachineBase state, int numberOfCardsToDraw, EventFloat onCardsDrawn) : base(state, "Draw Action State")
         {
             _state = state;
             _numberOfCardsToDraw = numberOfCardsToDraw;

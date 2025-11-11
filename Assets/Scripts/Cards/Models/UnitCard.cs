@@ -14,10 +14,15 @@ namespace Cards.Models
             onPlaceUnitListener.enabled = false;
         }
 
-        protected override void AllowPlace()
+        protected override void CardPreExecute()
         {
             canPlaceUnitEvent.Raise(true);
             onPlaceUnitListener.enabled = true;
+        }
+
+        protected override void CardPostExecute()
+        {
+            
         }
     }
 }

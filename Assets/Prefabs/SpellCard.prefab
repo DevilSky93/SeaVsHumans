@@ -1056,7 +1056,6 @@ GameObject:
   - component: {fileID: -4499957928911466873}
   - component: {fileID: 1770135137798223174}
   - component: {fileID: -4251197744057298693}
-  - component: {fileID: 4759036777740655584}
   m_Layer: 0
   m_Name: SpellCard
   m_TagString: Untagged
@@ -1097,8 +1096,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.SpellNoTargetCard
   cardData: {fileID: 11400000, guid: c572bb70d2be8d3448e546de66abcf5a, type: 2}
-  onTriggerCard: {fileID: 11400000, guid: f9c0205655c35cc4391af6972d19e33f, type: 2}
   onPlaySpell: {fileID: 11400000, guid: 1533bde8be037af4a87e4e476f6fc097, type: 2}
+  onPlaySpellListener: {fileID: 0}
+  onDestroyUnit: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
 --- !u!114 &1770135137798223174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,34 +1141,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UI.CardUI, Assembly-CSharp
         m_MethodName: OnPlaceUnit
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4759036777740655584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9017773526311409573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
-  gameEvent: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Cards.Models.UnitCard, Assembly-CSharp
-        m_MethodName: DeactivatePlacing
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
