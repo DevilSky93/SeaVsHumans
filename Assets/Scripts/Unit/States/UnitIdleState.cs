@@ -1,4 +1,5 @@
-﻿using StateMachine;
+﻿using Grid;
+using StateMachine;
 
 namespace Unit.States
 {
@@ -9,6 +10,9 @@ namespace Unit.States
         public UnitIdleState(UnitStateMachineBase state) : base(state, "Card Idle State")
         {
             _state = state;
+            // #if UNITY_EDITOR
+            //     GridManager.Instance.SetPositionOccupiedInGrid(state.transform.position.x, state.transform.position.y, true);
+            // #endif
         }
     }
 }

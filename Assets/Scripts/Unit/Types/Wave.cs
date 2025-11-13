@@ -16,7 +16,7 @@ namespace Unit.Types
             base.Awake();
             MovementState = new UnitMovementState(this, transform, unitCardData.speed, enemyLayerMask, tileMask);
             IdleState = new UnitIdleState(this);
-            FightingState = new UnitFightingState(this, HealthController);
+            FightingState = new UnitFightingState(this, HealthController, enemyLayerMask);
             DyingState = new UnitDyingState(this);
             PlacingState = new UnitPlacingState(this, onDestroyUnit);
         }

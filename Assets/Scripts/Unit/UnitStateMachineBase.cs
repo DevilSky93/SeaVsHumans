@@ -3,7 +3,6 @@ using Events.FloatFloat;
 using Events.Trigger;
 using Grid;
 using JetBrains.Annotations;
-using Player;
 using StateMachine;
 using Unit.Interfaces;
 using Unit.States;
@@ -20,7 +19,7 @@ namespace Unit
         [SerializeField] protected GameEventListener onDestroyUnit;
         [SerializeField] protected GameEventFloatFloatListener onPlaceUnit;
 
-        protected HealthController HealthController;
+        public UnitHealthController HealthController { get; private set; }
 
         private Card _card;
         public Card Card => _card ??= new Card(unitCardData);
@@ -33,7 +32,7 @@ namespace Unit
 
         protected override void Awake()
         {
-            HealthController = GetComponent<HealthController>();
+            HealthController = GetComponent<UnitHealthController>();
         }
 
         protected override BaseState GetInitialState()
@@ -52,6 +51,7 @@ namespace Unit
         {
             Vector2? position = GridManager.Instance.GetPositionInGrid(x, y);
             if (!position.HasValue) return;
+            GridManager.Instance.SetPositionOccupiedInGrid(x, y, true);
             ChangeState(IdleState);
 
             Vector3 newPos = new(position.Value.x, position.Value.y, 0);

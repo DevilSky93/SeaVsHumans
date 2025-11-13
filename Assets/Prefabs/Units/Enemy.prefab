@@ -10,16 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8262657973242108028}
   - component: {fileID: 5623575246245494779}
-  - component: {fileID: 1044561249630029403}
+  - component: {fileID: -2564102480165220981}
   - component: {fileID: 2199515209784508642}
   - component: {fileID: 2789951987219959003}
-  - component: {fileID: -6305895832054768942}
-  - component: {fileID: 8415586274895515190}
   - component: {fileID: 8702522085343299101}
   - component: {fileID: -427565814110146065}
-  - component: {fileID: -8322323406602478685}
-  m_Layer: 6
-  m_Name: Wave
+  - component: {fileID: 292764909403522024}
+  m_Layer: 7
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +86,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.26096296, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.4716981, g: 0.03261736, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,7 +96,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1044561249630029403
+--- !u!114 &-2564102480165220981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,19 +105,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4352772278639187347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8010532605847a7a0f08a5a8cd98452, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f95509e093644eebc32c9e5f14b79a2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unit.Types.Wave
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Types.EnemyUnit
   enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
   tileMask:
     serializedVersion: 2
     m_Bits: 256
   onCheckUnitStillOnField: {fileID: 11400000, guid: f7da579055fe052438f574082ee2bde5, type: 2}
-  unitCardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
-  onDestroyUnit: {fileID: 8415586274895515190}
-  onPlaceUnit: {fileID: -6305895832054768942}
+  unitCardData: {fileID: 11400000, guid: 6001af249ed54ad46a9e4c2a6703dfc4, type: 2}
+  onDestroyUnit: {fileID: 0}
+  onPlaceUnit: {fileID: 0}
 --- !u!114 &2199515209784508642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +134,8 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1044561249630029403}
-        m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
+      - m_Target: {fileID: -2564102480165220981}
+        m_TargetAssemblyTypeName: Unit.Types.EnemyUnit, Assembly-CSharp
         m_MethodName: OnRoundStart
         m_Mode: 1
         m_Arguments:
@@ -155,67 +153,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4352772278639187347}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 480531840e78a61429d873d96eef7db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProjectBase::StateMachine.DebugSM
---- !u!114 &-6305895832054768942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4352772278639187347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8d25074c792c7642b7f752192286b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectBase::Events.FloatFloat.GameEventFloatFloatListener
-  gameEvent: {fileID: 11400000, guid: 408f409f425358047b73a336d2fb36d9, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1044561249630029403}
-        m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
-        m_MethodName: OnPlaceUnit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8415586274895515190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4352772278639187347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
-  gameEvent: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1044561249630029403}
-        m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
-        m_MethodName: OnDestroyUnit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!50 &8702522085343299101
 Rigidbody2D:
   serializedVersion: 5
@@ -289,7 +231,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-8322323406602478685
+--- !u!114 &292764909403522024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

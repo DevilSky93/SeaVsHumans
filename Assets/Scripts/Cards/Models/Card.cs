@@ -12,11 +12,14 @@ namespace Cards.Models
         public int GoldValue { get; set; }
 
         public int Hp { get; set; }
+
         public int RemainingHp { get; set; }
 
         public AreaTarget AreaTarget { get; set; }
 
         public int Attack { get; set; }
+
+        public float AttackSpeed { get; set; }
 
         public float Speed { get; set; }
 
@@ -24,6 +27,7 @@ namespace Cards.Models
 
         public string Description { get; set; }
         public CardType CardType { get; set; }
+
 
         public Card(CardData cardData)
         {
@@ -36,6 +40,7 @@ namespace Cards.Models
             Hp = cardData.hp;
             RemainingHp = cardData.hp;
             Attack = cardData.attack;
+            AttackSpeed = cardData.attackSpeed;
             Speed = cardData.speed;
             CardType = cardData.cardType;
         }

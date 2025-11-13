@@ -1,4 +1,5 @@
 ﻿using StateMachine;
+using Object = UnityEngine.Object;
 
 namespace Unit.States
 {
@@ -9,6 +10,11 @@ namespace Unit.States
         public UnitDyingState(UnitStateMachineBase state) : base(state, "Card Dying State")
         {
             _state = state;
+        }
+
+        public override void Enter()
+        {
+            Object.Destroy(_state.gameObject);
         }
     }
 }

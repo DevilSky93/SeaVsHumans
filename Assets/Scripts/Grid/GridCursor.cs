@@ -1,6 +1,5 @@
 ﻿using Events.FloatFloat;
 using Events.Trigger;
-using Helpers;
 using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -74,7 +73,6 @@ namespace Grid
 
         private void PlaceUnit(Vector2 mouseScreenPos)
         {
-            GridManager.Instance.SetPositionOccupiedInGrid(mouseScreenPos.x, mouseScreenPos.y, true);
             onPlaceUnit.Raise(mouseScreenPos.x, mouseScreenPos.y);
             CanPlaceUnit(false);
         }
@@ -82,16 +80,6 @@ namespace Grid
         public void CanPlaceUnit(bool canPlace)
         {
             _canPlace = canPlace;
-        }
-
-        public static Direction GetMouseDirection(Vector2 mousePosition, Vector2 recordedMousePosition)
-        {
-            Vector2 worldMousePosition = _camera.ScreenToWorldPoint(mousePosition);
-            Vector2 direction = Vector2Helper.GetDirectionFromAToB(recordedMousePosition, worldMousePosition);
-
-            float angle = AngleHelper.RadianToDegree(direction);
-            Direction mouseDirection = angle.GetDirection();
-            return mouseDirection;
         }
 
         private void UpdateCursorPositionOnGrid(Vector2 mouseScreenPos)

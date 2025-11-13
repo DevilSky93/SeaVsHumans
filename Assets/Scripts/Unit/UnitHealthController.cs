@@ -1,25 +1,27 @@
 ﻿using UnityEngine;
 
-namespace Player
+namespace Unit
 {
-    public class HealthController : MonoBehaviour
+    [RequireComponent(typeof(UnitStateMachineBase))]
+    public class UnitHealthController : MonoBehaviour
     {
-        [SerializeField] private float maxHealth;
         private float _currentHealth;
-        
+        private int _maxHealth;
+
         public bool IsDead => _currentHealth <= 0;
 
         private void Awake()
         {
-            _currentHealth = maxHealth;
+            _maxHealth = GetComponent<UnitStateMachineBase>().Card.Hp;
+            _currentHealth = _maxHealth;
         }
 
         public void Heal(float healAmount)
         {
             _currentHealth += healAmount;
-            if (_currentHealth > maxHealth)
+            if (_currentHealth > _maxHealth)
             {
-                _currentHealth = maxHealth;
+                _currentHealth = _maxHealth;
             }
 
         }

@@ -15,6 +15,7 @@ namespace Cards.Models
         public AreaTarget areaTarget;
         public int hp;
         public int attack;
+        public float attackSpeed;
         public float speed;
         public CardType cardType;
     }
