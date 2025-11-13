@@ -505,6 +505,7 @@ GameObject:
   - component: {fileID: 508710217}
   - component: {fileID: 508710218}
   - component: {fileID: 508710219}
+  - component: {fileID: 508710220}
   m_Layer: 5
   m_Name: Round state
   m_TagString: Untagged
@@ -690,6 +691,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UI.Round.RoundManager, Assembly-CSharp
         m_MethodName: OnRoundEnd
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &508710220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508710212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaea7816b31f0204c8c0eaa32c81be3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Float.GameEventFloatListener
+  gameEvent: {fileID: 11400000, guid: 1d685bef1cde8e04390149bfc250a449, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 508710217}
+        m_TargetAssemblyTypeName: UI.Round.RoundManager, Assembly-CSharp
+        m_MethodName: OnRoundTimerUpdate
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2076,7 +2105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hand.HandManager
   startingCardsHandNumber: 6
-  cardPrefab: {fileID: 1770135137798223174, guid: 19bdbc51c9fb84d49a32e5060201fc84, type: 3}
+  cardPrefab: {fileID: 1770135137798223174, guid: 06f26328ad7468349b94a9c6323ac5ec, type: 3}
   essenceMarine: {fileID: 1291515873}
   splineContainer: {fileID: 840926085}
   spawnPoint: {fileID: 2146703206}
@@ -2353,6 +2382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ba21e4839344df9db5e0d26f055a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager.GameManagerStateMachine
+  onRoundEnd: {fileID: 11400000, guid: c8c2dfea3e87615478c3c057c07453aa, type: 2}
+  onRoundTimerUpdate: {fileID: 11400000, guid: 1d685bef1cde8e04390149bfc250a449, type: 2}
 --- !u!4 &1807657270
 Transform:
   m_ObjectHideFlags: 0

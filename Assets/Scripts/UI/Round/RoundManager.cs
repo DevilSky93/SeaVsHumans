@@ -1,4 +1,5 @@
-﻿using Grid;
+﻿using GameManager.States;
+using Grid;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
@@ -13,12 +14,19 @@ namespace UI.Round
         [SerializeField] private EventTrigger onRoundEnd;
         [SerializeField] private Button roundButton;
         [SerializeField] private TMP_Text roundText;
-        
+        private readonly string _fightingRoundText = "Fighting round {0}s";
+
         public void StartRound()
         {
             onRoundStart.Raise();
-            roundText.text = "Fighting round";
+            roundText.text = string.Format(_fightingRoundText, FightingPhaseState.RoundTimeLimit);
             roundButton.interactable = false;
+        }
+
+        [UsedImplicitly]
+        public void OnRoundTimerUpdate(float timeLeft)
+        {
+            roundText.text = string.Format(_fightingRoundText, (int)timeLeft);
         }
         
         [UsedImplicitly]
