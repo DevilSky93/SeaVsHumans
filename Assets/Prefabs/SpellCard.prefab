@@ -1095,9 +1095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56be0e6a82e84ec499e5b93eb32b74b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.SpellNoTargetCard
-  cardData: {fileID: 11400000, guid: c572bb70d2be8d3448e546de66abcf5a, type: 2}
+  cardData: {fileID: 11400000, guid: 620f2c7c757ce4749b509cf4e3e49d42, type: 2}
   onPlaySpell: {fileID: 11400000, guid: 1533bde8be037af4a87e4e476f6fc097, type: 2}
-  onPlaySpellListener: {fileID: 0}
   onDestroyUnit: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
 --- !u!114 &1770135137798223174
 MonoBehaviour:

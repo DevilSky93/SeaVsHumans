@@ -4,27 +4,22 @@ namespace Spells
 {
     public abstract class SpellCardStateMachineBase : SpellStateMachineBase
     {
-        public BaseState SpellNoTargetState { get; private set; }
         public BaseState SpellActionState { get; protected set; }
-
+        public BaseState DestroyCardState { get; protected set; }
         protected override void Awake()
         {
-            SpellNoTargetState = new SpellNoTargetState(this);
+            DestroyCardState = new DestroyCardState(this);
         }
-        
+
         public void OnPlaySpell()
         {
             ChangeState(SpellActionState);
+            ChangeState(DestroyCardState);
         }
 
         public void OnDestroyUnit()
         {
             Destroy(gameObject);
-        }
-
-        protected override BaseState GetInitialState()
-        {
-            return SpellNoTargetState;
         }
     }
 }

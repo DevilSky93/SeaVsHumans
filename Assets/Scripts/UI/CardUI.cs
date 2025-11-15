@@ -65,6 +65,7 @@ namespace UI
         public void OnPlaySpell()
         {
             transform.DOKill();
+            onEssenceSpend.Raise(-Card.EssenceMarine);
             OnDestroyRequested?.Invoke(_cardBase);
         }
     }

@@ -1,17 +1,17 @@
 ﻿using Events.Float;
 using UnityEngine;
 
-namespace Spells.DrawTwoCards
+namespace Spells
 {
     public class DrawTwoCardStateMachine : SpellCardStateMachineBase
     {
-        [SerializeField] private int numberOfCardsToDraw;
         [SerializeField] private EventFloat onCardsDrawn;
+        private const int NumberOfCardsToDraw = 2;
 
         protected override void Awake()
         {
             base.Awake();
-            SpellActionState = new DrawActionState(this, numberOfCardsToDraw, onCardsDrawn);
+            SpellActionState = new DrawActionState(this, NumberOfCardsToDraw, onCardsDrawn);
         }
     }
 }

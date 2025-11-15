@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2979003291094663863}
   - component: {fileID: 4321170871249321142}
   - component: {fileID: 6848739672853873246}
+  - component: {fileID: 7618644874141176099}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EssenceMarine.EssenceMarine
   current: 2
   maxAmount: 2
+  maxEssenceLimit: 10
   onEssenceChanged: {fileID: 11400000, guid: e4da110103ff167448303fb9e5ca00ac, type: 2}
 --- !u!114 &4321170871249321142
 MonoBehaviour:
@@ -170,6 +172,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: EssenceMarine.EssenceMarine, Assembly-CSharp
         m_MethodName: OnRoundEnd
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7618644874141176099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590880930955541415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaea7816b31f0204c8c0eaa32c81be3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Float.GameEventFloatListener
+  gameEvent: {fileID: 11400000, guid: 72f76c8930276954795095215c78c9aa, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2979003291094663863}
+        m_TargetAssemblyTypeName: EssenceMarine.EssenceMarine, Assembly-CSharp
+        m_MethodName: OnEssenceMarineGain
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

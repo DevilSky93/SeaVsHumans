@@ -2116,7 +2116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hand.HandManager
   startingCardsHandNumber: 6
-  cardPrefab: {fileID: 1770135137798223174, guid: 06f26328ad7468349b94a9c6323ac5ec, type: 3}
+  cardPrefab: {fileID: 1770135137798223174, guid: 19bdbc51c9fb84d49a32e5060201fc84, type: 3}
   essenceMarine: {fileID: 1291515873}
   splineContainer: {fileID: 840926085}
   spawnPoint: {fileID: 2146703206}
@@ -2288,6 +2288,7 @@ MonoBehaviour:
     - {fileID: 1044561249630029403, guid: 01db24154044ff2439e7f7b1f5dd6613, type: 3}
     spells:
     - {fileID: 8103263420632790189, guid: 04f617d33dbf85049a64cea3e70072fa, type: 3}
+    - {fileID: 2599654531155316938, guid: cd87ced78c5f5f74ba5bda5e11f40efa, type: 3}
 --- !u!4 &1587525330
 Transform:
   m_ObjectHideFlags: 0
@@ -2813,10 +2814,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2979003291094663863, guid: f4833e307c96e844b915929278c7397b, type: 3}
-      propertyPath: maxEssenceLimit
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4321170871249321142, guid: f4833e307c96e844b915929278c7397b, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.size
       value: 1

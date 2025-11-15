@@ -21,7 +21,6 @@ namespace Spells
         {
             Debug.Log("Drawing Cards");
             _onCardsDrawn.Raise(_numberOfCardsToDraw);
-            Object.Destroy(_state.gameObject);
         }
     }
 }
