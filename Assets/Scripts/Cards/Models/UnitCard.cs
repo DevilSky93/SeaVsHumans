@@ -9,7 +9,8 @@ namespace Cards.Models
         [SerializeField] private EventBool canPlaceUnitEvent;
         [SerializeField] private GameEventFloatFloatListener onPlaceUnitListener;
 
-        public void DeactivatePlacing()
+        // Deactivate Placing
+        public void OnDestroyUnit()
         {
             onPlaceUnitListener.enabled = false;
         }

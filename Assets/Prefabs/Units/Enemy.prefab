@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8702522085343299101}
   - component: {fileID: -427565814110146065}
   - component: {fileID: 292764909403522024}
+  - component: {fileID: -5010811403796644908}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4352772278639187347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 480531840e78a61429d873d96eef7db6, type: 3}
   m_Name: 
@@ -243,3 +244,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c5c36c62c7446a9e86c24733dc80a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit.UnitHealthController
+--- !u!114 &-5010811403796644908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352772278639187347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
+  gameEvent: {fileID: 11400000, guid: c8c2dfea3e87615478c3c057c07453aa, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2564102480165220981}
+        m_TargetAssemblyTypeName: Unit.Types.EnemyUnit, Assembly-CSharp
+        m_MethodName: OnRoundEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

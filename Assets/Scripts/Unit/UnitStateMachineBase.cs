@@ -18,10 +18,9 @@ namespace Unit
         [SerializeField] protected CardData unitCardData;
         [SerializeField] protected GameEventListener onDestroyUnit;
         [SerializeField] protected GameEventFloatFloatListener onPlaceUnit;
+        private Card _card;
 
         public UnitHealthController HealthController { get; private set; }
-
-        private Card _card;
         public Card Card => _card ??= new Card(unitCardData);
 
         public abstract UnitMovementState MovementState { get; set; }
@@ -52,12 +51,17 @@ namespace Unit
             Vector2? position = GridManager.Instance.GetPositionInGrid(x, y);
             if (!position.HasValue) return;
             GridManager.Instance.SetPositionOccupiedInGrid(x, y, true);
-            ChangeState(IdleState);
-
             Vector3 newPos = new(position.Value.x, position.Value.y, 0);
             transform.position = newPos;
             onPlaceUnit.enabled = false;
+
+            ChangeState(IdleState);
         }
+
+        public void OnRoundEnd()
+        {
+            ChangeState(IdleState);
+        } 
 
         public void DestroyUnit()
         {
