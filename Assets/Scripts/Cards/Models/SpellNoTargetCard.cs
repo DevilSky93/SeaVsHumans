@@ -15,9 +15,8 @@ namespace Cards.Models
         private Transform _originalParent;
         private Camera _camera;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
             _originalParent = transform.parent;
             _camera = Camera.main;
         }

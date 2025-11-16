@@ -1,5 +1,6 @@
 ﻿using System;
 using Cards.Models;
+using UI;
 
 namespace Cards.Interfaces
 {
@@ -9,5 +10,6 @@ namespace Cards.Interfaces
         event Func<bool> OnPlacingRequested;
         void IsPlaced();
         void SetIsPlaced();
+        void SetCard(CardData newCardData);
     }
 }

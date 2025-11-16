@@ -1,6 +1,7 @@
 ﻿using System;
 using Cards.Interfaces;
 using DG.Tweening;
+using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -10,16 +11,24 @@ namespace Cards.Models
     public abstract class CardBase : MonoBehaviour, ICard, IPointerEnterHandler, IPointerExitHandler,
         IPointerDownHandler, IPointerUpHandler
     {
-        [SerializeField] private CardData cardData;
+        private CardData cardData;
         private float _originalYPosition;
         private bool _isPlaced;
         public event Func<bool> OnPlacingRequested;
 
-        public Card Card { get; private set; }
-
-        protected virtual void Awake()
+        private Card _card;
+        public Card Card
         {
-            Card = new Card(cardData);
+            get
+            {
+                return _card ??= new Card(cardData);
+            }
+            private set => _card = value;
+        }
+
+        public void SetCard(CardData newCardData)
+        {
+            cardData = newCardData;
         }
 
         public virtual void IsPlaced()

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cards;
 using Cards.Interfaces;
+using Cards.Models;
+using Deck;
 using DG.Tweening;
 using Player;
 using UI;
@@ -16,7 +19,8 @@ namespace Hand
     {
         private const float MaxCardInHand = 10;
         [SerializeField] private int startingCardsHandNumber;
-        [SerializeField] private CardUI cardPrefab;
+        [SerializeField] private CardPrefabFactory cardPrefabFactory;
+        [SerializeField] private DeckManager deckManager;
         [SerializeField] private EssenceMarine.EssenceMarine essenceMarine;
         [SerializeField] private SplineContainer splineContainer;
         [SerializeField] private Transform spawnPoint;
@@ -51,10 +55,15 @@ namespace Hand
 
         private void DrawCard()
         {
-            CardUI newCard = Instantiate(cardPrefab, spawnPoint.position, Quaternion.identity, transform);
-            newCard.OnDestroyRequested += HandleDestroyRequested(newCard);
-            newCard.GetComponent<ICard>().OnPlacingRequested += HandlePlacingRequested(newCard.Card.EssenceMarine);
-            _handCards.Add(newCard);
+            CardData cardDataToDraw = deckManager.DrawCard();
+            if (cardDataToDraw == null) return;
+            CardBase cardToDraw = cardPrefabFactory.Build(cardDataToDraw.cardType);
+            CardBase newCard = Instantiate(cardToDraw, spawnPoint.position, Quaternion.identity, transform);
+            newCard.SetCard(cardDataToDraw);
+            CardUI cardUI = newCard.GetComponent<CardUI>();
+            cardUI.OnDestroyRequested += HandleDestroyRequested(cardUI);
+            cardUI.GetComponent<ICard>().OnPlacingRequested += HandlePlacingRequested(newCard.Card.EssenceMarine);
+            _handCards.Add(cardUI);
             UpdateCardPositions();
         }
 

@@ -34,6 +34,15 @@ namespace UI
         private void Awake()
         {
             _cardBase = GetComponent<ICard>();
+        }
+        
+        public void IsPlaced()
+        {
+            _cardBase.IsPlaced();
+        }
+        
+        public void SetIsPlaced()
+        {
             Card = _cardBase.Card;
             if (Card.CardType == CardType.Unit)
             {
@@ -44,15 +53,6 @@ namespace UI
             costText.text = Card.EssenceMarine.ToString();
             descriptionText.text = Card.Description;
             iconImage.sprite = Card.CardImage;
-        }
-        
-        public void IsPlaced()
-        {
-            _cardBase.IsPlaced();
-        }
-        
-        public void SetIsPlaced()
-        {
             _cardBase.SetIsPlaced();
         }
         
