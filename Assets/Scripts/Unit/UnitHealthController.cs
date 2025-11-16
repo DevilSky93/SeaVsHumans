@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Unit
 {
@@ -7,6 +8,8 @@ namespace Unit
     {
         private float _currentHealth;
         private int _maxHealth;
+
+        public event Action<float> OnHealthChanged;
 
         public bool IsDead => _currentHealth <= 0;
 
@@ -23,7 +26,7 @@ namespace Unit
             {
                 _currentHealth = _maxHealth;
             }
-
+            OnHealthChanged?.Invoke(_currentHealth / _maxHealth);
         }
 
         public void Hit(float dmg)
@@ -34,6 +37,7 @@ namespace Unit
             {
                 // TODO : Game Over
             }
+            OnHealthChanged?.Invoke(_currentHealth / _maxHealth);
         }
     }
 }
