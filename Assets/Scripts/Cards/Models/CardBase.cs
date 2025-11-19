@@ -1,7 +1,8 @@
 ﻿using System;
+using Cards.Enum;
 using Cards.Interfaces;
 using DG.Tweening;
-using UI;
+using Events.Bool;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -11,6 +12,7 @@ namespace Cards.Models
     public abstract class CardBase : MonoBehaviour, ICard, IPointerEnterHandler, IPointerExitHandler,
         IPointerDownHandler, IPointerUpHandler
     {
+        [SerializeField] private EventBool isTwoByTwo;
         private CardData cardData;
         private float _originalYPosition;
         private bool _isPlaced;
@@ -23,7 +25,6 @@ namespace Cards.Models
             {
                 return _card ??= new Card(cardData);
             }
-            private set => _card = value;
         }
 
         public void SetCard(CardData newCardData)
@@ -63,6 +64,7 @@ namespace Cards.Models
                 return;
             }
             Debug.Log("Placing card");
+            isTwoByTwo.Raise(cardData.areaTarget == AreaTarget.TwoXTwo);
             StateMachine.StateMachine card = CardFactory.Build(cardData);
             StateMachine.StateMachine cardGameObject =
                 Instantiate(card, Mouse.current.position.ReadValue(), Quaternion.identity);

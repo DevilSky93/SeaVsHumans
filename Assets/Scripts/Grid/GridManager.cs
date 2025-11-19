@@ -14,7 +14,9 @@ namespace Grid
         [SerializeField] private Transform minPoint, maxPoint;
         [SerializeField] private LayerMask gridAllowedBlockMask;
         [SerializeField] private GameObject boardTileSprite;
-        [SerializeField] private float cellSize = .9f;
+        [SerializeField] private float cellSize;
+
+        public float CellSize => cellSize;
 
 #if UNITY_EDITOR
         [SerializeField] private bool showGizmo;
