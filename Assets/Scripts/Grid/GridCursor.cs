@@ -143,9 +143,9 @@ namespace Grid
                    (MouseIsOutsideOfGrid(mouseScreenPos) || GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y));
         }
 
-        private static bool MouseIsOutsideOfGrid(Vector2 mouseScreenPos)
+        private bool MouseIsOutsideOfGrid(Vector2 mouseScreenPos)
         {
-            return GridManager.Instance.GetPositionInGrid(mouseScreenPos.x, mouseScreenPos.y) == null;
+            return GridManager.Instance.GetPositionInGrid(mouseScreenPos.x + _offset.x, mouseScreenPos.y + _offset.y) == null;
         }
 
         private static Vector2 GetMouseScreenPos()

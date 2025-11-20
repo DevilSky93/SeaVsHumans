@@ -42,7 +42,7 @@ namespace Unit.States
             }
         }
 
-        public void OnTriggerExit2D(Collider2D other)
+        public virtual void OnTriggerExit2D(Collider2D other)
         {
             GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x, other.transform.position.y, false);
         }

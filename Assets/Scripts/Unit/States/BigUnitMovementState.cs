@@ -25,5 +25,13 @@ namespace Unit.States
                 GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x + 1, other.transform.position.y + 1, true);
             }
         }
+        
+        public override void OnTriggerExit2D(Collider2D other)
+        {
+            GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x, other.transform.position.y, false);
+            GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x + 1, other.transform.position.y, false);
+            GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x, other.transform.position.y + 1, false);
+            GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x + 1, other.transform.position.y + 1, false);
+        }
     }
 }

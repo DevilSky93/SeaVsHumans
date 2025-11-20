@@ -178,9 +178,8 @@ namespace Grid
                    (Mathf.Approximately(deltaX, 0) && Mathf.Approximately(deltaY, 1));   // Vertical
         }
 
-        public bool IsFieldIsEmpty()
+        public bool IsFieldEmpty()
         {
-            // Instance.DebugBlock();
             bool areAllTilesEmpty = _tiles.All(t => !t.Value.IsOccupied) || _tiles.Any(t => t.Value.TileType is TileType.Field);
             return areAllTilesEmpty;
         }

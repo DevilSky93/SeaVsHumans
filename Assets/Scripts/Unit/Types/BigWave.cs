@@ -20,7 +20,7 @@ namespace Unit.Types
             GridManager.Instance.SetPositionOccupiedInGrid(x + 1, y, true);
             GridManager.Instance.SetPositionOccupiedInGrid(x, y - 1, true);
             GridManager.Instance.SetPositionOccupiedInGrid(x + 1, y - 1, true);
-            Vector3 newPos = new(position.Value.x, position.Value.y, 0);
+            Vector3 newPos = new(position.Value.x + GridManager.Instance.CellSize / 2, position.Value.y - GridManager.Instance.CellSize / 2, 0);
             transform.position = newPos;
             onPlaceUnit.enabled = false;
 

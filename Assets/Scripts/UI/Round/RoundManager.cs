@@ -43,7 +43,7 @@ namespace UI.Round
         public void OnCheckUnitStillOnField()
         {
             Debug.Log("Checking if there are still units on field...");
-            bool areFieldEmpty = GridManager.Instance.IsFieldIsEmpty();
+            bool areFieldEmpty = GridManager.Instance.IsFieldEmpty();
             if (areFieldEmpty)
             {
                 Debug.LogWarning("No more units on field");
