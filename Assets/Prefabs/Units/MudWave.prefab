@@ -231,7 +231,6 @@ GameObject:
   - component: {fileID: 4265799570377887480}
   - component: {fileID: 2199515209784508642}
   - component: {fileID: 8415586274895515190}
-  - component: {fileID: 5691108079310802495}
   - component: {fileID: 4586094852537820404}
   - component: {fileID: -6305895832054768942}
   m_Layer: 6
@@ -477,34 +476,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &8415586274895515190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4352772278639187347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
-  gameEvent: {fileID: 11400000, guid: c8c2dfea3e87615478c3c057c07453aa, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1044561249630029403}
-        m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
-        m_MethodName: OnRoundEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5691108079310802495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

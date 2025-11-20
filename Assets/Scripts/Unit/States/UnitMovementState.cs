@@ -7,21 +7,21 @@ namespace Unit.States
 {
     public class UnitMovementState : BaseState, IPhysicsEventHandler
     {
-        private readonly UnitStateMachineBase _state;
         private readonly Transform _unitTransform;
         private readonly float _unitSpeed;
-        private readonly LayerMask _enemyLayerMask;
-        private readonly LayerMask _tileMask;
+        protected readonly UnitStateMachineBase state;
+        protected readonly LayerMask enemyLayerMask;
+        protected readonly LayerMask tileMask;
 
         public UnitMovementState(UnitStateMachineBase state, Transform unitTransform, float unitSpeed,
             LayerMask enemyLayerMask, LayerMask tileMask) : base(state,
             "Card Movement State")
         {
-            _state = state;
+            this.state = state;
             _unitTransform = unitTransform;
             _unitSpeed = unitSpeed;
-            _enemyLayerMask = enemyLayerMask;
-            _tileMask = tileMask;
+            this.enemyLayerMask = enemyLayerMask;
+            this.tileMask = tileMask;
         }
 
         public override void UpdateLogics()
@@ -29,14 +29,14 @@ namespace Unit.States
             _unitTransform.transform.Translate(Vector3.right * (_unitSpeed * Time.deltaTime));
         }
 
-        public void OnTriggerEnter2D(Collider2D other)
+        public virtual void OnTriggerEnter2D(Collider2D other)
         {
-            if ((_enemyLayerMask.value & (1 << other.gameObject.layer)) > .1f)
+            if ((enemyLayerMask.value & (1 << other.gameObject.layer)) > .1f)
             {
-                _state.ChangeState(_state.FightingState);
+                state.ChangeState(state.FightingState);
             }
 
-            if ((_tileMask.value & (1 << other.gameObject.layer)) > .1f)
+            if ((tileMask.value & (1 << other.gameObject.layer)) > .1f)
             {
                 GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x, other.transform.position.y, true);
             }

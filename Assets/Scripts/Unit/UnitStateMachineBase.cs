@@ -46,7 +46,7 @@ namespace Unit
         }
 
         [UsedImplicitly]
-        public void OnPlaceUnit(float x, float y)
+        public virtual void OnPlaceUnit(float x, float y)
         {
             Vector2? position = GridManager.Instance.GetPositionInGrid(x, y);
             if (!position.HasValue) return;

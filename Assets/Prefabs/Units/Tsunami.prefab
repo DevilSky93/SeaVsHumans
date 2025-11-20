@@ -225,12 +225,11 @@ GameObject:
   - component: {fileID: 5623575246245494779}
   - component: {fileID: 8702522085343299101}
   - component: {fileID: -427565814110146065}
-  - component: {fileID: 1044561249630029403}
+  - component: {fileID: 9003319445230786501}
   - component: {fileID: 2789951987219959003}
   - component: {fileID: -8322323406602478685}
   - component: {fileID: 4265799570377887480}
   - component: {fileID: 2199515209784508642}
-  - component: {fileID: 8415586274895515190}
   - component: {fileID: 5691108079310802495}
   - component: {fileID: 4586094852537820404}
   - component: {fileID: -6305895832054768942}
@@ -388,7 +387,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1044561249630029403
+--- !u!114 &9003319445230786501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,9 +396,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4352772278639187347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8010532605847a7a0f08a5a8cd98452, type: 3}
+  m_Script: {fileID: 11500000, guid: 760a7a4d24f94e6dab7fc01ca8445dcb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unit.Types.Wave
+  m_EditorClassIdentifier: Assembly-CSharp::Unit.Types.BigWave
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -464,37 +463,9 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1044561249630029403}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
         m_MethodName: OnRoundStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8415586274895515190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4352772278639187347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
-  gameEvent: {fileID: 11400000, guid: c8c2dfea3e87615478c3c057c07453aa, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1044561249630029403}
-        m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
-        m_MethodName: OnRoundEnd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -520,7 +491,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1044561249630029403}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
         m_MethodName: OnRoundEnd
         m_Mode: 1
@@ -548,7 +519,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1044561249630029403}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
         m_MethodName: OnDestroyUnit
         m_Mode: 1
@@ -576,8 +547,8 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1044561249630029403}
-        m_TargetAssemblyTypeName: Unit.Types.Wave, Assembly-CSharp
+      - m_Target: {fileID: 9003319445230786501}
+        m_TargetAssemblyTypeName: Unit.Types.BigWave, Assembly-CSharp
         m_MethodName: OnPlaceUnit
         m_Mode: 0
         m_Arguments:

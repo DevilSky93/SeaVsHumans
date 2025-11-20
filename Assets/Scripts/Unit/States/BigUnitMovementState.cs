@@ -1,8 +1,7 @@
 ﻿using Grid;
-using Unit.States;
 using UnityEngine;
 
-namespace Unit.Types
+namespace Unit.States
 {
     public class BigUnitMovementState : UnitMovementState
     {
