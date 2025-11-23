@@ -23,7 +23,9 @@ namespace AleM.BehaviourTrees
 
         private void OnEnable()
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             selectedAgent = FindObjectsOfType<BTAgent>().FirstOrDefault(agent => agent.gameObject.GetInstanceID() == EditorPrefs.GetInt("BehaviourTree_SelectedAgent", -1));
+#pragma warning restore CS0618 // Type or member is obsolete
             ConstructGraphView();
             GenerateToolbar();
             if (selectedAgent) UpdateGraph();

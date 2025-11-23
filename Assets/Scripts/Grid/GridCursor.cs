@@ -26,6 +26,7 @@ namespace Grid
         private Vector2 _offset = Vector2.zero;
 
         private static Camera _camera;
+        public bool IsActive => cursorIndicator.enabled;
         public bool IsValidToPlace { get; private set; }
 
         private void Awake()
@@ -60,7 +61,9 @@ namespace Grid
 
             if (MouseIsOutsideOfGrid(mouseScreenPos))
             {
-                cursorIndicator.enabled = false;
+                IsValidToPlace = false;
+                UpdateCursorPositionOnGrid(mouseScreenPos);
+                cursorIndicator.sprite = redCursorIndicator;
                 return;
             }
 

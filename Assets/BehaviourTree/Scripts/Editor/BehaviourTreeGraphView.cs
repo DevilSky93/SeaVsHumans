@@ -372,7 +372,9 @@ namespace AleM.BehaviourTrees
         }
         public Vector2 GetGraphViewCenter()
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             return (layout.center - (Vector2)viewTransform.position) / viewTransform.scale;
+#pragma warning restore CS0618 // Type or member is obsolete
         }
     }
 }

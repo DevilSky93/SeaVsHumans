@@ -33,7 +33,7 @@ namespace Grid
 
         public bool CanPlaceUnit()
         {
-            return cursors.All(c => c.IsValidToPlace);
+            return cursors.Where(c => c.IsActive).All(c => c.IsValidToPlace);
         }
     }
 }
