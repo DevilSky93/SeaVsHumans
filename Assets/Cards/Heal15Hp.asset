@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbcfe788538faa4d85def242eb0548a, type: 3}
+  m_Name: Heal15Hp
+  m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
+  cardName: Sea's touch
+  description: Heal your unit for 15 hp.
+  cardImage: {fileID: 21300000, guid: 8e88f07b177f02141827b705bc4628cd, type: 3}
+  essenceMarine: 1
+  goldValue: 0
+  areaTarget: 0
+  hp: 15
+  attack: 0
+  attackSpeed: 0
+  speed: 0
+  cardType: 2

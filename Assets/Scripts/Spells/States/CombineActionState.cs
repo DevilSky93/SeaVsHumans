@@ -1,6 +1,6 @@
 ﻿using StateMachine;
 
-namespace Spells
+namespace Spells.States
 {
     public class CombineActionState : BaseState
     {

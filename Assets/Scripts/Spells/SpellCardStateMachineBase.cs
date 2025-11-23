@@ -1,4 +1,5 @@
-﻿using StateMachine;
+﻿using Spells.States;
+using StateMachine;
 
 namespace Spells
 {
@@ -16,7 +17,7 @@ namespace Spells
             ChangeState(SpellActionState);
             ChangeState(DestroyCardState);
         }
-
+        
         public void OnDestroyUnit()
         {
             Destroy(gameObject);

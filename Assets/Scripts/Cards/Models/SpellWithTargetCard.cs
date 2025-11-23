@@ -1,19 +1,22 @@
-﻿using Events.Trigger;
+﻿using Events.Float;
+using Events.Trigger;
 using Grid;
 using UI;
+using Unit;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Cards.Models
 {
-    public class SpellNoTargetCard : CardBase
+    public class SpellWithTargetCard : CardBase
     {
-        [SerializeField] private EventTrigger onPlaySpell;
         [SerializeField] private EventTrigger onDestroyUnit;
-        private Vector3 _originalPosition;
+        [SerializeField] private EventFloat onTargetUnit;
+
         private Transform _originalParent;
-        private bool _isMoving;
+        private Vector3 _originalPosition;
         private Camera _camera;
+        private bool _isMoving;
 
         private void Awake()
         {
@@ -29,25 +32,27 @@ namespace Cards.Models
             transform.position = new Vector3(screenToWorldPoint.x, screenToWorldPoint.y, 0);
         }
 
-        protected override void CardPreExecute()
-        {
-            transform.SetParent(null, false);
-            _isMoving = true;
-        }
-
         public override void IsPlaced()
         {
             base.IsPlaced();
             _originalPosition = transform.position;
         }
+        
+        protected override void CardPreExecute()
+        {
+            transform.SetParent(null, false);
+            _isMoving = true;
+        }
+        
 
         protected override void CardPostExecute()
         {
             Vector3 mousePos = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            if (GridManager.Instance.IsMouseHoveringOnGrid(mousePos.x, mousePos.y))
+            UnitStateMachineBase unitStateMachineBase = GridManager.Instance.GetObjectInGrid<UnitStateMachineBase>(mousePos.x, mousePos.y);
+            if (unitStateMachineBase != null)
             {
                 GetComponent<CardUI>().OnPlaySpell();
-                onPlaySpell.Raise();
+                onTargetUnit.Raise(cardData.attack);
             }
             else
             {

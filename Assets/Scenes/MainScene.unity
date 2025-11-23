@@ -198,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 8764321515498908217, guid: 33f3d797ae1d5d44393c64c350dea1ae, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 354265369}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -508,7 +508,7 @@ PrefabInstance:
     - target: {fileID: 8764321515498908217, guid: 33f3d797ae1d5d44393c64c350dea1ae, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 354265369}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -535,8 +535,6 @@ GameObject:
   m_Component:
   - component: {fileID: 354265368}
   - component: {fileID: 354265367}
-  - component: {fileID: 354265369}
-  - component: {fileID: 354265370}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -560,7 +558,7 @@ MonoBehaviour:
   maxPoint: {fileID: 888835784}
   gridAllowedBlockMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   boardTileSprite: {fileID: 800364711844457506, guid: b6b00d4997b7e5e4ca88701a2142b5fb, type: 3}
   cellSize: 1.2
   showGizmo: 1
@@ -579,55 +577,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &354265369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354265366}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93184ed5359944379fcbc042b3307440, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Grid.GridCursor
-  cursorIndicator: {fileID: 831204401}
-  minPoint: {fileID: 1661996248}
-  blueCursorIndicator: {fileID: 21300000, guid: 0cf602836e105c749a4114d6427fe032, type: 3}
-  redCursorIndicator: {fileID: 21300000, guid: 6b0ecd0fcd04e944290628f6461325bd, type: 3}
-  mainCamera: {fileID: 519420031}
-  playerInputControls: {fileID: 448637750}
-  cursorCoordinator: {fileID: 0}
-  onPlaceUnit: {fileID: 0}
-  onDestroyUnit: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
---- !u!114 &354265370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354265366}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffd379b8e1a0b4c418723dedd2ca21cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectBase::Events.Bool.GameEventBoolListener
-  gameEvent: {fileID: 11400000, guid: f41a282608a804c44a40df8314490ddd, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 354265369}
-        m_TargetAssemblyTypeName: Grid.GridCursor, Assembly-CSharp
-        m_MethodName: CanPlaceUnit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &418501322 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4897597420535192709, guid: 33f3d797ae1d5d44393c64c350dea1ae, type: 3}
@@ -1434,11 +1383,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!212 &831204401 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 276868983971145232, guid: 33f3d797ae1d5d44393c64c350dea1ae, type: 3}
-  m_PrefabInstance: {fileID: 2900678719288344904}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &831204403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4897597420535192709, guid: 33f3d797ae1d5d44393c64c350dea1ae, type: 3}
@@ -2308,7 +2252,7 @@ PrefabInstance:
     - target: {fileID: 8764321515498908217, guid: 33f3d797ae1d5d44393c64c350dea1ae, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 354265369}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2523,10 +2467,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deck.DeckManager
   cards:
-  - card: {fileID: 11400000, guid: 31621bbc103fd1841b0a466d749f5b4a, type: 2}
-    quantity: 15
   - card: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
-    quantity: 15
+    quantity: 6
+  - card: {fileID: 11400000, guid: 4d4fe3fbc5304b345bf5a0b4ec26159a, type: 2}
+    quantity: 6
   maxCardsInDeck: 30
 --- !u!4 &1408799157
 Transform:
@@ -2754,6 +2698,7 @@ MonoBehaviour:
     spells:
     - {fileID: 8103263420632790189, guid: 04f617d33dbf85049a64cea3e70072fa, type: 3}
     - {fileID: 2599654531155316938, guid: cd87ced78c5f5f74ba5bda5e11f40efa, type: 3}
+    - {fileID: -1217560905402489245, guid: ae4bd8f8bf6a1534cb60ed10d3b4f95f, type: 3}
 --- !u!4 &1587525330
 Transform:
   m_ObjectHideFlags: 0
@@ -2783,6 +2728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.CardPrefabFactory
   unitCardPrefab: {fileID: 7669305496193885920, guid: 06f26328ad7468349b94a9c6323ac5ec, type: 3}
   spellNoTargetCardPrefab: {fileID: -4499957928911466873, guid: 19bdbc51c9fb84d49a32e5060201fc84, type: 3}
+  spellWithTargetCardPrefab: {fileID: -4996676360717509159, guid: 33d15dabeca3dfc4f8a0813849b3ce03, type: 3}
 --- !u!1 &1661996247
 GameObject:
   m_ObjectHideFlags: 0
@@ -3519,7 +3465,7 @@ PrefabInstance:
     - target: {fileID: 8764321515498908217, guid: 33f3d797ae1d5d44393c64c350dea1ae, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 354265369}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -13,9 +13,9 @@ namespace Cards.Models
         IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private EventBool isTwoByTwo;
-        private CardData cardData;
         private float _originalYPosition;
         private bool _isPlaced;
+        protected CardData cardData;
         public event Func<bool> OnPlacingRequested;
 
         private Card _card;

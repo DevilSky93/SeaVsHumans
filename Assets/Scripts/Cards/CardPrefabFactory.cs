@@ -9,6 +9,7 @@ namespace Cards
     {
         [SerializeField] private UnitCard unitCardPrefab;
         [SerializeField] private SpellNoTargetCard spellNoTargetCardPrefab;
+        [SerializeField] private SpellWithTargetCard spellWithTargetCardPrefab;
 
         public CardBase Build(CardType type)
         {
@@ -16,8 +17,10 @@ namespace Cards
             {
                 case CardType.Unit:
                     return unitCardPrefab;
-                case CardType.Spell:
+                case CardType.SpellNoTarget:
                     return spellNoTargetCardPrefab;
+                case CardType.SpellWithTarget:
+                    return spellWithTargetCardPrefab;
                 case CardType.Field:
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);

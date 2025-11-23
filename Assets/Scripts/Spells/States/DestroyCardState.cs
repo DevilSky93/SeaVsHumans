@@ -1,7 +1,7 @@
 ﻿using StateMachine;
 using UnityEngine;
 
-namespace Spells
+namespace Spells.States
 {
     public class DestroyCardState : BaseState
     {

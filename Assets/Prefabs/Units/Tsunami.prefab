@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 5691108079310802495}
   - component: {fileID: 4586094852537820404}
   - component: {fileID: -6305895832054768942}
+  - component: {fileID: -4483941335958530552}
   m_Layer: 6
   m_Name: Tsunami
   m_TagString: Untagged
@@ -302,7 +303,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 10e6b62e79dd0e84396722cb5fdb2786, type: 3}
   m_Color: {r: 0, g: 0.7078604, b: 0.764151, a: 1}
   m_FlipX: 0
@@ -554,6 +555,34 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-4483941335958530552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352772278639187347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaea7816b31f0204c8c0eaa32c81be3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Float.GameEventFloatListener
+  gameEvent: {fileID: 11400000, guid: dd3040d5ede42b9448d7be2af7acee15, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

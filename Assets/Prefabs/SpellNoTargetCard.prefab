@@ -1057,7 +1057,7 @@ GameObject:
   - component: {fileID: 1770135137798223174}
   - component: {fileID: -4251197744057298693}
   m_Layer: 0
-  m_Name: SpellCard
+  m_Name: SpellNoTargetCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

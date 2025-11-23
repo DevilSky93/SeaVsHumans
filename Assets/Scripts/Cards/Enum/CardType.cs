@@ -3,7 +3,8 @@
     public enum CardType
     {
         Unit,
-        Spell,
+        SpellNoTarget,
+        SpellWithTarget,
         Field,
     }
 }

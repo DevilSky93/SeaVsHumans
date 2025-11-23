@@ -133,7 +133,7 @@ namespace Grid
             return position != null && (_tiles[position.Value].IsOccupied || _tiles[position.Value].TileType == TileType.Enemy);
         }
 
-        public bool IsCardHoveringOnGrid(float x, float y)
+        public bool IsMouseHoveringOnGrid(float x, float y)
         {
             Vector2? position = GetPositionInGrid(x, y);
             return position != null;
@@ -184,6 +184,7 @@ namespace Grid
             return areAllTilesEmpty;
         }
 
+        [PublicAPI]
         public void DebugBlock()
         {
             foreach (BlockData value in _tiles.Values)

@@ -29,12 +29,13 @@ namespace Cards
             {
                 case CardType.Field:
                     break;
-                case CardType.Spell:
+                case CardType.SpellNoTarget:
+                case CardType.SpellWithTarget:
                     return SpellFactory.BuildSpell(cardData, Instance.cardDatabase.spells);
                 case CardType.Unit:
                     return UnitFactory.BuildUnit(cardData, Instance.cardDatabase.units);
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("No such card type");
             }
 
             return null;
