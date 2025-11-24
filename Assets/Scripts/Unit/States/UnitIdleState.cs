@@ -12,7 +12,7 @@ namespace Unit.States
         {
             _state = state;
             // #if UNITY_EDITOR
-            //     GridManager.Instance.SetPositionOccupiedInGrid(state.transform.position.x, state.transform.position.y, true);
+            //     GridManager.Instance.SetPositionOccupiedInGrid(_state.transform.position.x, _state.transform.position.y, true);
             // #endif
         }
 

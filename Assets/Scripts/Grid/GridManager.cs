@@ -146,6 +146,18 @@ namespace Grid
             {
                 _tiles[position.Value].IsOccupied = isOccupied;
             }
+            else
+            {
+                Debug.Log("Can't set position occupied, position is null");
+            }
+        }
+        
+        public void DisplayOccupiedTiles()
+        {
+            foreach (KeyValuePair<Vector2, BlockData> tile in _tiles.Where(t => t.Value.IsOccupied))
+            {
+                Debug.Log($"Position: {tile.Key}, Occupied: {tile.Value.IsOccupied}, Type: {tile.Value.TileType}");
+            }
         }
 
         /// <summary>

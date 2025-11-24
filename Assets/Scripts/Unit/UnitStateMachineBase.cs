@@ -60,7 +60,15 @@ namespace Unit
 
         public void OnRoundEnd()
         {
+            Vector2? gridPos = GridManager.Instance.GetPositionInGrid(transform.position.x, transform.position.y);
+            if (!gridPos.HasValue)
+            {
+                Debug.LogWarning("Can't reset position");
+                return;
+            }
+            GridManager.Instance.SetPositionOccupiedInGrid(gridPos.Value.x, gridPos.Value.y, false);
             ChangeState(IdleState);
+            GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x, transform.position.y, true);
         } 
 
         public void DestroyUnit()
