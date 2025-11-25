@@ -5,7 +5,6 @@ using Grid;
 using JetBrains.Annotations;
 using StateMachine;
 using Unit.Interfaces;
-using Unit.States;
 using UnityEngine;
 
 namespace Unit

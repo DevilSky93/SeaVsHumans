@@ -1,5 +1,4 @@
-﻿using System;
-using Cards.Enum;
+﻿using Cards.Enum;
 using Events.FloatFloat;
 using Events.Trigger;
 using Grid;

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1192800237609206759}
   - component: {fileID: 276868983971145232}
   - component: {fileID: 4897597420535192709}
-  - component: {fileID: 8764321515498908217}
   m_Layer: 0
   m_Name: Grid Cursor
   m_TagString: Untagged
@@ -110,33 +109,6 @@ MonoBehaviour:
   redCursorIndicator: {fileID: 21300000, guid: 6b0ecd0fcd04e944290628f6461325bd, type: 3}
   mainCamera: {fileID: 0}
   playerInputControls: {fileID: 0}
+  cursorCoordinator: {fileID: 0}
   onPlaceUnit: {fileID: 11400000, guid: 408f409f425358047b73a336d2fb36d9, type: 2}
   onDestroyUnit: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
---- !u!114 &8764321515498908217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8038889571507895031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffd379b8e1a0b4c418723dedd2ca21cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProjectBase::Events.Bool.GameEventBoolListener
-  gameEvent: {fileID: 11400000, guid: f41a282608a804c44a40df8314490ddd, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4897597420535192709}
-        m_TargetAssemblyTypeName: Grid.GridCursor, Assembly-CSharp
-        m_MethodName: CanPlaceUnit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

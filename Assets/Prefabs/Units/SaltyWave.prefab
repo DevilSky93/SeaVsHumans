@@ -408,8 +408,8 @@ MonoBehaviour:
     m_Bits: 256
   onCheckUnitStillOnField: {fileID: 11400000, guid: f7da579055fe052438f574082ee2bde5, type: 2}
   unitCardData: {fileID: 11400000, guid: f7873710bd6e30b4fb0b56fafdbe225e, type: 2}
-  onDestroyUnit: {fileID: 4586094852537820404}
   onPlaceUnit: {fileID: -6305895832054768942}
+  onDestroyUnit: {fileID: 4586094852537820404}
 --- !u!114 &2789951987219959003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,7 +740,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 3362294115623777173}
   m_HandleRect: {fileID: 0}

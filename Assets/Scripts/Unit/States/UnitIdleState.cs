@@ -27,5 +27,10 @@ namespace Unit.States
                 _originalPosition = _state.transform.position;
             }
         }
+        
+        public void ResetPosition()
+        {
+            _originalPosition = null;
+        }
     }
 }
