@@ -1097,8 +1097,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.UnitCard
   isTwoByTwo: {fileID: 11400000, guid: 63bab0e0add54b44994c2bd184a52771, type: 2}
-  canPlaceUnitEvent: {fileID: 11400000, guid: f41a282608a804c44a40df8314490ddd, type: 2}
   onPlaceUnitListener: {fileID: -4251197744057298693}
+  onPlaceTrap: {fileID: 11400000, guid: 11c5e288b45b1dc49bb3bbe1373b4630, type: 2}
 --- !u!114 &1770135137798223174
 MonoBehaviour:
   m_ObjectHideFlags: 0

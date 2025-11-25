@@ -34,7 +34,6 @@ namespace Unit.States
 
         public override void Exit()
         {
-            Debug.Log($"From {state.name} : occupied tiles count : {_occupiedTiles.Count}");
             foreach (Vector2 tile in _occupiedTiles)
             {
                 GridManager.Instance.SetPositionOccupiedInGrid(tile.x, tile.y, false);

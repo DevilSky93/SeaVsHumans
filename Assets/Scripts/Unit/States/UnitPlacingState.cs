@@ -21,11 +21,6 @@ namespace Unit.States
             Vector3 screenToWorldPoint = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             _state.transform.position = new Vector3(screenToWorldPoint.x, screenToWorldPoint.y, 0);
         }
-        
-        public void OnDestroy()
-        {
-            Object.Destroy(_state.gameObject);
-        }
 
         public override void Exit()
         {

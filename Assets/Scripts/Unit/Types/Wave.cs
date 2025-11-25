@@ -1,15 +1,19 @@
-﻿using JetBrains.Annotations;
+﻿using Events.Trigger;
+using JetBrains.Annotations;
+using StateMachine;
 using Unit.States;
+using UnityEngine;
 
 namespace Unit.Types
 {
     public class Wave : UnitStateMachineBase
     {
-        public override UnitMovementState MovementState { get; set; }
-        public override UnitIdleState IdleState { get; set; }
-        public override UnitFightingState FightingState { get; set; }
-        public override UnitDyingState DyingState { get; set; }
-        public override UnitPlacingState PlacingState { get; set; }
+        [SerializeField] private GameEventListener onDestroyUnit;
+        public override BaseState MovementState { get; set; }
+        public override BaseState IdleState { get; set; }
+        public override BaseState FightingState { get; set; }
+        public override BaseState DyingState { get; set; }
+        public override BaseState PlacingState { get; set; }
 
         protected override void Awake()
         {
@@ -24,7 +28,7 @@ namespace Unit.Types
         [UsedImplicitly]
         public void OnDestroyUnit()
         {
-            PlacingState.OnDestroy();
+            Destroy(gameObject);
         }
     }
 }

@@ -110,7 +110,13 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  tileMask:
+    serializedVersion: 2
+    m_Bits: 256
+  onCheckUnitStillOnField: {fileID: 0}
   unitCardData: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
+  onDestroyUnit: {fileID: 0}
+  onPlaceUnit: {fileID: 0}
 --- !u!114 &5231103963888213937
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,20 +25,13 @@ namespace Cards
 
         public static StateMachine.StateMachine Build(CardData cardData)
         {
-            switch (cardData.cardType)
+            return cardData.cardType switch
             {
-                case CardType.Field:
-                    break;
-                case CardType.SpellNoTarget:
-                case CardType.SpellWithTarget:
-                    return SpellFactory.BuildSpell(cardData, Instance.cardDatabase.spells);
-                case CardType.Unit:
-                    return UnitFactory.BuildUnit(cardData, Instance.cardDatabase.units);
-                default:
-                    throw new ArgumentOutOfRangeException("No such card type");
-            }
-
-            return null;
+                CardType.SpellNoTarget or CardType.SpellWithTarget => SpellFactory.BuildSpell(cardData,
+                    Instance.cardDatabase.spells),
+                CardType.Field or CardType.Unit => UnitFactory.BuildUnit(cardData, Instance.cardDatabase.units),
+                _ => throw new ArgumentOutOfRangeException("No such card type")
+            };
         }
     }
 }

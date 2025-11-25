@@ -16,18 +16,17 @@ namespace Unit
         [SerializeField] protected LayerMask tileMask;
         [SerializeField] protected EventTrigger onCheckUnitStillOnField;
         [SerializeField] protected CardData unitCardData;
-        [SerializeField] protected GameEventListener onDestroyUnit;
         [SerializeField] protected GameEventFloatFloatListener onPlaceUnit;
         private Card _card;
 
         public UnitHealthController HealthController { get; private set; }
         public Card Card => _card ??= new Card(unitCardData);
 
-        public abstract UnitMovementState MovementState { get; set; }
-        public abstract UnitIdleState IdleState { get; set; }
-        public abstract UnitFightingState FightingState { get; set; }
-        public abstract UnitDyingState DyingState { get; set; }
-        public abstract UnitPlacingState PlacingState { get; set; }
+        public virtual BaseState MovementState { get; set; }
+        public virtual BaseState IdleState { get; set; }
+        public virtual BaseState FightingState { get; set; }
+        public virtual BaseState DyingState { get; set; }
+        public virtual BaseState PlacingState { get; set; }
 
         protected override void Awake()
         {
@@ -71,7 +70,7 @@ namespace Unit
             GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x, transform.position.y, true);
         } 
 
-        public void DestroyUnit()
+        public virtual void DestroyUnit()
         {
             GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x, transform.position.y, false);
             onCheckUnitStillOnField.Raise();

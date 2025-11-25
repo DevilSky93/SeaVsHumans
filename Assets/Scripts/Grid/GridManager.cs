@@ -152,6 +152,26 @@ namespace Grid
             }
         }
         
+        public bool IsPositionOccupiedInGrid(float x, float y)
+        {
+            Vector2? position = GetPositionInGrid(x, y);
+            if (position != null)
+            {
+                return _tiles[position.Value].IsOccupied;
+            }
+            Debug.Log("Can't check position occupied, position is null");
+            return false;
+        }
+
+        public void SetTileType(float x, float y, TileType tileType)
+        {
+            Vector2? position = GetPositionInGrid(x, y);
+            if (position != null)
+            {
+                _tiles[position.Value].TileType = tileType;
+            }
+        }
+        
         public void DisplayOccupiedTiles()
         {
             foreach (KeyValuePair<Vector2, BlockData> tile in _tiles.Where(t => t.Value.IsOccupied))

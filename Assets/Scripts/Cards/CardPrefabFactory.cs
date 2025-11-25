@@ -15,13 +15,13 @@ namespace Cards
         {
             switch (type)
             {
+                case CardType.Field:
                 case CardType.Unit:
                     return unitCardPrefab;
                 case CardType.SpellNoTarget:
                     return spellNoTargetCardPrefab;
                 case CardType.SpellWithTarget:
                     return spellWithTargetCardPrefab;
-                case CardType.Field:
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

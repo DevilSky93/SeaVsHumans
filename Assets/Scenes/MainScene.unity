@@ -2529,6 +2529,8 @@ MonoBehaviour:
     quantity: 6
   - card: {fileID: 11400000, guid: 4d4fe3fbc5304b345bf5a0b4ec26159a, type: 2}
     quantity: 6
+  - card: {fileID: 11400000, guid: 3de3445df9aa9394a89a6090401c6133, type: 2}
+    quantity: 6
   maxCardsInDeck: 30
 --- !u!4 &1408799157
 Transform:
@@ -2753,6 +2755,7 @@ MonoBehaviour:
     - {fileID: 1044561249630029403, guid: c7d44d51d97d60146b47563f02288082, type: 3}
     - {fileID: 1044561249630029403, guid: 8c3fdbb00ecdeba42b3c9f8b4c9810d1, type: 3}
     - {fileID: 9003319445230786501, guid: 5002970197fa51c4590206a06599d721, type: 3}
+    - {fileID: 214835240154622807, guid: b24077698c579684abdeb0398db4b5ae, type: 3}
     spells:
     - {fileID: 8103263420632790189, guid: 04f617d33dbf85049a64cea3e70072fa, type: 3}
     - {fileID: 2599654531155316938, guid: cd87ced78c5f5f74ba5bda5e11f40efa, type: 3}

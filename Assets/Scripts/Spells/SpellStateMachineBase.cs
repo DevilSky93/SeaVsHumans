@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Spells
 {
-    public class SpellStateMachineBase : StateMachine.StateMachine
+    public abstract class SpellStateMachineBase : StateMachine.StateMachine
     {
         [SerializeField] protected CardData spellCardData;
         
