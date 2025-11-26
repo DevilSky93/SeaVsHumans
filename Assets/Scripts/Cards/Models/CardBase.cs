@@ -56,7 +56,7 @@ namespace Cards.Models
             transform.DOMoveY(_originalYPosition, .01f);
         }
 
-        public virtual void OnPointerDown(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
             if (OnPlacingRequested?.Invoke() == false)
             {

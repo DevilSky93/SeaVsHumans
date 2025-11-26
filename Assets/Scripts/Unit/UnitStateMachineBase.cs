@@ -38,7 +38,7 @@ namespace Unit
         }
         
         [UsedImplicitly]
-        public void OnRoundStart()
+        public virtual void OnRoundStart()
         {
             ChangeState(MovementState);
         }

@@ -24,7 +24,10 @@ namespace Unit.States
 
         public override void Exit()
         {
-            _onDestroyUnit.enabled = false;
+            if (_onDestroyUnit != null)
+            {
+                _onDestroyUnit.enabled = false;
+            }
         }
     }
 }

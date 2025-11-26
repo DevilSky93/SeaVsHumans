@@ -146,10 +146,6 @@ namespace Grid
             {
                 _tiles[position.Value].IsOccupied = isOccupied;
             }
-            else
-            {
-                Debug.Log("Can't set position occupied, position is null");
-            }
         }
         
         public bool IsPositionOccupiedInGrid(float x, float y)
