@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cbcfe788538faa4d85def242eb0548a, type: 3}
-  m_Name: EnemyUnit
+  m_Name: OneManBoat
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Enemy
   description: A scary enemy.

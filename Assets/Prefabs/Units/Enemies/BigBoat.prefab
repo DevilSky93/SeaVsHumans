@@ -196,9 +196,9 @@ GameObject:
   - component: {fileID: -427565814110146065}
   - component: {fileID: -5010811403796644908}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: BigBoat
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -295,7 +295,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   onCheckUnitStillOnField: {fileID: 11400000, guid: f7da579055fe052438f574082ee2bde5, type: 2}
-  unitCardData: {fileID: 11400000, guid: 6001af249ed54ad46a9e4c2a6703dfc4, type: 2}
+  unitCardData: {fileID: 11400000, guid: a2a7fbf19213a7145ac517b06fecb8d7, type: 2}
   onPlaceUnit: {fileID: 0}
   onDestroyUnit: {fileID: 0}
 --- !u!114 &292764909403522024
