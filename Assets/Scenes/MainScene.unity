@@ -777,6 +777,7 @@ MonoBehaviour:
   onRoundEnd: {fileID: 11400000, guid: c8c2dfea3e87615478c3c057c07453aa, type: 2}
   roundButton: {fileID: 508710214}
   roundText: {fileID: 666874609}
+  maxRound: 15
 --- !u!114 &508710218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2589,8 +2590,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Deck.DeckManager
   cards:
   - card: {fileID: 11400000, guid: 31621bbc103fd1841b0a466d749f5b4a, type: 2}
-    quantity: 6
-  - card: {fileID: 11400000, guid: 4d4fe3fbc5304b345bf5a0b4ec26159a, type: 2}
     quantity: 6
   - card: {fileID: 11400000, guid: 3de3445df9aa9394a89a6090401c6133, type: 2}
     quantity: 6

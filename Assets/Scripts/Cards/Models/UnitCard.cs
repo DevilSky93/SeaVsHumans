@@ -32,7 +32,8 @@ namespace Cards.Models
         protected override void CardPostExecute()
         {
             Vector3 mousePos = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            if (cardData.cardType == CardType.Field && !GridManager.Instance.IsPositionOccupiedInGrid(mousePos.x, mousePos.y))
+            if (cardData.cardType == CardType.Field &&
+                (!GridManager.Instance.IsPositionOccupiedInGrid(mousePos.x, mousePos.y) || GridManager.Instance.IsMouseHoveringOnGrid(mousePos.x, mousePos.y)))
             {
                 onPlaceTrap.Raise();
             }

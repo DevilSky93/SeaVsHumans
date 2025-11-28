@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -1246762404129216735}
   - component: {fileID: 4478879607803069157}
   - component: {fileID: -7860539863742722839}
+  - component: {fileID: 4266893754677663910}
   m_Layer: 9
   m_Name: Trap
   m_TagString: Untagged
@@ -62,6 +63,7 @@ MonoBehaviour:
   onCheckUnitStillOnField: {fileID: 11400000, guid: f7da579055fe052438f574082ee2bde5, type: 2}
   unitCardData: {fileID: 11400000, guid: 3de3445df9aa9394a89a6090401c6133, type: 2}
   onPlaceUnit: {fileID: -3027724394839198452}
+  onDestroyUnit: {fileID: 4266893754677663910}
 --- !u!114 &2789951987219959003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,3 +332,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit.MoveUnitOnGrid
   isTwoByTwo: {fileID: 11400000, guid: 63bab0e0add54b44994c2bd184a52771, type: 2}
+--- !u!114 &4266893754677663910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352772278639187347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928caffe316396645a44f97b4d42d2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProjectBase::Events.Trigger.GameEventListener
+  gameEvent: {fileID: 11400000, guid: 6cdb28fe9f887f44692408f963371bd1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 214835240154622807}
+        m_TargetAssemblyTypeName: Spells.TrapStateMachine, Assembly-CSharp
+        m_MethodName: DestroyUnit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

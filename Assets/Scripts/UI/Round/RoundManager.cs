@@ -14,7 +14,10 @@ namespace UI.Round
         [SerializeField] private EventTrigger onRoundEnd;
         [SerializeField] private Button roundButton;
         [SerializeField] private TMP_Text roundText;
+        [SerializeField] private int maxRound;
         private const string FightingRoundText = "Fighting round {0}s";
+
+        private int _roundCount = 1;
 
         public void StartRound()
         {
@@ -37,6 +40,11 @@ namespace UI.Round
         {
             roundText.text = "Start round";
             roundButton.interactable = true;
+            _roundCount++;
+            if (_roundCount >= maxRound)
+            {
+                Debug.Log("Game over");
+            }
         }
 
         [UsedImplicitly]

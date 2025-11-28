@@ -11,9 +11,10 @@ namespace Spells
 {
     public class TrapStateMachine : UnitStateMachineBase
     {
+        [SerializeField] private GameEventListener onDestroyUnit;
         protected override void Awake()
         {
-            PlacingState = new UnitPlacingState(this, null);
+            PlacingState = new UnitPlacingState(this, onDestroyUnit);
         }
 
         public void OnPlaceTrap()

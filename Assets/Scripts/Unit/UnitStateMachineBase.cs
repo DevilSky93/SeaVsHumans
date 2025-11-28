@@ -72,8 +72,8 @@ namespace Unit
         public virtual void DestroyUnit()
         {
             GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x, transform.position.y, false);
-            onCheckUnitStillOnField.Raise();
             Destroy(gameObject);
+            onCheckUnitStillOnField.Raise();
         }
 
         private void OnTriggerEnter2D(Collider2D other)

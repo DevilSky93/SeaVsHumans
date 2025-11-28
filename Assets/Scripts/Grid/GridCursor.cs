@@ -143,7 +143,7 @@ namespace Grid
         private bool UnitWasReleaseOutsideOfGrid(Vector2 mouseScreenPos)
         {
             return playerInputControls.PlayerInput.Player.PlaceUnit.WasReleasedThisFrame() && 
-                   (MouseIsOutsideOfGrid(mouseScreenPos) || GridManager.Instance.IsPositionInvalidInGrid(mouseScreenPos.x, mouseScreenPos.y));
+                   MouseIsOutsideOfGrid(mouseScreenPos);
         }
 
         private bool MouseIsOutsideOfGrid(Vector2 mouseScreenPos)

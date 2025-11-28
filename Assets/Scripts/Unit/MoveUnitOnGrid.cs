@@ -19,14 +19,17 @@ namespace Unit
             _unit = GetComponent<UnitStateMachineBase>();
             Vector3 gridPos = _unit.transform.position;
             bool isUnitTwoByTwo = _unit.Card.AreaTarget != AreaTarget.OneXOne;
-            GridManager.Instance.SetPositionOccupiedInGrid(gridPos.x, gridPos.y, false);
             if (isUnitTwoByTwo)
             {
-                GridManager.Instance.SetPositionOccupiedInGrid(gridPos.x + 1, gridPos.y, false);
-                GridManager.Instance.SetPositionOccupiedInGrid(gridPos.x, gridPos.y - 1, false);
-                GridManager.Instance.SetPositionOccupiedInGrid(gridPos.x + 1, gridPos.y - 1, false);
+                GridManager.Instance.SetPositionOccupiedInGrid(gridPos.x - .5f, gridPos.y + .5f, false);
+                GridManager.Instance.SetPositionOccupiedInGrid(gridPos.x + .5f, gridPos.y + .5f, false);
+                GridManager.Instance.SetPositionOccupiedInGrid(gridPos.x - .5f, gridPos.y - .5f, false);
+                GridManager.Instance.SetPositionOccupiedInGrid(gridPos.x + .5f, gridPos.y - .5f, false);
             }
-
+            else
+            {
+                GridManager.Instance.SetPositionOccupiedInGrid(gridPos.x, gridPos.y, false);
+            }
             _unit.ChangeState(_unit.PlacingState);
             isTwoByTwo.Raise(isUnitTwoByTwo);
         }

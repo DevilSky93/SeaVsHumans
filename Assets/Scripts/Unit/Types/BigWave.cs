@@ -10,6 +10,7 @@ namespace Unit.Types
         {
             base.Awake();
             MovementState = new BigUnitMovementState(this, transform, unitCardData.speed, enemyLayerMask, tileMask);
+            FightingState = new BigUnitFightingState(this, HealthController, enemyLayerMask);
         }
 
         public override void OnPlaceUnit(float x, float y)
@@ -25,6 +26,16 @@ namespace Unit.Types
             onPlaceUnit.enabled = false;
 
             ChangeState(IdleState);
+        }
+
+        public override void DestroyUnit()
+        {
+            GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x - .5f, transform.position.y + .5f, false);
+            GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x + .5f, transform.position.y + .5f, false);
+            GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x - .5f, transform.position.y - .5f, false);
+            GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x + .5f, transform.position.y - .5f, false);
+            Destroy(gameObject);
+            onCheckUnitStillOnField.Raise();
         }
     }
 }
