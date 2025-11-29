@@ -18,7 +18,7 @@ MonoBehaviour:
   essenceMarine: 2
   goldValue: 0
   areaTarget: 0
-  hp: 0
+  hp: 30
   attack: 12
   attackSpeed: 1.5
   speed: 3

@@ -2653,9 +2653,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Deck.DeckManager
   cards:
   - card: {fileID: 11400000, guid: 31621bbc103fd1841b0a466d749f5b4a, type: 2}
-    quantity: 6
+    quantity: 0
   - card: {fileID: 11400000, guid: 3de3445df9aa9394a89a6090401c6133, type: 2}
-    quantity: 6
+    quantity: 3
   - card: {fileID: 11400000, guid: 0738044806d2f1c4492033a30a21289a, type: 2}
     quantity: 6
   maxCardsInDeck: 30

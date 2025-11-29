@@ -13,6 +13,7 @@ namespace Unit
     {
         [SerializeField] protected LayerMask enemyLayerMask;
         [SerializeField] protected LayerMask tileMask;
+        [SerializeField] protected LayerMask allyMask;
         [SerializeField] protected EventTrigger onCheckUnitStillOnField;
         [SerializeField] protected CardData unitCardData;
         [SerializeField] protected GameEventFloatFloatListener onPlaceUnit;
@@ -71,7 +72,13 @@ namespace Unit
 
         public virtual void DestroyUnit()
         {
-            GridManager.Instance.SetPositionOccupiedInGrid(transform.position.x, transform.position.y, false);
+            Vector2? gridPos = GridManager.Instance.GetPositionInGrid(transform.position.x, transform.position.y);
+            if (!gridPos.HasValue)
+            {
+                Debug.LogError("Can't find grid position");
+                return;
+            }
+            GridManager.Instance.SetPositionOccupiedInGrid(gridPos.Value.x, gridPos.Value.y, false);
             Destroy(gameObject);
             onCheckUnitStillOnField.Raise();
         }

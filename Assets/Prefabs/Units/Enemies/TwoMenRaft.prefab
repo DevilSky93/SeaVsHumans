@@ -294,6 +294,9 @@ MonoBehaviour:
   tileMask:
     serializedVersion: 2
     m_Bits: 256
+  allyMask:
+    serializedVersion: 2
+    m_Bits: 128
   onCheckUnitStillOnField: {fileID: 11400000, guid: f7da579055fe052438f574082ee2bde5, type: 2}
   unitCardData: {fileID: 11400000, guid: f2852373cdb84aa4abf458516cccd223, type: 2}
   onPlaceUnit: {fileID: 0}

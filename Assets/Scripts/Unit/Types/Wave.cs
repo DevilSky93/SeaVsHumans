@@ -20,7 +20,7 @@ namespace Unit.Types
         protected override void Awake()
         {
             base.Awake();
-            MovementState = new UnitMovementState(this, transform, unitCardData.speed, enemyLayerMask, tileMask);
+            MovementState = new UnitMovementState(this, transform, unitCardData.speed, enemyLayerMask, tileMask, allyMask);
             IdleState = new UnitIdleState(this);
             FightingState = new UnitFightingState(this, HealthController, enemyLayerMask);
             DyingState = new UnitDyingState(this);

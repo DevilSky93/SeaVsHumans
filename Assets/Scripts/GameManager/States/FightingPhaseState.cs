@@ -13,7 +13,7 @@ namespace GameManager.States
         private float _roundTimer;
         private int _lastDisplayedSecond = -1;
 
-        public const float RoundTimeLimit = 30f;
+        public const float RoundTimeLimit = 15f;
 
         public FightingPhaseState(GameManagerStateMachine state, EventTrigger onRoundEnd, EventFloat onRoundTimerUpdate) : base(state, "Fighting Phase State")
         {
@@ -40,6 +40,12 @@ namespace GameManager.States
                 _lastDisplayedSecond = currentSecond;
                 _onRoundTimerUpdate?.Raise(_roundTimer);
             }
+        }
+
+        public void ResetTimer()
+        {
+            _roundTimer = RoundTimeLimit;
+            _lastDisplayedSecond = -1;
         }
     }
 }

@@ -36,6 +36,7 @@ namespace GameManager
         [UsedImplicitly]
         public void OnRoundEnd()
         {
+            FightingPhaseState.ResetTimer();
             ChangeState(PreparingPhaseState);
         }
     }

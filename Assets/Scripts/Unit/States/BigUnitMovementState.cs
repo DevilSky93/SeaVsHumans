@@ -5,8 +5,9 @@ namespace Unit.States
 {
     public class BigUnitMovementState : UnitMovementState
     {
-        public BigUnitMovementState(UnitStateMachineBase state, Transform unitTransform, float unitSpeed, LayerMask enemyLayerMask, LayerMask tileMask)
-            : base(state, unitTransform, unitSpeed, enemyLayerMask, tileMask)
+        public BigUnitMovementState(UnitStateMachineBase state, Transform unitTransform, float unitSpeed,
+            LayerMask enemyLayerMask, LayerMask tileMask, LayerMask allyLayerMask)
+            : base(state, unitTransform, unitSpeed, enemyLayerMask, tileMask, allyLayerMask)
         {
         }
 

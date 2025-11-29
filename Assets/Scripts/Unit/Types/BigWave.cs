@@ -9,7 +9,7 @@ namespace Unit.Types
         protected override void Awake()
         {
             base.Awake();
-            MovementState = new BigUnitMovementState(this, transform, unitCardData.speed, enemyLayerMask, tileMask);
+            MovementState = new BigUnitMovementState(this, transform, unitCardData.speed, enemyLayerMask, tileMask, allyMask);
             FightingState = new BigUnitFightingState(this, HealthController, enemyLayerMask);
         }
 
