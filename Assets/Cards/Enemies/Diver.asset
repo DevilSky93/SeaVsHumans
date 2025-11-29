@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Diver
   description: 
   cardImage: {fileID: 0}
-  essenceMarine: 0
+  essenceMarine: 3
   goldValue: 0
   areaTarget: 0
   hp: 0

@@ -3,6 +3,7 @@ using System.Linq;
 using Cards.Enum;
 using JetBrains.Annotations;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Grid
 {
@@ -37,10 +38,6 @@ namespace Grid
             {
                 Destroy(gameObject);
             }
-        }
-
-        private void Start()
-        {
             GenerateGrid();
         }
 
@@ -76,11 +73,6 @@ namespace Grid
                     tileGo.transform.localScale = new Vector3(cellSize, cellSize, cellSize);
                 }
             }
-            
-            // foreach (Vector2 key in _tiles.Keys)
-            // {
-            //     Debug.Log(key);
-            // }
         }
 
         [CanBeNull]
@@ -210,6 +202,26 @@ namespace Grid
         {
             bool areAllTilesEmpty = _tiles.All(t => !t.Value.IsOccupied) || _tiles.Any(t => t.Value.TileType is TileType.Field);
             return areAllTilesEmpty;
+        }
+        
+        public Vector2 GetRandomFreeCell(TileType tileType)
+        {
+            Random rng = new();
+            List<KeyValuePair<Vector2, BlockData>> freeTiles = _tiles.Where(t => !t.Value.IsOccupied && t.Value.TileType == tileType).ToList();
+
+            if (freeTiles.Count == 0)
+                return new Vector2Int(-1, -1); // aucune case dispo
+
+            int index = rng.Next(freeTiles.Count);
+            Vector2 gridPos = freeTiles[index].Key;
+
+            // Vector2 origin = minPoint ? minPoint.position : Vector2.zero;
+            // float localX = gridPos.x - origin.x;
+            // float localY = gridPos.y - origin.y;
+            // int gx = Mathf.FloorToInt(localX / cellSize);
+            // int gy = Mathf.FloorToInt(localY / cellSize);
+
+            return gridPos;
         }
 
         [PublicAPI]

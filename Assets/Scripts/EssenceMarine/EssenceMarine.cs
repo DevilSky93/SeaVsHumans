@@ -16,7 +16,7 @@ namespace EssenceMarine
         public void OnEssenceSpend(float amount)
         {
             current = Mathf.Clamp(current + (int)amount, 0, maxAmount);
-            onEssenceChanged.Raise(current);
+            onEssenceChanged?.Raise(current);
         }
         
         public bool HaveEnoughEssence(int amount)
@@ -31,13 +31,13 @@ namespace EssenceMarine
                 maxAmount += 1;
             }
             current = maxAmount;
-            onEssenceChanged.Raise(current);
+            onEssenceChanged?.Raise(current);
         }
 
         public void OnEssenceMarineGain(float amount)
         {
             current += (int)amount;
-            onEssenceChanged.Raise(current);
+            onEssenceChanged?.Raise(current);
         }
 
         private bool HasReachedMaxLimit()

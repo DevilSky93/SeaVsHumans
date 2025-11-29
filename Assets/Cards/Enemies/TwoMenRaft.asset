@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: TwoMenRaft
   description: 2 men on a raft
   cardImage: {fileID: 0}
-  essenceMarine: 0
+  essenceMarine: 2
   goldValue: 0
   areaTarget: 0
   hp: 0

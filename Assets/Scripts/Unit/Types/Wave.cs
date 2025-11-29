@@ -1,4 +1,5 @@
-﻿using Events.Trigger;
+﻿using System.Collections.Generic;
+using Events.Trigger;
 using JetBrains.Annotations;
 using StateMachine;
 using Unit.States;
@@ -15,6 +16,7 @@ namespace Unit.Types
         public override BaseState DyingState { get; set; }
         public override BaseState PlacingState { get; set; }
 
+        private readonly List<Vector2> _occupiedTiles = new();
         protected override void Awake()
         {
             base.Awake();

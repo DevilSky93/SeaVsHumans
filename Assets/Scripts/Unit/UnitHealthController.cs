@@ -6,38 +6,38 @@ namespace Unit
     [RequireComponent(typeof(UnitStateMachineBase))]
     public class UnitHealthController : MonoBehaviour
     {
-        private float _currentHealth;
-        private int _maxHealth;
+        public float CurrentHealth { get; private set; }
+        public int MaxHealth { get; private set; }
 
         public event Action<float> OnHealthChanged;
 
-        public bool IsDead => _currentHealth <= 0;
+        public bool IsDead => CurrentHealth <= 0;
 
         private void Awake()
         {
-            _maxHealth = GetComponent<UnitStateMachineBase>().Card.Hp;
-            _currentHealth = _maxHealth;
+            MaxHealth = GetComponent<UnitStateMachineBase>().Card.Hp;
+            CurrentHealth = MaxHealth;
         }
 
         public void Heal(float healAmount)
         {
-            _currentHealth += healAmount;
-            if (_currentHealth > _maxHealth)
+            CurrentHealth += healAmount;
+            if (CurrentHealth > MaxHealth)
             {
-                _currentHealth = _maxHealth;
+                CurrentHealth = MaxHealth;
             }
-            OnHealthChanged?.Invoke(_currentHealth / _maxHealth);
+            OnHealthChanged?.Invoke(CurrentHealth / MaxHealth);
         }
 
         public void Hit(float dmg)
         {
             Debug.Log($"{name} got hit for {dmg} damage");
-            _currentHealth -= dmg;
-            if (_currentHealth <= 0)
+            CurrentHealth -= dmg;
+            if (CurrentHealth <= 0)
             {
                 // TODO : Game Over
             }
-            OnHealthChanged?.Invoke(_currentHealth / _maxHealth);
+            OnHealthChanged?.Invoke(CurrentHealth / MaxHealth);
         }
     }
 }

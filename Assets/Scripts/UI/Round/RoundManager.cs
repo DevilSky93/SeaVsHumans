@@ -24,6 +24,7 @@ namespace UI.Round
             onRoundStart.Raise();
             roundText.text = string.Format(FightingRoundText, FightingPhaseState.RoundTimeLimit);
             roundButton.interactable = false;
+            GridManager.Instance.DisplayOccupiedTiles();
         }
 
         [UsedImplicitly]
@@ -52,6 +53,7 @@ namespace UI.Round
         {
             Debug.Log("Checking if there are still units on field...");
             bool areFieldEmpty = GridManager.Instance.IsFieldEmpty();
+            GridManager.Instance.DisplayOccupiedTiles();
             if (areFieldEmpty)
             {
                 Debug.LogWarning("No more units on field");

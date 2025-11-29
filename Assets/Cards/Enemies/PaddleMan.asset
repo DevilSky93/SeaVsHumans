@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Paddle Man
   description: 
   cardImage: {fileID: 0}
-  essenceMarine: 0
+  essenceMarine: 2
   goldValue: 0
   areaTarget: 0
   hp: 0

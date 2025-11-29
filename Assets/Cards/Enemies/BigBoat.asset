@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: 
   description: 
   cardImage: {fileID: 0}
-  essenceMarine: 0
+  essenceMarine: 4
   goldValue: 0
   areaTarget: 0
   hp: 0
