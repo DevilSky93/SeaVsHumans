@@ -14,6 +14,7 @@ namespace AI
         [SerializeField] private DeckData deck;
         [SerializeField] private EssenceMarine.EssenceMarine essenceMarine;
         private readonly List<CardData> _hand = new();
+        private Stack<CardData> _shuffleDeck;
         public BaseState PlacementState { get; private set; }
         public BaseState FightingState { get; private set; }
         public BaseState AISupportState { get; private set; }
@@ -30,16 +31,20 @@ namespace AI
                 .SelectMany(c => Enumerable.Repeat(c.card, c.quantity))
                 .ToList();
             flattenDeck.Shuffle();
-            Stack<CardData> shuffleDeck = new(flattenDeck);
-            for (int i = 0; i < 6; i++)
-            {
-                _hand.Add(shuffleDeck.Pop());
-            }
-            // TODO : need draw card at the start of each round
+            _shuffleDeck = new Stack<CardData>(flattenDeck);
+            DrawCards(6);
             PlacementState = new AIPlacementState(this, _hand, essenceMarine, Units);
             FightingState = new AIFightingState(this);
-            AISupportState = new AISupportState(this, _hand, essenceMarine, Units);
+            AISupportState = new AISupportState(this, _hand, essenceMarine, Units, DrawCards);
             base.Start();
+        }
+
+        private void DrawCards(int amountToDraw)
+        {
+            for (int i = 0; i < amountToDraw; i++)
+            {
+                _hand.Add(_shuffleDeck.Pop());
+            }
         }
 
         protected override BaseState GetInitialState()

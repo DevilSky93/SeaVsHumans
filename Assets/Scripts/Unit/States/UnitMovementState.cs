@@ -34,7 +34,6 @@ namespace Unit.States
 
         public override void Exit()
         {
-            // TODO : when go in fighting, do not clean occupied tiles
             foreach (Vector2 tile in _occupiedTiles)
             {
                 GridManager.Instance.SetPositionOccupiedInGrid(tile.x, tile.y, false);

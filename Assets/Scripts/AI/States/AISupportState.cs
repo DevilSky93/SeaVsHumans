@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Cards.Enum;
 using Cards.Models;
@@ -13,11 +14,13 @@ namespace AI.States
         private readonly List<CardData> _hand;
         private readonly EssenceMarine.EssenceMarine _essenceMarine;
         private readonly List<UnitStateMachineBase> _units;
+        private readonly Action<int> _drawCards;
 
         public AISupportState(AiStateMachine state, List<CardData> hand, EssenceMarine.EssenceMarine essenceMarine,
-            List<UnitStateMachineBase> units) : base(state, "AI Support State")
+            List<UnitStateMachineBase> units, Action<int> drawCards) : base(state, "AI Support State")
         {
             _units = units;
+            _drawCards = drawCards;
             _essenceMarine = essenceMarine;
             _hand = hand;
             _state = state;
@@ -39,6 +42,7 @@ namespace AI.States
         public override void Exit()
         {
             _essenceMarine.OnRoundEnd();
+            _drawCards(1);
         }
 
         private UnitStateMachineBase HurtUnit()

@@ -1,4 +1,5 @@
 ﻿using Cards.Models;
+using Grid;
 using StateMachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -29,6 +30,14 @@ namespace Unit.States
 
         public override void Enter()
         {
+            Vector2? gridPos =
+                GridManager.Instance.GetPositionInGrid(state.transform.position.x, state.transform.position.y);
+            if (!gridPos.HasValue)
+            {
+                Debug.LogError("Could not find grid position for unit in fighting state.");
+                return;
+            }
+            GridManager.Instance.SetPositionOccupiedInGrid(gridPos.Value.x, gridPos.Value.y, true);
             RaycastHit2D raycastHit2D = Physics2D.Raycast(state.transform.position, state.transform.right, 5, enemyLayerMask);
             
             overlapEnemy = raycastHit2D ? raycastHit2D.collider.GetComponent<UnitStateMachineBase>() : null;
