@@ -64,7 +64,10 @@ namespace Unit.States
 
             if ((tileMask.value & (1 << other.gameObject.layer)) > .1f)
             {
-                GridManager.Instance.SetPositionOccupiedInGrid(other.transform.position.x, other.transform.position.y, true);
+                Vector2? gridPos =
+                    GridManager.Instance.GetPositionInGrid(other.transform.position.x, other.transform.position.y);
+                if (!gridPos.HasValue) return;
+                GridManager.Instance.SetPositionOccupiedInGrid(gridPos.Value.x, gridPos.Value.y, true);
                 _occupiedTiles.Add(other.transform.position);
             }
         }

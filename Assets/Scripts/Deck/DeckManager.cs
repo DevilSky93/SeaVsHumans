@@ -24,6 +24,29 @@ namespace Deck
                 Debug.LogError("Too much cards in deck");
             }
             _deck = cards.ToList();
+            ResetDeck();
+        }
+
+        [CanBeNull]
+        public CardData DrawCard()
+        {
+            if (IsDeckEmpty())
+            {
+                ResetDeck();
+            }
+            CardData first = _currentStateDeck[0];
+            _currentStateDeck.RemoveAt(0);
+            NumberOfRemainingCardInDeckChanged?.Invoke(_currentStateDeck.Count);
+            return first;
+        }
+
+        private bool IsDeckEmpty()
+        {
+            return _currentStateDeck.Any();
+        }
+
+        private void ResetDeck()
+        {
             _currentStateDeck = _deck.SelectMany(d =>
             {
                 List<CardData> cardList = new();
@@ -34,20 +57,7 @@ namespace Deck
                 return cardList;
             }).ToList();
             ShuffleCard();
-        }
-
-        [CanBeNull]
-        public CardData DrawCard()
-        {
-            if (_currentStateDeck.Count <= 0)
-            {
-                Debug.LogWarning("No more cards in deck");
-                return null;
-            }
-            CardData first = _currentStateDeck[0];
-            _currentStateDeck.RemoveAt(0);
             NumberOfRemainingCardInDeckChanged?.Invoke(_currentStateDeck.Count);
-            return first;
         }
 
         private void ShuffleCard()

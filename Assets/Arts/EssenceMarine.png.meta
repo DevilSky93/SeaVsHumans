@@ -1,37 +1,19 @@
 fileFormatVersion: 2
-guid: 9e4d444cc13330a459b313f133160601
+guid: ad992976f0234ec4bae0d383f825ad1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6722038148284596361
-    second: EssenceMarineNoBg_0
+      213: 8876022751857584034
+    second: EssenceMarine 1_0
   - first:
-      213: 3365667121538196903
-    second: EssenceMarineNoBg_1
+      213: -6370682183314500070
+    second: EssenceMarine 1_1
   - first:
-      213: -1151354790573702758
-    second: EssenceMarineNoBg_2
+      213: -4494154113627032038
+    second: EssenceMarine 1_2
   - first:
-      213: -7375748575873953113
-    second: EssenceMarineNoBg_3
-  - first:
-      213: 6470447902458336222
-    second: EssenceMarineNoBg_4
-  - first:
-      213: 617671016718471314
-    second: EssenceMarineNoBg_5
-  - first:
-      213: -2983273565933692933
-    second: EssenceMarineNoBg_6
-  - first:
-      213: 3101922504317054834
-    second: EssenceMarineNoBg_7
-  - first:
-      213: 4208867313169048526
-    second: EssenceMarineNoBg_8
-  - first:
-      213: 4346932046739344465
-    second: EssenceMarineNoBg_9
+      213: -7098824083741081499
+    second: EssenceMarine 1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1080
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EssenceMarineNoBg_0
+      name: EssenceMarine 1_0
       rect:
         serializedVersion: 2
-        x: 156
-        y: 770
-        width: 51
-        height: 86
+        x: 0
+        y: 2
+        width: 24
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 980c02bb41a794d50800000000000000
-      internalID: 6722038148284596361
+      spriteID: 2a7a1c66aa7fd2b70800000000000000
+      internalID: 8876022751857584034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EssenceMarineNoBg_1
+      name: EssenceMarine 1_1
       rect:
         serializedVersion: 2
-        x: 236
-        y: 724
-        width: 121
-        height: 203
+        x: 0
+        y: 15
+        width: 6
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a5ee7b3a6045be20800000000000000
-      internalID: 3365667121538196903
+      spriteID: a1611aebe4ac697a0800000000000000
+      internalID: -6370682183314500070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EssenceMarineNoBg_2
+      name: EssenceMarine 1_2
       rect:
         serializedVersion: 2
-        x: 258
-        y: 265
-        width: 477
-        height: 696
+        x: 20
+        y: 22
+        width: 7
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9109690be09500f0800000000000000
-      internalID: -1151354790573702758
+      spriteID: a16766b05ae81a1c0800000000000000
+      internalID: -4494154113627032038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EssenceMarineNoBg_3
+      name: EssenceMarine 1_3
       rect:
         serializedVersion: 2
-        x: 653
-        y: 588
-        width: 182
-        height: 344
+        x: 22
+        y: 9
+        width: 10
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,140 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a29076afb314a990800000000000000
-      internalID: -7375748575873953113
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EssenceMarineNoBg_4
-      rect:
-        serializedVersion: 2
-        x: 858
-        y: 700
-        width: 59
-        height: 88
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed353bbd516abc950800000000000000
-      internalID: 6470447902458336222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EssenceMarineNoBg_5
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 397
-        width: 152
-        height: 326
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2901f836488629800800000000000000
-      internalID: 617671016718471314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EssenceMarineNoBg_6
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 592
-        width: 27
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf795b27f784996d0800000000000000
-      internalID: -2983273565933692933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EssenceMarineNoBg_7
-      rect:
-        serializedVersion: 2
-        x: 709
-        y: 319
-        width: 235
-        height: 334
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 27fab9e351e3c0b20800000000000000
-      internalID: 3101922504317054834
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EssenceMarineNoBg_8
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 409
-        width: 84
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec3a1349586e86a30800000000000000
-      internalID: 4208867313169048526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EssenceMarineNoBg_9
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 65
-        width: 796
-        height: 315
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 15c09ac5aa7635c30800000000000000
-      internalID: 4346932046739344465
+      spriteID: 56000a56b19eb7d90800000000000000
+      internalID: -7098824083741081499
       vertices: []
       indices: 
       edges: []
@@ -360,16 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EssenceMarineNoBg_0: 6722038148284596361
-      EssenceMarineNoBg_1: 3365667121538196903
-      EssenceMarineNoBg_2: -1151354790573702758
-      EssenceMarineNoBg_3: -7375748575873953113
-      EssenceMarineNoBg_4: 6470447902458336222
-      EssenceMarineNoBg_5: 617671016718471314
-      EssenceMarineNoBg_6: -2983273565933692933
-      EssenceMarineNoBg_7: 3101922504317054834
-      EssenceMarineNoBg_8: 4208867313169048526
-      EssenceMarineNoBg_9: 4346932046739344465
+      EssenceMarine 1_0: 8876022751857584034
+      EssenceMarine 1_1: -6370682183314500070
+      EssenceMarine 1_2: -4494154113627032038
+      EssenceMarine 1_3: -7098824083741081499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

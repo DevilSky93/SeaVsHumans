@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c1f5f7962e37174428f5fea8fefa3b06
+guid: 1fb84793d92b22344bb031ba2243728e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9074995152605318673
-    second: DiverIdle1_0
+      213: 8475668834059680521
+    second: TwoMenRaftAttack_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DiverIdle1_0
+      name: TwoMenRaftAttack_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 12
-        width: 17
-        height: 15
+        x: 0
+        y: 6
+        width: 28
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 11e8e69820cd0fd70800000000000000
-      internalID: 9074995152605318673
+      spriteID: 90bf9f706ef9f9570800000000000000
+      internalID: 8475668834059680521
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DiverIdle1_0: 9074995152605318673
+      TwoMenRaftAttack_0: 8475668834059680521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

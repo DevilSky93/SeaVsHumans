@@ -54,12 +54,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11bb909fa5141bf9a389650c89c085a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spells.TrapStateMachine
+  animator: {fileID: 0}
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
   tileMask:
     serializedVersion: 2
     m_Bits: 256
+  allyMask:
+    serializedVersion: 2
+    m_Bits: 0
   onCheckUnitStillOnField: {fileID: 11400000, guid: f7da579055fe052438f574082ee2bde5, type: 2}
   unitCardData: {fileID: 11400000, guid: 3de3445df9aa9394a89a6090401c6133, type: 2}
   onPlaceUnit: {fileID: -3027724394839198452}
@@ -207,8 +211,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4c3b904c183809a4da8b19d8d13eabcd, type: 3}
-  m_Color: {r: 1, g: 0.4490608, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7e4613f29b78d694b812158e993f45b3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -254,7 +258,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.015625, y: 0.015625, z: 0.015625, w: 0.015625}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
