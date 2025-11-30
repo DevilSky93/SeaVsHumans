@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: TwoMenRaft
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: TwoMenRaft
-  description: 2 men on a raft
+  description: 2 men on a raft and ready to beat you up.
   cardImage: {fileID: 21300000, guid: ecc999e90fa19e7478df893593a82268, type: 3}
-  essenceMarine: 2
+  essenceMarine: 3
   goldValue: 0
   areaTarget: 0
-  hp: 30
+  hp: 40
   attack: 12
   attackSpeed: 1.5
   speed: 3

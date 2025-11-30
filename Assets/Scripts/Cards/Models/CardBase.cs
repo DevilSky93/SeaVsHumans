@@ -47,6 +47,7 @@ namespace Cards.Models
         {
             if (!_isPlaced) return;
             transform.DOMoveY(transform.position.y + 0.2f, .25f);
+            CardView.Instance.ShowCard(Card);
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -54,6 +55,7 @@ namespace Cards.Models
             if (!_isPlaced) return;
             transform.DOKill();
             transform.DOMoveY(_originalYPosition, .01f);
+            CardView.Instance.HideCard();
         }
 
         public void OnPointerDown(PointerEventData eventData)

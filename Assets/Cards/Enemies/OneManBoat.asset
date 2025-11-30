@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: OneManBoat
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Enemy
-  description: A scary enemy.
+  description: Good boat but hits weak.
   cardImage: {fileID: 21300000, guid: 700f9fd6a2ee41347aa5307836b2e338, type: 3}
   essenceMarine: 1
   goldValue: 0
   areaTarget: 0
   hp: 25
   attack: 10
-  attackSpeed: 3
+  attackSpeed: 2.5
   speed: 2
   cardType: 0

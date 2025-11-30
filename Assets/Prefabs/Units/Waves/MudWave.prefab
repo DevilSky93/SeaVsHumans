@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8010532605847a7a0f08a5a8cd98452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Types.Wave
-  animator: {fileID: 0}
+  animator: {fileID: 5213777425153367677}
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128

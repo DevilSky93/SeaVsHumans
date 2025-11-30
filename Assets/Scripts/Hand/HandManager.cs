@@ -46,11 +46,14 @@ namespace Hand
 
         public void OnRoundEnd()
         {
-            for (int i = Math.Min(_handCards.Count, startingCardsHandNumber); i < startingCardsHandNumber; i++)
-            {
-                if (_handCards.Count >= startingCardsHandNumber) return;
-                DrawCard();
-            }
+            if (_handCards.Count >= MaxCardInHand) return;
+            DrawCard();
+            //     
+            // for (int i = Math.Min(_handCards.Count, startingCardsHandNumber); i < startingCardsHandNumber; i++)
+            // {
+            //     if (_handCards.Count >= MaxCardInHand) return;
+            //     DrawCard();
+            // }
         }
 
         private void DrawCard()

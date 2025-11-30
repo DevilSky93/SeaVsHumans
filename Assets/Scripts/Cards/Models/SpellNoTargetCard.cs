@@ -33,6 +33,7 @@ namespace Cards.Models
         {
             transform.SetParent(null, false);
             _isMoving = true;
+            CardView.Instance.HideCard();
         }
 
         public override void IsPlaced()

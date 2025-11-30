@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Mud Wave
   description: A wave formed by nature swallowing everything on his way.
-  cardImage: {fileID: 21300000, guid: 5f3a1e2a9024d9f47ac581895914c946, type: 3}
+  cardImage: {fileID: 21300000, guid: f7903b4548fe09344baba3738c362a64, type: 3}
   essenceMarine: 2
   goldValue: 0
   areaTarget: 0

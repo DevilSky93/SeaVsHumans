@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Tsunami
   description: 'Swallowing your whole city in a matter of minutes. '
-  cardImage: {fileID: 21300000, guid: 0ca564a8406e417438708384f5886c10, type: 3}
-  essenceMarine: 1
+  cardImage: {fileID: 21300000, guid: d4bed9e7a0c65864d96d1f1136ea5d1f, type: 3}
+  essenceMarine: 4
   goldValue: 0
   areaTarget: 1
   hp: 50
-  attack: 11
-  attackSpeed: 4
+  attack: 16
+  attackSpeed: 3.5
   speed: 1
   cardType: 0

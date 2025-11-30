@@ -37,8 +37,9 @@ namespace Player
             UpdateHealthText();
             if (IsDead)
             {
-                Debug.LogWarning("Game over");
+                _currentHealth = 0;
                 onGameOver.Raise();
+                Debug.LogWarning("Game over");
             }
         }
 

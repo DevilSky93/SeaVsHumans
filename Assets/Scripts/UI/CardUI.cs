@@ -44,23 +44,28 @@ namespace UI
         public void SetIsPlaced()
         {
             Card = _cardBase.Card;
-            if (Card.CardType == CardType.Unit)
+            FillCardData(Card);
+            _cardBase.SetIsPlaced();
+        }
+
+        public void FillCardData(Card card)
+        {
+            if (card.CardType == CardType.Unit)
             {
-                hpText.text = Card.Hp.ToString();
-                attackText.text = Card.Attack.ToString();   
+                hpText.text = card.Hp.ToString();
+                attackText.text = card.Attack.ToString();   
             }
             else
             {
                 hpText.text = "";
                 attackText.text = "";   
             }
-            cardNameText.text = Card.CardName;
-            costText.text = Card.EssenceMarine.ToString();
-            descriptionText.text = Card.Description;
-            iconImage.sprite = Card.CardImage;
-            _cardBase.SetIsPlaced();
+            cardNameText.text = card.CardName;
+            costText.text = card.EssenceMarine.ToString();
+            descriptionText.text = card.Description;
+            iconImage.sprite = card.CardImage;
         }
-        
+
         public void OnPlaceUnit(float x, float y)
         {
             onEssenceSpend.Raise(-Card.EssenceMarine);

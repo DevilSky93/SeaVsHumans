@@ -12,6 +12,7 @@ namespace GameManager
     {
         [SerializeField] private EventTrigger onRoundEnd;
         [SerializeField] private EventFloat onRoundTimerUpdate;
+        [SerializeField] private GameObject gameOver;
         public BaseState PreparingPhaseState { get; private set; }
         public FightingPhaseState FightingPhaseState { get; private set; }
         public BaseState PausedPhaseState { get; private set; }
@@ -22,6 +23,7 @@ namespace GameManager
             PreparingPhaseState = new PreparingPhaseState(this);
             FightingPhaseState = new FightingPhaseState(this, onRoundEnd, onRoundTimerUpdate);
             PausedPhaseState = new PausedPhaseState(this);
+            GameOverPhaseState = new GameOverPhaseState(this, gameOver);
         }
 
         protected override BaseState GetInitialState()

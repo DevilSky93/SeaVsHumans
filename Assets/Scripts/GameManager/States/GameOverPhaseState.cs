@@ -1,15 +1,14 @@
 ﻿using StateMachine;
-using TMPro;
 using UnityEngine;
 
 namespace GameManager.States
 {
     public class GameOverPhaseState : BaseState
     {
-        private readonly TMP_Text _gameOver;
+        private readonly GameObject _gameOver;
         private GameManagerStateMachine _state;
 
-        public GameOverPhaseState(GameManagerStateMachine state, TMP_Text gameOver) : base(state, "Game Over Phase State")
+        public GameOverPhaseState(GameManagerStateMachine state, GameObject gameOver) : base(state, "Game Over Phase State")
         {
             _state = state;
             _gameOver = gameOver;
