@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BoilingWave
+  m_Controller: {fileID: 9100000, guid: 9f59f84e34dd448419987aaca3019951, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: b037ee0814f4e1142b767f775125309e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8839065efad32f64aaddfe191ee92052, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6e9d6fc505d4daa4394525eac777b9c7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5f71480da7fd301419fc1266815448c2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ff6d3e845cdda7c4f8288f2769697f37, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1a623d341a813364a937638b090a2c26, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 47c5ef5c8bd64774782f04ef5e3c42d0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 112fe014bffabaf4dacfcd4c27f1744d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1de5e590f439c0e4cbc9f13312d85239, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2d4e37c3098c4db4c99004979c9768d9, type: 2}

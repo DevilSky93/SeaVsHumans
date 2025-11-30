@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MudWave
+  m_Controller: {fileID: 9100000, guid: 9f59f84e34dd448419987aaca3019951, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 47c5ef5c8bd64774782f04ef5e3c42d0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4ac74bf4f3af6824b933d1ba7aa3d101, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b037ee0814f4e1142b767f775125309e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 825f98440cc6c374287e7d4792b9e2c6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1de5e590f439c0e4cbc9f13312d85239, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8126b26e68b87f54c88679c8311c3f3f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6e9d6fc505d4daa4394525eac777b9c7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9090d4c0b8f55004fb247343968d8cc1, type: 2}
