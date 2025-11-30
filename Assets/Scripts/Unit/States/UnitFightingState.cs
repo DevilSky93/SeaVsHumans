@@ -59,6 +59,7 @@ namespace Unit.States
             {
                 overlapEnemy.HealthController.Hit(_attack);
                 _attackSpeedTimer = _attackSpeed;
+                state.UnitAnimation.AttackAnimation();
             }
             if (overlapEnemy.HealthController.IsDead)
             {

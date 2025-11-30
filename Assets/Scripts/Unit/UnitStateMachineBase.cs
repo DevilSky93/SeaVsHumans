@@ -11,6 +11,7 @@ namespace Unit
 {
     public abstract class UnitStateMachineBase : StateMachine.StateMachine
     {
+        [SerializeField] protected Animator animator;
         [SerializeField] protected LayerMask enemyLayerMask;
         [SerializeField] protected LayerMask tileMask;
         [SerializeField] protected LayerMask allyMask;
@@ -18,6 +19,8 @@ namespace Unit
         [SerializeField] protected CardData unitCardData;
         [SerializeField] protected GameEventFloatFloatListener onPlaceUnit;
         private Card _card;
+
+        public UnitAnimation UnitAnimation { get; private set; }
 
         public UnitHealthController HealthController { get; private set; }
         public Card Card => _card ??= new Card(unitCardData);
@@ -30,6 +33,7 @@ namespace Unit
 
         protected override void Awake()
         {
+            UnitAnimation = new UnitAnimation(animator);
             HealthController = GetComponent<UnitHealthController>();
         }
 

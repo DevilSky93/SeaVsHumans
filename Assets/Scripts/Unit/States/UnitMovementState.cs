@@ -36,7 +36,12 @@ namespace Unit.States
             UnitStateMachineBase overlapAlly = raycastHit2D ? raycastHit2D.collider.GetComponent<UnitStateMachineBase>() : null;
             if (overlapAlly == null || overlapAlly.CurrentBaseState.GetType() != typeof(UnitFightingState))
             {
+                state.UnitAnimation.WalkAnimation(1);
                 _unitTransform.transform.Translate(Vector3.right * (_unitSpeed * Time.deltaTime));
+            }
+            else
+            {
+                state.UnitAnimation.WalkAnimation(0);
             }
         }
 
@@ -47,6 +52,7 @@ namespace Unit.States
                 GridManager.Instance.SetPositionOccupiedInGrid(tile.x, tile.y, false);
             }
             _occupiedTiles.Clear();
+            state.UnitAnimation.WalkAnimation(0);
         }
 
         public virtual void OnTriggerEnter2D(Collider2D other)

@@ -14,6 +14,7 @@ namespace Unit.States
 
         public override void Enter()
         {
+            _state.UnitAnimation.DiedAnimation();
             Object.Destroy(_state.gameObject);
         }
     }
