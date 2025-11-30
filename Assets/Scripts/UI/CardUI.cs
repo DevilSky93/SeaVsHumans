@@ -49,6 +49,11 @@ namespace UI
                 hpText.text = Card.Hp.ToString();
                 attackText.text = Card.Attack.ToString();   
             }
+            else
+            {
+                hpText.text = "";
+                attackText.text = "";   
+            }
             cardNameText.text = Card.CardName;
             costText.text = Card.EssenceMarine.ToString();
             descriptionText.text = Card.Description;

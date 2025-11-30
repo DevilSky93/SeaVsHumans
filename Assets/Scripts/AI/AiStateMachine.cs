@@ -28,7 +28,7 @@ namespace AI
         protected override void Start()
         {
             _shuffleDeck = SetupDeck();
-            DrawCards(6);
+            DrawCards(4);
             PlacementState = new AIPlacementState(this, _hand, essenceMarine, Units);
             FightingState = new AIFightingState(this);
             AISupportState = new AISupportState(this, _hand, essenceMarine, Units, DrawCards);

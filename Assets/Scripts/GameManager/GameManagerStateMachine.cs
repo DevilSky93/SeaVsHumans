@@ -3,6 +3,7 @@ using Events.Trigger;
 using GameManager.States;
 using JetBrains.Annotations;
 using StateMachine;
+using TMPro;
 using UnityEngine;
 
 namespace GameManager
@@ -11,9 +12,10 @@ namespace GameManager
     {
         [SerializeField] private EventTrigger onRoundEnd;
         [SerializeField] private EventFloat onRoundTimerUpdate;
-        public PreparingPhaseState PreparingPhaseState { get; private set; }
+        public BaseState PreparingPhaseState { get; private set; }
         public FightingPhaseState FightingPhaseState { get; private set; }
-        public PausedPhaseState PausedPhaseState { get; private set; }
+        public BaseState PausedPhaseState { get; private set; }
+        public BaseState GameOverPhaseState { get; private set; }
 
         protected override void Awake()
         {
@@ -38,6 +40,12 @@ namespace GameManager
         {
             FightingPhaseState.ResetTimer();
             ChangeState(PreparingPhaseState);
+        }
+
+        [UsedImplicitly]
+        public void OnGameOver()
+        {
+            ChangeState(GameOverPhaseState);
         }
     }
 }

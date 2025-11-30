@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 4586094852537820404}
   - component: {fileID: -6305895832054768942}
   - component: {fileID: 5944797075407553832}
+  - component: {fileID: 8952341440070829513}
   m_Layer: 6
   m_Name: Tsunami
   m_TagString: Untagged
@@ -304,8 +305,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 10e6b62e79dd0e84396722cb5fdb2786, type: 3}
-  m_Color: {r: 0, g: 0.7078604, b: 0.764151, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0ca564a8406e417438708384f5886c10, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -400,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760a7a4d24f94e6dab7fc01ca8445dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit.Types.BigWave
+  animator: {fileID: 8952341440070829513}
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -576,6 +578,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unit.MoveUnitOnGrid
   isTwoByTwo: {fileID: 11400000, guid: 63bab0e0add54b44994c2bd184a52771, type: 2}
+--- !u!95 &8952341440070829513
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352772278639187347}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: b23fa657bfc591a46a3e22d16ed6ee0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8780920552619417157
 GameObject:
   m_ObjectHideFlags: 0

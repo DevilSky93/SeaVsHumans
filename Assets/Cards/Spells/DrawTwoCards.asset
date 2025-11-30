@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Gifts from the sea
   description: Draw 2 cards
-  cardImage: {fileID: 21300000, guid: 7ea128617a282cb4ea445ba10ce93ca5, type: 3}
-  essenceMarine: 1
+  cardImage: {fileID: 21300000, guid: cb7edde7b04c08943b8608c1400a06c2, type: 3}
+  essenceMarine: 2
   goldValue: 0
   areaTarget: 0
   hp: 0
   attack: 0
+  attackSpeed: 0
   speed: 0
   cardType: 1

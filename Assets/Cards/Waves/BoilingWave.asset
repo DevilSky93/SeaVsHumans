@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Boiling Wave
   description: A natural very hot wave from a thermal source that became even hotter
     with time.
-  cardImage: {fileID: 21300000, guid: e80cd276873bf564fac3f154037d5ec6, type: 3}
+  cardImage: {fileID: 21300000, guid: 5f3a1e2a9024d9f47ac581895914c946, type: 3}
   essenceMarine: 2
   goldValue: 0
   areaTarget: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Diver
   description: 
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: c1f5f7962e37174428f5fea8fefa3b06, type: 3}
   essenceMarine: 3
   goldValue: 0
   areaTarget: 0

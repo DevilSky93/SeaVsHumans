@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Sea's touch
   description: Heal your unit for 15 hp.
-  cardImage: {fileID: 21300000, guid: 8e88f07b177f02141827b705bc4628cd, type: 3}
+  cardImage: {fileID: 21300000, guid: 84918d7f299cb954da421442619274b4, type: 3}
   essenceMarine: 1
   goldValue: 0
   areaTarget: 0

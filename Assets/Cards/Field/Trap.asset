@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Trap
   description: Deal 10 hp to the unit crossing that trap
-  cardImage: {fileID: 21300000, guid: 4c3b904c183809a4da8b19d8d13eabcd, type: 3}
+  cardImage: {fileID: 21300000, guid: 7e4613f29b78d694b812158e993f45b3, type: 3}
   essenceMarine: 1
   goldValue: 0
   areaTarget: 0

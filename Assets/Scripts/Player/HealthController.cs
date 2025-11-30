@@ -1,17 +1,23 @@
-﻿using UnityEngine;
+﻿using System.Globalization;
+using Events.Trigger;
+using TMPro;
+using UnityEngine;
 
 namespace Player
 {
     public class HealthController : MonoBehaviour
     {
         [SerializeField] private float maxHealth;
+        [SerializeField] private TMP_Text healthText;
+        [SerializeField] private EventTrigger onGameOver;
         private float _currentHealth;
-        
-        public bool IsDead => _currentHealth <= 0;
+
+        private bool IsDead => _currentHealth <= 0;
 
         private void Awake()
         {
             _currentHealth = maxHealth;
+            UpdateHealthText();
         }
 
         public void Heal(float healAmount)
@@ -28,10 +34,17 @@ namespace Player
         {
             Debug.Log($"{name} got hit for {dmg} damage");
             _currentHealth -= dmg;
-            if (_currentHealth <= 0)
+            UpdateHealthText();
+            if (IsDead)
             {
-                // TODO : Game Over
+                Debug.LogWarning("Game over");
+                onGameOver.Raise();
             }
+        }
+
+        private void UpdateHealthText()
+        {
+            healthText.text = _currentHealth.ToString(CultureInfo.InvariantCulture);
         }
     }
 }

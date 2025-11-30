@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7543f0cff354ef3b17ac62f587ab1c1, type: 3}
+  m_Name: HardDeck
+  m_EditorClassIdentifier: Assembly-CSharp::AI.DeckData
+  cards:
+  - card: {fileID: 11400000, guid: 6001af249ed54ad46a9e4c2a6703dfc4, type: 2}
+    quantity: 6
+  - card: {fileID: 11400000, guid: 0b0d173ffd3ccf9449131f599129b162, type: 2}
+    quantity: 3
+  - card: {fileID: 11400000, guid: 01342caed0466db478e5121c58d0a236, type: 2}
+    quantity: 2
+  - card: {fileID: 11400000, guid: 4d4fe3fbc5304b345bf5a0b4ec26159a, type: 2}
+    quantity: 6

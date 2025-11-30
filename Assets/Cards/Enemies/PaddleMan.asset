@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Paddle Man
   description: 
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 637e82d25c9f2de45b9b022e3c763e6a, type: 3}
   essenceMarine: 2
   goldValue: 0
   areaTarget: 0

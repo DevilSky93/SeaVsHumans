@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Wave
   description: A scary wave.
-  cardImage: {fileID: 21300000, guid: d4ca7d123a2bd5347be18c43f1f6708a, type: 3}
+  cardImage: {fileID: 21300000, guid: d4bed9e7a0c65864d96d1f1136ea5d1f, type: 3}
   essenceMarine: 1
   goldValue: 0
   areaTarget: 0

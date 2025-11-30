@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: TwoMenRaft
   description: 2 men on a raft
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: ecc999e90fa19e7478df893593a82268, type: 3}
   essenceMarine: 2
   goldValue: 0
   areaTarget: 0

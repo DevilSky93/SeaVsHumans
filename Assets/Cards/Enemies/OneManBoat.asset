@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cards.Models.CardData
   cardName: Enemy
   description: A scary enemy.
-  cardImage: {fileID: 21300000, guid: d4ca7d123a2bd5347be18c43f1f6708a, type: 3}
+  cardImage: {fileID: 21300000, guid: 700f9fd6a2ee41347aa5307836b2e338, type: 3}
   essenceMarine: 1
   goldValue: 0
   areaTarget: 0
