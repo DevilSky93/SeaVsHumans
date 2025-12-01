@@ -53,7 +53,7 @@ namespace Unit
         {
             Vector2? position = GridManager.Instance.GetPositionInGrid(x, y);
             if (!position.HasValue) return;
-            GridManager.Instance.SetPositionOccupiedInGrid(x, y, true);
+            GridManager.Instance.SetPositionOccupiedInGrid(position.Value.x, position.Value.y, true);
             Vector3 newPos = new(position.Value.x, position.Value.y, 0);
             transform.position = newPos;
             onPlaceUnit.enabled = false;

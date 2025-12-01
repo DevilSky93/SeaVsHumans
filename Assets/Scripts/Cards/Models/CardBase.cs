@@ -15,6 +15,7 @@ namespace Cards.Models
         [SerializeField] private EventBool isTwoByTwo;
         private float _originalYPosition;
         private bool _isPlaced;
+        private bool _canPlace;
         protected CardData cardData;
         public event Func<bool> OnPlacingRequested;
 
@@ -62,9 +63,12 @@ namespace Cards.Models
         {
             if (OnPlacingRequested?.Invoke() == false)
             {
+                _canPlace = false;
                 Debug.LogWarning("Not enough essence to place card");
                 return;
             }
+
+            _canPlace = true;
             Debug.Log("Placing card");
             isTwoByTwo.Raise(cardData.areaTarget == AreaTarget.TwoXTwo);
             StateMachine.StateMachine card = CardFactory.Build(cardData);
@@ -76,7 +80,10 @@ namespace Cards.Models
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            CardPostExecute();
+            if (_canPlace)
+            {
+                CardPostExecute();
+            }
         }
 
         protected abstract void CardPreExecute();

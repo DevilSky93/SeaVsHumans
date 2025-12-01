@@ -1,5 +1,4 @@
-﻿using Grid;
-using Unit;
+﻿using Unit;
 using UnityEngine;
 
 namespace Player

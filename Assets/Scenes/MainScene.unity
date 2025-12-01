@@ -3748,6 +3748,8 @@ MonoBehaviour:
     quantity: 3
   - card: {fileID: 11400000, guid: c572bb70d2be8d3448e546de66abcf5a, type: 2}
     quantity: 3
+  - card: {fileID: 11400000, guid: 4d4fe3fbc5304b345bf5a0b4ec26159a, type: 2}
+    quantity: 3
   maxCardsInDeck: 30
 --- !u!4 &1408799157
 Transform:

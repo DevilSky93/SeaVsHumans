@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AI.DeckData
   cards:
   - card: {fileID: 11400000, guid: 6001af249ed54ad46a9e4c2a6703dfc4, type: 2}
-    quantity: 6
+    quantity: 4
   - card: {fileID: 11400000, guid: 0b0d173ffd3ccf9449131f599129b162, type: 2}
-    quantity: 3
+    quantity: 4
   - card: {fileID: 11400000, guid: 01342caed0466db478e5121c58d0a236, type: 2}
-    quantity: 2
+    quantity: 4
   - card: {fileID: 11400000, guid: 4d4fe3fbc5304b345bf5a0b4ec26159a, type: 2}
-    quantity: 6
+    quantity: 4

@@ -233,6 +233,7 @@ namespace Grid
             }
         }
         
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if (!showGizmo || _gridSize.width <= 0 || _gridSize.height <= 0) return;
@@ -254,5 +255,6 @@ namespace Grid
             Vector3 size = new Vector3(_gridSize.width * cellSize, _gridSize.height * cellSize, 0f);
             Gizmos.DrawWireCube(origin + size / 2f, size);
         }
+#endif
     }
 }
